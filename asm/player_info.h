@@ -8,7 +8,7 @@
 typedef struct
 {
 	const char *name_ptr;
-	uint32_t f4;
+	uint32_t color;
 	uint16_t xpos; /* 0x496b70 */
 	uint16_t ypos; /* 0x496b72 */
 	uint16_t f12;
@@ -77,8 +77,8 @@ extern uint8_t tool_amount[60]; /* 0x49915c */
  * assume it's special players */
 typedef struct
 {
-	uint16_t f0;
-	uint16_t f2;
+	uint16_t xpos;
+	uint16_t ypos;
 	uint16_t f4;
 	uint16_t f6;
 	uint8_t f8[2];
