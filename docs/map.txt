@@ -1,0 +1,45 @@
+大富翁4超时空之旅V3.11只有一个map.mkf
+
+8张地图，地图编号 global_map_id=game_stage*4+game_map
+
+ref_00474945: 资源 global_map_id*2
+ref_0048bad0,ref_0048badc: 资源 16+global_map_id
+
+ref_00498e80: 存放地图节点，每个节点40字节
+ref_00498e9c: 地图节点最后一个索引号（索引似乎从1开始记）
+
+游戏有8张地图，使用map.mkf资源 (global_map_id*2+1) 1,3,5,7,9,11,13,15, 对资源数据 rsrc:
+- 地图节点个数为 rsrc 的首个 32 比特字
+- 地图节点首地址为 rsrc 偏移为 rsrc 第二个 32 比特字的位置
+
+
+ref_00498e98 = rsrc[2] 最后一个索引号
+ref_00498e84 = rsrc + rsrc[3]
+每个元素大小0x34
+
+ref_00498e8c = rsrc[4]
+ref_00498e88 = rsrc + rsrc[5]
+每个元素大小0x38
+
+ref_00498e90 = rsrc[6]
+ref_00498e7c = rsrc + rsrc[7]
+每个元素大小0x34
+
+ref_00499074 = rsrc[8]
+ref_00498e78 = rsrc + rsrc[9]
+每个元素大小0x1c
+
+
+ref_00474949: 资源0x18
+ref_0047494d: 资源0x1a
+
+资源 0x27+global_map_id*5+i (i=0..4)
+资源 0x4f+global_map_id
+
+game_stage=0,使用资源 0x57+i (i=0..16)
+game_stage=1,使用资源 0x68+game_map*17+i (i=0..16)
+
+资源 0x26+<> (可能使用序号大的资源)
+资源 0x19
+
+资源 0x1b+character
