@@ -11,7 +11,7 @@ typedef struct
 	uint32_t color;
 	uint16_t xpos; /* 0x496b70 */
 	uint16_t ypos; /* 0x496b72 */
-	uint16_t f12;
+	uint16_t node_id; /* map node idx */
 	uint16_t f14;
 	/* 0x10 */
 	uint8_t f16;
