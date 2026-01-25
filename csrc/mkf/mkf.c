@@ -3,14 +3,15 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include "mkf.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "mkf.h"
+
+#include "mkf_decompress.h"
 
 #define NULL_HND ((FILE*)(-1))
-
-void mkf_decompress(void *arg1, void *arg2);
 
 struct mkf
 {
@@ -145,24 +146,24 @@ char * read_mkf(int mkf_idx, int a1, char *buf, int *bufsize)
 	fseek(hdl, ((uint32_t*)(mkf_stdata[mkf_idx].data))[a1], SEEK_SET);
 	fread(data, 4, 4, hdl);
 
+	const size_t bufsz = data[0];
 	if (buf == NULL) {
-		buf = malloc(data[0]);
+		buf = malloc(bufsz);
 	}
 
-	int bufsz = data[0];
 	if (data[1] == bufsz) {
 		fread(buf, 1, bufsz, hdl);
 	} else {
 		void *tmpbuf = malloc(data[1]);
 		fread(tmpbuf, 1, data[1], hdl);
-		mkf_decompress(buf, tmpbuf);
+		mkf_decompress(buf, tmpbuf, bufsz);
 		free(tmpbuf);
 	}
 	if (data[3] != 0) {
 		update_pixels((uint16_t*)(buf + data[2]), data[3]);
 	}
 	if (bufsize != NULL) {
-		*bufsize = data[0];
+		*bufsize = bufsz;
 	}
 	if (strncmp(buf, "SPR", 3) == 0
 			|| strncmp(buf, "SMP", 3) == 0) {

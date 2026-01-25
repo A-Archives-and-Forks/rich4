@@ -1,3 +1,5 @@
+#include "mkf_decompress.h"
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -455,14 +457,15 @@ static void cfcn_004551bb(const void *s, uint32_t *ecx, uint32_t *ebx)
 	*ebx = bx;
 }
 
-void mkf_decompress(void *arg1, const void *src)
+void mkf_decompress(void *arg1, const void *src, size_t buf_size)
 {
+	size_t remain_size = buf_size;
 	uint32_t bitpos = 0;
 
 	memcpy(&gtables, &ctab_orig, sizeof(gtables));
 	char *out_buf = arg1;
 
-	while (1) {
+	while (remain_size != 0) {
 		uint32_t bx;
 		cfcn_004551bb(src, &bitpos, &bx);
 		if ((bx & 0xff00) == 0) {
@@ -495,13 +498,16 @@ void mkf_decompress(void *arg1, const void *src)
 			return;
 
 		const size_t num_bytes_to_emit = bx - 0xfd;
+		const size_t actual_emit_size =
+			num_bytes_to_emit <= remain_size ? num_bytes_to_emit : remain_size;
 		const char *s = out_buf - 1 - dx;
 		/* note that it's not memcpy/memmove!! */
 		/* because the copied bytes can be the bytes just written this time */
-		for (size_t i = 0; i < num_bytes_to_emit; i++) {
+		for (size_t i = 0; i < actual_emit_size; i++) {
 			*out_buf = *s;
 			out_buf++;
 			s++;
 		}
+		remain_size -= actual_emit_size;
 	}
 }
