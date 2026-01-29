@@ -471,6 +471,7 @@ void mkf_decompress(void *arg1, const void *src, size_t buf_size)
 		if ((bx & 0xff00) == 0) {
 			*out_buf = bx & 0xff;
 			out_buf++;
+			--remain_size;
 			continue;
 		}
 		// extract at least 14 bits starting at bitpos, so use uint32_t here
