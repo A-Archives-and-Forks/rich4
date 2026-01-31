@@ -19,7 +19,12 @@ typedef struct
 	uint8_t ndices; /* 0x496b7a */
 	uint8_t character;
 	uint8_t sex; /* 0: female, 1: male */
-	uint8_t who_plays; /* 0: not alive, 1: human, 2: computer @0x496b7d */
+
+	/* 低2比特 0: not alive, 1: human, 2: computer @0x496b7d
+	   比特2为1表示被托管
+	 */
+	uint8_t who_plays;
+
 	uint8_t f22;
 	uint8_t f23;
 	uint8_t f24;
