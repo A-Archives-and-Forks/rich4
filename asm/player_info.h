@@ -12,9 +12,9 @@ typedef struct
 	uint16_t xpos; /* 0x496b70 */
 	uint16_t ypos; /* 0x496b72 */
 	uint16_t node_id; /* map node idx */
-	uint16_t f14;
+	uint16_t last_node_id;
 	/* 0x10 */
-	uint8_t f16;
+	uint8_t direction;
 	uint8_t traffic_method; /* 0x496b79 */
 	uint8_t ndices; /* 0x496b7a */
 	uint8_t character;
