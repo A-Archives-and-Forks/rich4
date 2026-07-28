@@ -7,17 +7,17 @@ extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040ab4a
 extern fcn_0040df69
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00446ae8
 extern fcn_0045144f
 extern fcn_0045285e
-extern ref_0048a0e4
-extern ref_00498e84
-extern ref_00498e88
-extern ref_004990e8
+extern _rich4_data_mkf
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_price_index
 
 global _rich4_use_card_guaishouka
 
@@ -70,7 +70,7 @@ cmp esi, 0xfa0
 jge short loc_004439e8  ; jge 0x4439e8
 lea eax, [esi - 0x7d0]
 imul eax, eax, 0x34
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 add ebx, eax
 mov cl, byte [ebx + 0x19]
 test cl, cl
@@ -81,7 +81,7 @@ add edx, edx
 mov eax, edx
 shl eax, 4
 sub eax, edx
-imul eax, dword [ref_004990e8]  ; imul eax, dword [0x4990e8]
+imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 mov ebp, dword [_current_player]  ; mov ebp, dword [0x49910c]
 push ebp
@@ -99,7 +99,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 cmp byte [ebx + 0x19], 0
 je short loc_00443a32  ; je 0x443a32
@@ -109,7 +109,7 @@ add edx, edx
 mov eax, edx
 shl eax, 4
 sub eax, edx
-imul eax, dword [ref_004990e8]  ; imul eax, dword [0x4990e8]
+imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
 push ecx
@@ -137,7 +137,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00443a72:
@@ -153,7 +153,7 @@ add esp, 8
 push 0
 push 0
 push 0x22d
-mov ecx, dword [ref_0048a0e4]  ; mov ecx, dword [0x48a0e4]
+mov ecx, dword [_rich4_data_mkf]  ; mov ecx, dword [0x48a0e4]
 push ecx
 call _read_mkf  ; call 0x450441
 mov ebx, eax

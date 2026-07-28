@@ -21,10 +21,10 @@ extern fcn_0041d433
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_00429040
-extern fcn_0043bde5
+extern _rich4_ui_auction_entry
 extern fcn_0043d593
 extern fcn_0043ec3f
-extern fcn_00441210
+extern _rich4_try_mianzui_jiahuo_card
 extern fcn_00448be2
 extern fcn_0044f354
 extern fcn_0045144f
@@ -37,64 +37,18 @@ extern fcn_00456280
 extern fcn_004562a5
 extern fcn_004563f5
 extern fcn_00456c0a
-extern fcn_00457d96
-extern fcn_00457dbc
+extern _strcpy
+extern __round_toward_zero
 extern ref_00448b71
-extern ref_00465424
-extern ref_0046543a
-extern ref_00465454
-extern ref_0046546c
-extern ref_00465488
-extern ref_0046549c
-extern ref_004654bd
-extern ref_004654dc
-extern ref_004654e4
-extern ref_00465501
-extern ref_00465528
-extern ref_0046554f
-extern ref_00465578
-extern ref_00465592
-extern ref_004655a4
-extern ref_004655ac
-extern ref_004655cc
-extern ref_004655d4
-extern ref_004655f4
-extern ref_004655fc
-extern ref_0046561c
-extern ref_00465624
-extern ref_00465645
-extern ref_00465662
-extern ref_0046567f
-extern ref_00465697
-extern ref_004656af
-extern ref_004656d0
-extern ref_004656ef
-extern ref_0046570b
-extern ref_00465727
-extern ref_00465734
-extern ref_0046573c
-extern ref_00465756
-extern ref_00465770
-extern ref_00465788
-extern ref_004657a2
-extern ref_004657ba
-extern ref_004657db
-extern ref_004657fb
-extern ref_00465817
-extern ref_00465833
-extern ref_00465855
-extern ref_00465874
 extern ref_0046caf8
 extern ref_00474938
-extern ref_00475eb4
-extern ref_00475ed8
 extern ref_00480856
-extern ref_0048a05c
+extern _rich4_panel_mkf
 extern ref_0048a068
 extern ref_0048a08c
-extern ref_0048a0dc
-extern ref_0048a0e0
-extern ref_0048a0e4
+extern _g_ddraw_sf1_ptr
+extern _g_ddraw_sf2_ptr
+extern _rich4_data_mkf
 extern ref_0048c59c
 extern ref_0048c5a0
 extern ref_0048c5ac
@@ -102,17 +56,17 @@ extern _stocks_on_map
 extern ref_00496b30
 extern ref_00496b60
 extern ref_00497328
-extern ref_00498e7c
-extern ref_00498e84
-extern ref_00498e88
-extern ref_00498e8c
-extern ref_00498e90
-extern ref_00498e98
+extern _rich4_on_map_commercial_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_num_facilities
+extern _rich4_num_on_map_commercials
+extern _rich4_num_lands
 extern ref_00498eb0
 extern ref_00499090
 extern ref_004990dc
 extern ref_004990e0
-extern ref_004990e8
+extern _rich4_price_index
 extern ref_00499100
 
 global fcn_0044b6df
@@ -363,10 +317,10 @@ xor esi, esi
 mov ebx, 1
 
 loc_0044917c:
-cmp ebx, dword [ref_00498e98]  ; cmp ebx, dword [0x498e98]
+cmp ebx, dword [_rich4_num_lands]  ; cmp ebx, dword [0x498e98]
 jg short loc_004491a4  ; jg 0x4491a4
 imul eax, ebx, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 cmp byte [edx + eax + 0x1a], 0
 je short loc_004491a1  ; je 0x4491a1
 mov edx, ebx
@@ -380,7 +334,7 @@ jmp short loc_0044917c  ; jmp 0x44917c
 
 loc_004491a4:
 mov ebx, 1
-mov edi, dword [ref_00498e8c]  ; mov edi, dword [0x498e8c]
+mov edi, dword [_rich4_num_facilities]  ; mov edi, dword [0x498e8c]
 
 loc_004491af:
 cmp ebx, edi
@@ -391,7 +345,7 @@ mov edx, eax
 shl eax, 3
 sub eax, edx
 mov edx, eax
-mov eax, dword [ref_00498e88]  ; mov eax, dword [0x498e88]
+mov eax, dword [_rich4_facility_info_ptr]  ; mov eax, dword [0x498e88]
 cmp byte [edx + eax + 0x1a], 0
 je short loc_004491da  ; je 0x4491da
 mov edx, ebx
@@ -433,7 +387,7 @@ add esp, 0x10
 push 0
 push 0
 push 0x213
-mov edx, dword [ref_0048a0e4]  ; mov edx, dword [0x48a0e4]
+mov edx, dword [_rich4_data_mkf]  ; mov edx, dword [0x48a0e4]
 push edx
 call _read_mkf  ; call 0x450441
 mov ebx, eax
@@ -486,10 +440,10 @@ cmp dword [esp + 0x4b0], 0
 jne near loc_0044940d  ; jne 0x44940d
 xor ebx, ebx
 mov eax, 1
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 
 loc_004492c5:
-cmp eax, dword [ref_00498e98]  ; cmp eax, dword [0x498e98]
+cmp eax, dword [_rich4_num_lands]  ; cmp eax, dword [0x498e98]
 jg short loc_004492e7  ; jg 0x4492e7
 imul ecx, eax, 0x34
 cmp byte [ecx + edx + 0x1a], 0
@@ -505,7 +459,7 @@ jmp short loc_004492c5  ; jmp 0x4492c5
 
 loc_004492e7:
 mov eax, 1
-mov esi, dword [ref_00498e8c]  ; mov esi, dword [0x498e8c]
+mov esi, dword [_rich4_num_facilities]  ; mov esi, dword [0x498e8c]
 
 loc_004492f2:
 cmp eax, esi
@@ -515,7 +469,7 @@ shl edx, 3
 mov ecx, edx
 shl edx, 3
 sub edx, ecx
-mov ecx, dword [ref_00498e88]  ; mov ecx, dword [0x498e88]
+mov ecx, dword [_rich4_facility_info_ptr]  ; mov ecx, dword [0x498e88]
 cmp byte [ecx + edx + 0x1a], 0
 je short loc_0044931c  ; je 0x44931c
 mov ecx, eax
@@ -539,18 +493,18 @@ cmp eax, 0xfa0
 jge short loc_00449376  ; jge 0x449376
 lea edx, [eax - 0x7d0]
 imul edx, edx, 0x34
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
 add eax, edx
 add eax, 4
 push eax
 lea eax, [esp + 0x484]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 mov eax, dword [ref_0048c59c]  ; mov eax, dword [0x48c59c]
 sub eax, 0x7d0
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 jmp short loc_004493bb  ; jmp 0x4493bb
 
 loc_00449376:
@@ -559,13 +513,13 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 add eax, edx
 add eax, 4
 push eax
 lea eax, [esp + 0x484]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 mov eax, dword [ref_0048c59c]  ; mov eax, dword [0x48c59c]
 sub eax, 0xfa0
@@ -573,7 +527,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 
 loc_004493bb:
 mov al, byte [edx + eax + 0x19]
@@ -622,7 +576,7 @@ add esp, 8
 push 0
 push 0
 push 0x21b
-mov ebp, dword [ref_0048a0e4]  ; mov ebp, dword [0x48a0e4]
+mov ebp, dword [_rich4_data_mkf]  ; mov ebp, dword [0x48a0e4]
 push ebp
 call _read_mkf  ; call 0x450441
 mov ebx, eax
@@ -678,21 +632,21 @@ push ebp
 sub esp, 0x98
 cmp dword [esp + 0xac], 0
 jne near loc_004495b5  ; jne 0x4495b5
-mov ebx, dword [ref_00498e98]  ; mov ebx, dword [0x498e98]
-add ebx, dword [ref_00498e8c]  ; add ebx, dword [0x498e8c]
+mov ebx, dword [_rich4_num_lands]  ; mov ebx, dword [0x498e98]
+add ebx, dword [_rich4_num_facilities]  ; add ebx, dword [0x498e8c]
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
 idiv ebx
 mov dword [ref_0048c59c], edx  ; mov dword [0x48c59c], edx
-mov ecx, dword [ref_00498e98]  ; mov ecx, dword [0x498e98]
+mov ecx, dword [_rich4_num_lands]  ; mov ecx, dword [0x498e98]
 cmp edx, ecx
 jge short loc_0044953a  ; jge 0x44953a
 lea eax, [edx + 1]
 lea edi, [edx + 0x7d1]
 mov dword [ref_0048c59c], edi  ; mov dword [0x48c59c], edi
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 jmp short loc_00449561  ; jmp 0x449561
 
 loc_0044953a:
@@ -706,7 +660,7 @@ mov edx, eax
 shl eax, 3
 sub eax, edx
 mov edx, eax
-mov eax, dword [ref_00498e88]  ; mov eax, dword [0x498e88]
+mov eax, dword [_rich4_facility_info_ptr]  ; mov eax, dword [0x498e88]
 
 loc_00449561:
 add eax, edx
@@ -714,7 +668,7 @@ add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 lea eax, [esp + 0x80]
 push eax
@@ -743,7 +697,7 @@ cmp ecx, 0xfa0
 jge near loc_00449682  ; jge 0x449682
 lea eax, [ecx - 0x7d0]
 imul eax, eax, 0x34
-mov edi, dword [ref_00498e84]  ; mov edi, dword [0x498e84]
+mov edi, dword [_rich4_land_info_ptr]  ; mov edi, dword [0x498e84]
 add edi, eax
 push 2
 movsx eax, word [edi + 2]
@@ -756,11 +710,11 @@ push 1
 call fcn_00409b18  ; call 0x409b18
 add esp, 4
 mov esi, 1
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 
 loc_0044960c:
 add ebx, 0x34
-cmp esi, dword [ref_00498e98]  ; cmp esi, dword [0x498e98]
+cmp esi, dword [_rich4_num_lands]  ; cmp esi, dword [0x498e98]
 jg near loc_00449725  ; jg 0x449725
 lea eax, [ebx + 4]
 push eax
@@ -783,7 +737,7 @@ mov ax, word [ebx + 0x1c]
 mov dword [esp + 0x94], eax
 fild dword [esp + 0x94]
 fmul qword [ref_004654dc]  ; fmul qword [0x4654dc]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x94]
 mov eax, dword [esp + 0x94]
 mov word [ebx + 0x1c], ax
@@ -803,7 +757,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 push 2
 movsx eax, word [ebx + 2]
@@ -830,7 +784,7 @@ fild dword [esp + 0x94]
 fmul qword [ref_004654dc]  ; fmul qword [0x4654dc]
 
 loc_0044970e:
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x94]
 mov eax, dword [esp + 0x94]
 mov word [ebx + 0x22], ax
@@ -855,13 +809,13 @@ cmp dword [esp + 0x4a4], 0
 jne near loc_00449896  ; jne 0x449896
 xor ebx, ebx
 mov eax, 1
-mov esi, dword [ref_00498e98]  ; mov esi, dword [0x498e98]
+mov esi, dword [_rich4_num_lands]  ; mov esi, dword [0x498e98]
 
 loc_00449759:
 cmp eax, esi
 jg short loc_0044977d  ; jg 0x44977d
 imul edx, eax, 0x34
-mov ecx, dword [ref_00498e84]  ; mov ecx, dword [0x498e84]
+mov ecx, dword [_rich4_land_info_ptr]  ; mov ecx, dword [0x498e84]
 cmp byte [ecx + edx + 0x19], 0
 jne short loc_0044977a  ; jne 0x44977a
 mov ecx, eax
@@ -875,7 +829,7 @@ jmp short loc_00449759  ; jmp 0x449759
 
 loc_0044977d:
 mov eax, 1
-mov edi, dword [ref_00498e8c]  ; mov edi, dword [0x498e8c]
+mov edi, dword [_rich4_num_facilities]  ; mov edi, dword [0x498e8c]
 
 loc_00449788:
 cmp eax, edi
@@ -886,7 +840,7 @@ mov ecx, edx
 shl edx, 3
 sub edx, ecx
 mov ecx, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 cmp byte [ecx + edx + 0x19], 0
 jne short loc_004497b4  ; jne 0x4497b4
 mov ecx, eax
@@ -912,13 +866,13 @@ cmp eax, 0xfa0
 jge short loc_00449813  ; jge 0x449813
 sub eax, 0x7d0
 imul eax, eax, 0x34
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 add ebx, eax
 lea eax, [ebx + 4]
 push eax
 lea eax, [esp + 0x484]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 movsx eax, word [ebx]
 shl eax, 0x10
@@ -934,13 +888,13 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 lea eax, [ebx + 4]
 push eax
 lea eax, [esp + 0x484]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 movsx edx, word [ebx]
 shl edx, 0x10
@@ -973,7 +927,7 @@ push 1
 mov ecx, dword [ref_0048c59c]  ; mov ecx, dword [0x48c59c]
 push ecx
 push 0xffffffffffffffff
-call fcn_0043bde5  ; call 0x43bde5
+call _rich4_ui_auction_entry  ; call 0x43bde5
 add esp, 0xc
 
 loc_004498a9:
@@ -1001,10 +955,10 @@ add esp, 0xc
 mov eax, 1
 
 loc_004498e4:
-cmp eax, dword [ref_00498e98]  ; cmp eax, dword [0x498e98]
+cmp eax, dword [_rich4_num_lands]  ; cmp eax, dword [0x498e98]
 jg short loc_0044990b  ; jg 0x44990b
 imul ecx, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 mov dl, byte [ecx + edx + 0x19]
 and edx, 0xff
 je short loc_00449908  ; je 0x449908
@@ -1016,7 +970,7 @@ jmp short loc_004498e4  ; jmp 0x4498e4
 
 loc_0044990b:
 mov eax, 1
-mov ebx, dword [ref_00498e8c]  ; mov ebx, dword [0x498e8c]
+mov ebx, dword [_rich4_num_facilities]  ; mov ebx, dword [0x498e8c]
 
 loc_00449916:
 cmp eax, ebx
@@ -1026,7 +980,7 @@ shl edx, 3
 mov ecx, edx
 shl edx, 3
 sub edx, ecx
-mov ecx, dword [ref_00498e88]  ; mov ecx, dword [0x498e88]
+mov ecx, dword [_rich4_facility_info_ptr]  ; mov ecx, dword [0x498e88]
 mov dl, byte [ecx + edx + 0x19]
 and edx, 0xff
 je short loc_0044993f  ; je 0x44993f
@@ -1067,7 +1021,7 @@ lea eax, [esp + 0x84]
 push eax
 call fcn_00452946  ; call 0x452946
 add esp, 8
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -1165,10 +1119,10 @@ add esp, 0xc
 mov eax, 1
 
 loc_00449ab7:
-cmp eax, dword [ref_00498e98]  ; cmp eax, dword [0x498e98]
+cmp eax, dword [_rich4_num_lands]  ; cmp eax, dword [0x498e98]
 jg short loc_00449ade  ; jg 0x449ade
 imul ecx, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 mov dl, byte [ecx + edx + 0x19]
 and edx, 0xff
 je short loc_00449adb  ; je 0x449adb
@@ -1180,7 +1134,7 @@ jmp short loc_00449ab7  ; jmp 0x449ab7
 
 loc_00449ade:
 mov eax, 1
-mov ebx, dword [ref_00498e8c]  ; mov ebx, dword [0x498e8c]
+mov ebx, dword [_rich4_num_facilities]  ; mov ebx, dword [0x498e8c]
 
 loc_00449ae9:
 cmp eax, ebx
@@ -1190,7 +1144,7 @@ shl edx, 3
 mov ecx, edx
 shl edx, 3
 sub edx, ecx
-mov ecx, dword [ref_00498e88]  ; mov ecx, dword [0x498e88]
+mov ecx, dword [_rich4_facility_info_ptr]  ; mov ecx, dword [0x498e88]
 mov dl, byte [ecx + edx + 0x19]
 and edx, 0xff
 je short loc_00449b12  ; je 0x449b12
@@ -1231,7 +1185,7 @@ lea eax, [esp + 0x84]
 push eax
 call fcn_00452946  ; call 0x452946
 add esp, 8
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -1314,7 +1268,7 @@ lea eax, [esp + 0x84]
 push eax
 call fcn_00452946  ; call 0x452946
 add esp, 8
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -1366,7 +1320,7 @@ cmp byte [edx + (_all_players_state + 21)], 0  ; cmp byte [edx + 0x496b7d], 0
 je near loc_00449d99  ; je 0x449d99
 fild dword [edx + (_all_players_state + 28)]  ; fild dword [edx + 0x496b84]
 fmul qword [ref_004655a4]  ; fmul qword [0x4655a4]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x94]
 mov esi, ebx
 shl esi, 2
@@ -1485,12 +1439,12 @@ imul eax, esi, 0x68
 cmp byte [eax + (_all_players_state + 21)], 0  ; cmp byte [eax + 0x496b7d], 0
 je near loc_00449fd9  ; je 0x449fd9
 mov dword [esp + 0xa4], 1
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 
 loc_00449e7d:
 add edx, 0x34
 mov eax, dword [esp + 0xa4]
-cmp eax, dword [ref_00498e98]  ; cmp eax, dword [0x498e98]
+cmp eax, dword [_rich4_num_lands]  ; cmp eax, dword [0x498e98]
 jg short loc_00449ec1  ; jg 0x449ec1
 xor eax, eax
 mov al, byte [edx + 0x19]
@@ -1513,14 +1467,14 @@ jmp short loc_00449e7d  ; jmp 0x449e7d
 
 loc_00449ec1:
 mov dword [esp + 0xa4], 1
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 
 loc_00449ed2:
 add edx, 0x38
 mov ebx, esi
 shl ebx, 2
 mov eax, dword [esp + 0xa4]
-cmp eax, dword [ref_00498e8c]  ; cmp eax, dword [0x498e8c]
+cmp eax, dword [_rich4_num_facilities]  ; cmp eax, dword [0x498e8c]
 jg short loc_00449f1b  ; jg 0x449f1b
 xor ecx, ecx
 mov cl, byte [edx + 0x19]
@@ -1544,10 +1498,10 @@ jmp short loc_00449ed2  ; jmp 0x449ed2
 loc_00449f1b:
 fild dword [esp + ebx + 0x94]
 fmul qword [ref_004655cc]  ; fmul qword [0x4655cc]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0xa4]
 mov eax, dword [esp + 0xa4]
-mov ebp, dword [ref_004990e8]  ; mov ebp, dword [0x4990e8]
+mov ebp, dword [_rich4_price_index]  ; mov ebp, dword [0x4990e8]
 imul eax, ebp
 mov dword [esp + 0xa4], eax
 mov dword [ebx + ref_0048c59c], eax  ; mov dword [ebx + 0x48c59c], eax
@@ -1708,10 +1662,10 @@ mov esi, ebx
 shl esi, 2
 fld dword [esp + esi + 0x94]
 fmul qword [ref_004655f4]  ; fmul qword [0x4655f4]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0xa4]
 mov eax, dword [esp + 0xa4]
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 imul eax, edx
 mov dword [esp + 0xa4], eax
 mov dword [esi + ref_0048c59c], eax  ; mov dword [esi + 0x48c59c], eax
@@ -1796,21 +1750,21 @@ push ebp
 sub esp, 0x98
 cmp dword [esp + 0xac], 0
 jne near loc_0044a2f5  ; jne 0x44a2f5
-mov ebx, dword [ref_00498e98]  ; mov ebx, dword [0x498e98]
-add ebx, dword [ref_00498e8c]  ; add ebx, dword [0x498e8c]
+mov ebx, dword [_rich4_num_lands]  ; mov ebx, dword [0x498e98]
+add ebx, dword [_rich4_num_facilities]  ; add ebx, dword [0x498e8c]
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
 idiv ebx
 mov dword [ref_0048c59c], edx  ; mov dword [0x48c59c], edx
-mov ecx, dword [ref_00498e98]  ; mov ecx, dword [0x498e98]
+mov ecx, dword [_rich4_num_lands]  ; mov ecx, dword [0x498e98]
 cmp edx, ecx
 jge short loc_0044a27a  ; jge 0x44a27a
 lea eax, [edx + 1]
 lea edi, [edx + 0x7d1]
 mov dword [ref_0048c59c], edi  ; mov dword [0x48c59c], edi
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 jmp short loc_0044a2a1  ; jmp 0x44a2a1
 
 loc_0044a27a:
@@ -1824,7 +1778,7 @@ mov edx, eax
 shl eax, 3
 sub eax, edx
 mov edx, eax
-mov eax, dword [ref_00498e88]  ; mov eax, dword [0x498e88]
+mov eax, dword [_rich4_facility_info_ptr]  ; mov eax, dword [0x498e88]
 
 loc_0044a2a1:
 add eax, edx
@@ -1832,7 +1786,7 @@ add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 lea eax, [esp + 0x80]
 push eax
@@ -1861,7 +1815,7 @@ cmp ecx, 0xfa0
 jge near loc_0044a3c2  ; jge 0x44a3c2
 lea eax, [ecx - 0x7d0]
 imul eax, eax, 0x34
-mov edi, dword [ref_00498e84]  ; mov edi, dword [0x498e84]
+mov edi, dword [_rich4_land_info_ptr]  ; mov edi, dword [0x498e84]
 add edi, eax
 push 2
 movsx eax, word [edi + 2]
@@ -1874,11 +1828,11 @@ push 1
 call fcn_00409b18  ; call 0x409b18
 add esp, 4
 mov esi, 1
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 
 loc_0044a34c:
 add ebx, 0x34
-cmp esi, dword [ref_00498e98]  ; cmp esi, dword [0x498e98]
+cmp esi, dword [_rich4_num_lands]  ; cmp esi, dword [0x498e98]
 jg near loc_00449725  ; jg 0x449725
 lea eax, [ebx + 4]
 push eax
@@ -1901,7 +1855,7 @@ mov ax, word [ebx + 0x1c]
 mov dword [esp + 0x94], eax
 fild dword [esp + 0x94]
 fmul qword [ref_0046561c]  ; fmul qword [0x46561c]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x94]
 mov eax, dword [esp + 0x94]
 mov word [ebx + 0x1c], ax
@@ -1921,7 +1875,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 push 2
 movsx eax, word [ebx + 2]
@@ -1958,8 +1912,8 @@ cmp dword [esp + 0x4a8], 0
 jne near loc_0044a50f  ; jne 0x44a50f
 xor esi, esi
 mov ebx, 1
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
-mov ebp, dword [ref_00498e98]  ; mov ebp, dword [0x498e98]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
+mov ebp, dword [_rich4_num_lands]  ; mov ebp, dword [0x498e98]
 
 loc_0044a47d:
 cmp ebx, ebp
@@ -1983,13 +1937,13 @@ mov ax, word [esp + edx*2]
 and eax, 0xffff
 mov dword [ref_0048c59c], eax  ; mov dword [0x48c59c], eax
 imul edx, eax, 0x34
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
 add eax, edx
 add eax, 4
 push eax
 lea eax, [esp + 0x484]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 lea eax, [esp + 0x480]
 push eax
@@ -2012,7 +1966,7 @@ jmp near loc_0044a5cb  ; jmp 0x44a5cb
 
 loc_0044a50f:
 imul eax, dword [ref_0048c59c], 0x34  ; imul eax, dword [0x48c59c], 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 add eax, edx
 xor ebx, ebx
 mov bl, byte [eax + 0x19]
@@ -2032,7 +1986,7 @@ add esp, 8
 push 0
 push 0
 push 0x20f
-mov esi, dword [ref_0048a0e4]  ; mov esi, dword [0x48a0e4]
+mov esi, dword [_rich4_data_mkf]  ; mov esi, dword [0x48a0e4]
 push esi
 call _read_mkf  ; call 0x450441
 mov esi, eax
@@ -2182,21 +2136,21 @@ push ebp
 sub esp, 0x94
 cmp dword [esp + 0xa8], 0
 jne near loc_0044a7b5  ; jne 0x44a7b5
-mov ebx, dword [ref_00498e98]  ; mov ebx, dword [0x498e98]
-add ebx, dword [ref_00498e8c]  ; add ebx, dword [0x498e8c]
+mov ebx, dword [_rich4_num_lands]  ; mov ebx, dword [0x498e98]
+add ebx, dword [_rich4_num_facilities]  ; add ebx, dword [0x498e8c]
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
 idiv ebx
 mov dword [ref_0048c59c], edx  ; mov dword [0x48c59c], edx
-mov ecx, dword [ref_00498e98]  ; mov ecx, dword [0x498e98]
+mov ecx, dword [_rich4_num_lands]  ; mov ecx, dword [0x498e98]
 cmp edx, ecx
 jge short loc_0044a73a  ; jge 0x44a73a
 lea eax, [edx + 1]
 lea edi, [edx + 0x7d1]
 mov dword [ref_0048c59c], edi  ; mov dword [0x48c59c], edi
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 jmp short loc_0044a761  ; jmp 0x44a761
 
 loc_0044a73a:
@@ -2210,7 +2164,7 @@ mov edx, eax
 shl eax, 3
 sub eax, edx
 mov edx, eax
-mov eax, dword [ref_00498e88]  ; mov eax, dword [0x498e88]
+mov eax, dword [_rich4_facility_info_ptr]  ; mov eax, dword [0x498e88]
 
 loc_0044a761:
 add eax, edx
@@ -2218,7 +2172,7 @@ add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 lea eax, [esp + 0x80]
 push eax
@@ -2247,7 +2201,7 @@ cmp ecx, 0xfa0
 jge near loc_0044a86d  ; jge 0x44a86d
 lea eax, [ecx - 0x7d0]
 imul eax, eax, 0x34
-mov edi, dword [ref_00498e84]  ; mov edi, dword [0x498e84]
+mov edi, dword [_rich4_land_info_ptr]  ; mov edi, dword [0x498e84]
 add edi, eax
 push 2
 movsx eax, word [edi + 2]
@@ -2260,11 +2214,11 @@ push 1
 call fcn_00409b18  ; call 0x409b18
 add esp, 4
 mov esi, 1
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 
 loc_0044a80c:
 add ebx, 0x34
-cmp esi, dword [ref_00498e98]  ; cmp esi, dword [0x498e98]
+cmp esi, dword [_rich4_num_lands]  ; cmp esi, dword [0x498e98]
 jg near loc_0044a8f3  ; jg 0x44a8f3
 lea eax, [ebx + 4]
 push eax
@@ -2308,7 +2262,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 push 2
 movsx eax, word [ebx + 2]
@@ -2365,33 +2319,33 @@ push ebp
 sub esp, 0x9c
 cmp dword [esp + 0xb0], 0
 jne near loc_0044aa44  ; jne 0x44aa44
-mov eax, dword [ref_00498e98]  ; mov eax, dword [0x498e98]
-mov ebx, dword [ref_00498e8c]  ; mov ebx, dword [0x498e8c]
+mov eax, dword [_rich4_num_lands]  ; mov eax, dword [0x498e98]
+mov ebx, dword [_rich4_num_facilities]  ; mov ebx, dword [0x498e8c]
 add ebx, eax
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
 idiv ebx
 mov dword [ref_0048c59c], edx  ; mov dword [0x48c59c], edx
-mov esi, dword [ref_00498e98]  ; mov esi, dword [0x498e98]
+mov esi, dword [_rich4_num_lands]  ; mov esi, dword [0x498e98]
 cmp edx, esi
 jge short loc_0044a9a2  ; jge 0x44a9a2
 lea eax, [edx + 1]
 add edx, 0x7d1
 mov dword [ref_0048c59c], edx  ; mov dword [0x48c59c], edx
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 add eax, edx
 add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 mov eax, dword [ref_0048c59c]  ; mov eax, dword [0x48c59c]
 sub eax, 0x7d0
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 jmp short loc_0044a9f8  ; jmp 0x44a9f8
 
 loc_0044a9a2:
@@ -2404,13 +2358,13 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 add eax, edx
 add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 mov eax, dword [ref_0048c59c]  ; mov eax, dword [0x48c59c]
 sub eax, 0xfa0
@@ -2418,7 +2372,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 
 loc_0044a9f8:
 mov al, byte [edx + eax + 0x19]
@@ -2526,21 +2480,21 @@ push edi
 sub esp, 0x9c
 cmp dword [esp + 0xac], 0
 jne near loc_0044ac02  ; jne 0x44ac02
-mov ebx, dword [ref_00498e98]  ; mov ebx, dword [0x498e98]
-add ebx, dword [ref_00498e8c]  ; add ebx, dword [0x498e8c]
+mov ebx, dword [_rich4_num_lands]  ; mov ebx, dword [0x498e98]
+add ebx, dword [_rich4_num_facilities]  ; add ebx, dword [0x498e8c]
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
 idiv ebx
 mov dword [ref_0048c59c], edx  ; mov dword [0x48c59c], edx
 mov eax, edx
-mov edx, dword [ref_00498e98]  ; mov edx, dword [0x498e98]
+mov edx, dword [_rich4_num_lands]  ; mov edx, dword [0x498e98]
 cmp eax, edx
 jge short loc_0044ab83  ; jge 0x44ab83
 inc eax
 add dword [ref_0048c59c], 0x7d1  ; add dword [0x48c59c], 0x7d1
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 jmp short loc_0044abae  ; jmp 0x44abae
 
 loc_0044ab83:
@@ -2554,7 +2508,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 
 loc_0044abae:
 add eax, edx
@@ -2562,7 +2516,7 @@ add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 lea eax, [esp + 0x80]
 push eax
@@ -2608,7 +2562,7 @@ add esp, 0x10
 push 0
 push 0
 push 0x216
-mov edi, dword [ref_0048a0e4]  ; mov edi, dword [0x48a0e4]
+mov edi, dword [_rich4_data_mkf]  ; mov edi, dword [0x48a0e4]
 push edi
 call _read_mkf  ; call 0x450441
 mov ebx, eax
@@ -2644,32 +2598,32 @@ push ebp
 sub esp, 0x9c
 cmp dword [esp + 0xb0], 0
 jne near loc_0044adbc  ; jne 0x44adbc
-mov ebx, dword [ref_00498e98]  ; mov ebx, dword [0x498e98]
-add ebx, dword [ref_00498e8c]  ; add ebx, dword [0x498e8c]
+mov ebx, dword [_rich4_num_lands]  ; mov ebx, dword [0x498e98]
+add ebx, dword [_rich4_num_facilities]  ; add ebx, dword [0x498e8c]
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
 idiv ebx
 mov dword [ref_0048c59c], edx  ; mov dword [0x48c59c], edx
-mov ebx, dword [ref_00498e98]  ; mov ebx, dword [0x498e98]
+mov ebx, dword [_rich4_num_lands]  ; mov ebx, dword [0x498e98]
 cmp edx, ebx
 jge short loc_0044ad1a  ; jge 0x44ad1a
 lea eax, [edx + 1]
 lea ebp, [edx + 0x7d1]
 mov dword [ref_0048c59c], ebp  ; mov dword [0x48c59c], ebp
 imul edx, eax, 0x34
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
 add eax, edx
 add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 mov eax, dword [ref_0048c59c]  ; mov eax, dword [0x48c59c]
 sub eax, 0x7d0
 imul edx, eax, 0x34
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
 jmp short loc_0044ad70  ; jmp 0x44ad70
 
 loc_0044ad1a:
@@ -2682,13 +2636,13 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 add eax, edx
 add eax, 4
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00457d96  ; call 0x457d96
+call _strcpy  ; call 0x457d96
 add esp, 8
 mov eax, dword [ref_0048c59c]  ; mov eax, dword [0x48c59c]
 sub eax, 0xfa0
@@ -2696,7 +2650,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 
 loc_0044ad70:
 mov al, byte [edx + eax + 0x19]
@@ -2745,7 +2699,7 @@ add esp, 8
 push 0
 push 0
 push 0x217
-mov ebp, dword [ref_0048a0e4]  ; mov ebp, dword [0x48a0e4]
+mov ebp, dword [_rich4_data_mkf]  ; mov ebp, dword [0x48a0e4]
 push ebp
 call _read_mkf  ; call 0x450441
 mov ebx, eax
@@ -2845,7 +2799,7 @@ test ebp, ebp
 jne near loc_0044b004  ; jne 0x44b004
 fild dword [ebx + (_all_players_state + 32)]  ; fild dword [ebx + 0x496b88]
 fmul qword [ref_00465734]  ; fmul qword [0x465734]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x94]
 push ebp
 mov eax, dword [esp + 0x98]
@@ -3127,8 +3081,8 @@ cmp dword [esp + 0xd4], 0
 jne near loc_0044b323  ; jne 0x44b323
 mov eax, 1
 xor ebx, ebx
-mov edx, dword [ref_00498e7c]  ; mov edx, dword [0x498e7c]
-mov esi, dword [ref_00498e90]  ; mov esi, dword [0x498e90]
+mov edx, dword [_rich4_on_map_commercial_ptr]  ; mov edx, dword [0x498e7c]
+mov esi, dword [_rich4_num_on_map_commercials]  ; mov esi, dword [0x498e90]
 
 loc_0044b285:
 cmp eax, esi
@@ -3149,7 +3103,7 @@ mov edx, eax
 sar edx, 0x1f
 idiv ebx
 imul ebx, dword [esp + edx*4 + 0x80], 0x34
-mov eax, dword [ref_00498e7c]  ; mov eax, dword [0x498e7c]
+mov eax, dword [_rich4_on_map_commercial_ptr]  ; mov eax, dword [0x498e7c]
 add ebx, eax
 xor eax, eax
 mov al, byte [ebx + 0x18]
@@ -3199,7 +3153,7 @@ call fcn_0041d476  ; call 0x41d476
 add esp, 0xc
 mov ebx, dword [ref_0048c59c]  ; mov ebx, dword [0x48c59c]
 push ebx
-call fcn_00441210  ; call 0x441210
+call _rich4_try_mianzui_jiahuo_card  ; call 0x441210
 add esp, 4
 cmp eax, 0xffffffff
 je short loc_0044b36a  ; je 0x44b36a
@@ -3223,10 +3177,10 @@ jne near loc_0044b411  ; jne 0x44b411
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
-idiv dword [ref_00498e90]  ; idiv dword [0x498e90]
+idiv dword [_rich4_num_on_map_commercials]  ; idiv dword [0x498e90]
 inc edx
 imul ebx, edx, 0x34
-mov eax, dword [ref_00498e7c]  ; mov eax, dword [0x498e7c]
+mov eax, dword [_rich4_on_map_commercial_ptr]  ; mov eax, dword [0x498e7c]
 add ebx, eax
 lea eax, [ebx + 4]
 push eax
@@ -3282,10 +3236,10 @@ jne short loc_0044b411  ; jne 0x44b411
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
-idiv dword [ref_00498e90]  ; idiv dword [0x498e90]
+idiv dword [_rich4_num_on_map_commercials]  ; idiv dword [0x498e90]
 inc edx
 imul ebx, edx, 0x34
-mov eax, dword [ref_00498e7c]  ; mov eax, dword [0x498e7c]
+mov eax, dword [_rich4_on_map_commercial_ptr]  ; mov eax, dword [0x498e7c]
 add ebx, eax
 lea eax, [ebx + 4]
 push eax
@@ -3325,10 +3279,10 @@ jne near loc_0044b411  ; jne 0x44b411
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
-idiv dword [ref_00498e90]  ; idiv dword [0x498e90]
+idiv dword [_rich4_num_on_map_commercials]  ; idiv dword [0x498e90]
 inc edx
 imul ebx, edx, 0x34
-mov eax, dword [ref_00498e7c]  ; mov eax, dword [0x498e7c]
+mov eax, dword [_rich4_on_map_commercial_ptr]  ; mov eax, dword [0x498e7c]
 add ebx, eax
 lea eax, [ebx + 4]
 push eax
@@ -3368,10 +3322,10 @@ jne near loc_0044b411  ; jne 0x44b411
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
-idiv dword [ref_00498e90]  ; idiv dword [0x498e90]
+idiv dword [_rich4_num_on_map_commercials]  ; idiv dword [0x498e90]
 inc edx
 imul ebx, edx, 0x34
-mov eax, dword [ref_00498e7c]  ; mov eax, dword [0x498e7c]
+mov eax, dword [_rich4_on_map_commercial_ptr]  ; mov eax, dword [0x498e7c]
 add ebx, eax
 lea eax, [ebx + 4]
 push eax
@@ -3386,10 +3340,10 @@ jne near loc_0044b411  ; jne 0x44b411
 call _libc_rand  ; call 0x456f2d
 mov edx, eax
 sar edx, 0x1f
-idiv dword [ref_00498e90]  ; idiv dword [0x498e90]
+idiv dword [_rich4_num_on_map_commercials]  ; idiv dword [0x498e90]
 inc edx
 imul ebx, edx, 0x34
-mov eax, dword [ref_00498e7c]  ; mov eax, dword [0x498e7c]
+mov eax, dword [_rich4_on_map_commercial_ptr]  ; mov eax, dword [0x498e7c]
 add ebx, eax
 lea eax, [ebx + 4]
 push eax
@@ -3420,10 +3374,10 @@ cmp dword [esp + 0xac], 0
 jne near loc_0044b6d6  ; jne 0x44b6d6
 mov eax, 1
 xor ebx, ebx
-mov edx, dword [ref_00498e7c]  ; mov edx, dword [0x498e7c]
+mov edx, dword [_rich4_on_map_commercial_ptr]  ; mov edx, dword [0x498e7c]
 
 loc_0044b618:
-cmp eax, dword [ref_00498e90]  ; cmp eax, dword [0x498e90]
+cmp eax, dword [_rich4_num_on_map_commercials]  ; cmp eax, dword [0x498e90]
 jg short loc_0044b639  ; jg 0x44b639
 imul ecx, eax, 0x34
 cmp dword [ecx + edx + 0x28], 0x2710
@@ -3443,7 +3397,7 @@ idiv ebx
 xor eax, eax
 mov ax, word [esp + edx*2 + 0x80]
 imul eax, eax, 0x34
-mov esi, dword [ref_00498e7c]  ; mov esi, dword [0x498e7c]
+mov esi, dword [_rich4_on_map_commercial_ptr]  ; mov esi, dword [0x498e7c]
 add esi, eax
 lea eax, [esi + 4]
 push eax
@@ -3503,7 +3457,7 @@ sub esp, 0x14
 push 0
 push 0
 push 0x42
-mov edx, dword [ref_0048a05c]  ; mov edx, dword [0x48a05c]
+mov edx, dword [_rich4_panel_mkf]  ; mov edx, dword [0x48a05c]
 push edx
 call _read_mkf  ; call 0x450441
 add esp, 0x10
@@ -3539,7 +3493,7 @@ mov ecx, dword [esi + 8]
 push ecx
 lea edi, [ebx + 0x1b9]
 push edi
-mov edi, dword [ref_0048a0e4]  ; mov edi, dword [0x48a0e4]
+mov edi, dword [_rich4_data_mkf]  ; mov edi, dword [0x48a0e4]
 push edi
 call _read_mkf  ; call 0x450441
 add esp, 0x10
@@ -3582,7 +3536,7 @@ mov dword [ref_004990e0], ebx  ; mov dword [0x4990e0], ebx
 loc_0044b7e1:
 test ebp, ebp
 je near loc_0044b718  ; je 0x44b718
-mov ebx, dword [ref_0048a0e0]  ; mov ebx, dword [0x48a0e0]
+mov ebx, dword [_g_ddraw_sf2_ptr]  ; mov ebx, dword [0x48a0e0]
 mov eax, dword [ebx]
 push 0
 push 1
@@ -3599,7 +3553,7 @@ mov esi, dword [ref_0048a08c]  ; mov esi, dword [0x48a08c]
 push esi
 call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
-mov ebx, dword [ref_0048a0e0]  ; mov ebx, dword [0x48a0e0]
+mov ebx, dword [_g_ddraw_sf2_ptr]  ; mov ebx, dword [0x48a0e0]
 mov eax, dword [ebx]
 push 0
 push ebx
@@ -3609,12 +3563,12 @@ mov dword [esp], edi
 mov dword [esp + 4], edi
 mov dword [esp + 8], 0x1b8
 mov dword [esp + 0xc], 0x1e0
-mov ebx, dword [ref_0048a0dc]  ; mov ebx, dword [0x48a0dc]
+mov ebx, dword [_g_ddraw_sf1_ptr]  ; mov ebx, dword [0x48a0dc]
 mov eax, dword [ebx]
 push 0x10
 lea esi, [esp + 4]
 push esi
-mov ecx, dword [ref_0048a0e0]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 push edi
 push edi
@@ -3639,6 +3593,476 @@ pop ebx
 ret
 
 section .data
+
+ref_004653ec:
+dd 0x64b34cb5
+dd 0x73b7f4a5
+db 0xbb
+db 0x44
+db 0x00
+
+ref_004653f7:
+db 0xac
+dd 0xa4b2a946
+dd 0x0069a7bd
+
+ref_00465400:
+dd 0x7cb7c0aa
+dd 0x44bb73b7
+db 0x00
+
+ref_00465409:
+db 0xb8
+db 0xf4
+db 0xaa
+dd 0xbef8b370
+db 0xc9
+db 0x00
+
+ref_00465412:
+db 0xae
+db 0xf0
+dd 0xf8b348b6
+db 0xbe
+db 0xc9
+db 0x00
+
+ref_0046541b:
+db 0xb0
+dd 0xb767b85d
+dd 0x0044bb73
+
+ref_00465424:
+dd 0x34313023
+dd 0xa4bbba39
+dd 0xa57da5a4
+dd 0xb84cb5c7
+dd 0xc47db66f
+db 0xc0
+db 0x00
+
+ref_0046543a:
+db 0x23
+db 0x30
+dd 0xba303531
+dd 0xa5a4a4bb
+dd 0xa9c7a57d
+dd 0xa6f8aab5
+dd 0x25c1b444
+dd 0x00d1a464
+
+ref_00465454:
+dd 0x35313023
+dd 0xb0eda631
+dd 0xafa4a47c
+dd 0xb477b166
+dd 0xa565aba3
+dd 0x007cb058
+
+ref_0046546c:
+dd 0x35313023
+dd 0xb0eda632
+dd 0xafa4a47c
+dd 0xa977b166
+dd 0xa6f8aab5
+dd 0x257cb0ed
+dd 0x00d1a464
+
+ref_00465488:
+dd 0x35313023
+dd 0xac7ea533
+dd 0xa748a450
+dd 0xa6b4a5f0
+dd 0x0079b261
+
+ref_0046549c:
+dd 0x35313023
+dd 0xac7ea534
+dd 0xc3c7a950
+dd 0xc0a7c57e
+dd 0x0a7325bb
+dd 0xb4b752ba
+dd 0x76bfd8ab
+dd 0xc9b440a4
+db 0x00
+
+ref_004654bd:
+db 0x23
+db 0x30
+db 0x31
+dd 0x73253535
+dd 0x69a7bda4
+dd 0xf9bb61a6
+dd 0xa6bad5bd
+dd 0xafa2b2a2
+dd 0x000048a2
+dd 0x00000000
+
+ref_004654dc:
+dd 0xcccccccd
+dd 0x3ff4cccc
+
+ref_004654e4:
+dd 0x35313023
+dd 0xb6bda436
+dd 0xbde7a97d
+dd 0x0a7325e6
+dd 0xb3a6bda4
+dd 0x61a667a4
+dd 0x42b340a4
+db 0x00
+
+ref_00465501:
+db 0x23
+db 0x30
+db 0x31
+dd 0xbda43735
+dd 0xedaa7db6
+dd 0xc4b2adb4
+dd 0x6aa440a4
+dd 0x44a561a6
+dd 0xc073250a
+dd 0x256fb1f2
+dd 0xbcb8a464
+dd 0x0079c0fa
+
+ref_00465528:
+dd 0x35313023
+dd 0xb6bda438
+dd 0xa7c9b87d
+dd 0xa667a455
+dd 0xa4ccb361
+dd 0x0accaad6
+dd 0xf2c07325
+dd 0x64256fb1
+dd 0xc9b8b8a4
+db 0xa7
+db 0x55
+db 0x00
+
+ref_0046554f:
+db 0x23
+dd 0x39353130
+dd 0x7db6bda4
+dd 0xadb4edaa
+dd 0xaba5d1aa
+dd 0x40a4c4b2
+dd 0xe1a46aa4
+dd 0xc073250a
+dd 0x256fb1f2
+dd 0xbcb8a464
+dd 0x0079c0fa
+
+ref_00465578:
+dd 0x36313023
+dd 0xa6d2a930
+dd 0xc348a4b3
+dd 0xa9e6a5ba
+dd 0xb56fb1d2
+dd 0xa2b4a27c
+db 0x48
+db 0x00
+
+ref_00465592:
+db 0x25
+db 0x73
+dd 0xe6a5bac3
+dd 0xb8a46425
+dd 0x00000000
+dd 0x00000000
+
+ref_004655a4:
+dd 0x9999999a
+dd 0x3fa99999
+
+ref_004655ac:
+dd 0x36313023
+dd 0xa6d2a931
+dd 0xc348a4b3
+dd 0xa6e6a5ba
+dd 0xb5f9bb61
+dd 0xa2b4a27c
+dd 0x00000048
+dd 0x00000000
+
+ref_004655cc:
+dd 0x9999999a
+dd 0x3fa99999
+
+ref_004655d4:
+dd 0x36313023
+dd 0xa6d2a932
+dd 0xc348a4b3
+dd 0xc3e6a5ba
+dd 0xb5e6a5d2
+dd 0xa2b4a27c
+dd 0x00000048
+dd 0x00000000
+
+ref_004655f4:
+dd 0x9999999a
+dd 0x3fa99999
+
+ref_004655fc:
+dd 0x36313023
+dd 0xa9732533
+dd 0xbeceabd0
+dd 0x0aadb078
+dd 0xf9bb61a6
+dd 0x5eb655a4
+dd 0xafa2b2a2
+dd 0x000048a2
+
+ref_0046561c:
+dd 0x66666666
+dd 0x3fe66666
+
+ref_00465624:
+dd 0x36313023
+dd 0xa4732534
+dd 0xa542b340
+dd 0xa576a6c1
+dd 0xc3b5b4cb
+dd 0x0ab5ac7a
+dd 0xceabd0a9
+dd 0xf5a4a2a5
+db 0x00
+
+ref_00465645:
+db 0x23
+db 0x30
+db 0x31
+dd 0xa8bb3536
+dd 0x53af42ab
+dd 0xa60af8b3
+dd 0xa548a4e6
+dd 0xa4a7aef0
+dd 0xa65ea640
+db 0x58
+db 0x00
+
+ref_00465662:
+db 0x23
+db 0x30
+dd 0xa5363631
+dd 0xaa71b3e6
+dd 0x0aebb6fd
+dd 0xaea854a8
+dd 0xeea4b1b0
+dd 0x5ea640a4
+db 0xa6
+db 0x58
+db 0x00
+
+ref_0046567f:
+db 0x23
+dd 0x37363130
+dd 0x6ab17325
+dd 0x61a650af
+dd 0xd0a95fbe
+dd 0xcbadceab
+db 0xb6
+db 0xf2
+db 0x00
+
+ref_00465697:
+db 0x23
+dd 0x38363130
+dd 0x73a47325
+dd 0x7ac378ac
+dd 0x67a46fb5
+dd 0x79ac61a6
+db 0xa5
+db 0xa2
+db 0x00
+
+ref_004656af:
+db 0x23
+dd 0x39363130
+dd 0xc5af57b6
+dd 0xb7ade4bb
+dd 0xa7c549ab
+dd 0xa60a7325
+dd 0xa942b368
+dd 0xa8ceabd0
+dd 0x006cb7fc
+
+ref_004656d0:
+dd 0x37313023
+dd 0xb173c030
+dd 0xabb7adb2
+dd 0x25a7c549
+dd 0x52ba0a73
+dd 0xd0a9b4b7
+dd 0x40a4ceab
+db 0xb4
+db 0xc9
+db 0x00
+
+ref_004656ef:
+db 0x23
+dd 0x31373130
+dd 0xe6a6c8bb
+dd 0x49a7bdc0
+dd 0xeea4b1b0
+dd 0xdab4f1a9
+dd 0xb4a2b0a2
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_0046570b:
+db 0x23
+dd 0x32373130
+dd 0xe6a6c8bb
+dd 0x6fb55ba5
+dd 0xafa2b0a2
+dd 0x78c048a2
+dd 0xf5acf7aa
+db 0xa7
+db 0x51
+db 0x00
+
+ref_00465727:
+db 0x25
+dd 0xa86fb173
+dd 0xa46425ec
+dd 0x000000b8
+
+ref_00465734:
+dd 0x9999999a
+dd 0x3fb99999
+
+ref_0046573c:
+dd 0x37313023
+dd 0xa5d1aa33
+dd 0xb043a7ab
+dd 0xaea3a467
+dd 0xaeabadb6
+dd 0xbd59b1c0
+db 0x4c
+db 0x00
+
+ref_00465756:
+db 0x23
+db 0x30
+dd 0xaa343731
+dd 0xaeaba5d1
+dd 0xa6d5b6f0
+dd 0xa569ad70
+dd 0xa4b1adfe
+dd 0x00a6ba57
+
+ref_00465770:
+dd 0x37313023
+dd 0xa5d1aa35
+dd 0xb0c8bcab
+dd 0xa9e6a5b1
+dd 0xa2b0a2f6
+dd 0x00d1a4af
+
+ref_00465788:
+dd 0x37313023
+dd 0xaa732536
+dd 0xbcbcb2d1
+dd 0xa5b1b0c8
+dd 0xa2f6a9e6
+dd 0xa4afa2b0
+db 0xd1
+db 0x00
+
+ref_004657a2:
+db 0x23
+db 0x30
+dd 0x25373731
+dd 0xb2d1aa73
+dd 0xb4ecabbc
+dd 0xa557a45f
+dd 0xa9e6a5ab
+db 0xf6
+db 0x00
+
+ref_004657ba:
+db 0x23
+db 0x30
+dd 0x25383731
+dd 0xaa48b973
+dd 0xb657b66b
+dd 0x67b80a55
+dd 0xccaae7c0
+dd 0xa4a77325
+dd 0xb4a263a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_004657db:
+db 0x23
+dd 0x39373130
+dd 0x75a47325
+dd 0xc6b174bc
+dd 0xc3a6f1a9
+dd 0xbb0af4a4
+dd 0x31dab440
+dd 0x30303030
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_004657fb:
+db 0x23
+dd 0x30383130
+dd 0xfcae7325
+dd 0xeba77ea5
+dd 0xc00aeab8
+dd 0x3251a7f2
+dd 0x30303030
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465817:
+db 0x23
+dd 0x31383130
+dd 0xfcae7325
+dd 0xeba77ea5
+dd 0xc10aeab8
+dd 0x326cb7ab
+dd 0x30303030
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465833:
+db 0x23
+dd 0x32383130
+dd 0x48b97325
+dd 0x7db657b3
+dd 0x73a46fb5
+dd 0x61a659a9
+dd 0xb440bb0a
+dd 0x303031da
+dd 0xb8a43030
+db 0x00
+
+ref_00465855:
+db 0x23
+db 0x30
+db 0x31
+dd 0x73253338
+dd 0x79b373bb
+dd 0xb5adb8be
+dd 0x60aebda4
+dd 0xb440bb0a
+dd 0x303035da
+dd 0x00b8a430
+
+ref_00465874:
+dd 0x38313023
+dd 0xc0732534
+dd 0xbd51a7f2
+dd 0xa4aab0d5
+dd 0x00bfad40
 
 ref_00475e24:  ; may contain a jump table
 dd fcn_00448eca
@@ -3677,3 +4101,22 @@ dd fcn_0044b4a8
 dd fcn_0044b53f
 dd fcn_0044b57d
 dd fcn_0044b5f5
+
+ref_00475eb4:
+dd 0x00000000
+dd 0x01010000
+dd 0x01010101
+dd 0x02020101
+dd 0x04040303
+dd 0x05050404
+dd 0x05050505
+dd 0x05050505
+dd 0x05050505
+
+ref_00475ed8:
+dd ref_004653ec
+dd ref_004653f7
+dd ref_00465400
+dd ref_00465409
+dd ref_00465412
+dd ref_0046541b

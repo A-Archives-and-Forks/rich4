@@ -8,19 +8,19 @@ extern _rich4_player_say
 extern fcn_0040df69
 extern fcn_0040dffa
 extern fcn_0040e14d
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00446ae8
 extern fcn_0045144f
 extern fcn_0045285e
-extern ref_0048a0e4
-extern ref_00496d0a
-extern ref_00498e80
-extern ref_00498e84
-extern ref_00498e88
-extern ref_004990e8
+extern _rich4_data_mkf
+extern ref_00496d08
+extern _rich4_map_node_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_price_index
 
 global _rich4_use_card_chaichuka
 
@@ -78,7 +78,7 @@ cmp ecx, 0xfa0
 jge near loc_00443c54  ; jge 0x443c54
 lea ebx, [ecx - 0x7d0]
 imul ebx, ebx, 0x34
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
 add ebx, eax
 imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 cmp byte [eax + (_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
@@ -95,7 +95,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00443bf9:
@@ -116,7 +116,7 @@ mov byte [ebx + 0x18], 0
 loc_00443c21:
 cmp byte [ebx + 0x19], 0
 je near loc_00443db6  ; je 0x443db6
-mov eax, dword [ref_004990e8]  ; mov eax, dword [0x4990e8]
+mov eax, dword [_rich4_price_index]  ; mov eax, dword [0x4990e8]
 add eax, eax
 mov edx, eax
 shl eax, 4
@@ -144,7 +144,7 @@ mov eax, ebx
 shl ebx, 3
 sub ebx, eax
 mov eax, ebx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 cmp byte [eax + (_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
@@ -161,7 +161,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00443cc5:
@@ -183,7 +183,7 @@ call fcn_0040dffa  ; call 0x40dffa
 loc_00443cee:
 cmp byte [ebx + 0x19], 0
 je near loc_00443db6  ; je 0x443db6
-mov eax, dword [ref_004990e8]  ; mov eax, dword [0x4990e8]
+mov eax, dword [_rich4_price_index]  ; mov eax, dword [0x4990e8]
 add eax, eax
 mov edx, eax
 shl eax, 4
@@ -214,12 +214,12 @@ mov eax, edx
 shl eax, 2
 sub eax, edx
 xor edx, edx
-mov dx, word [eax*8 + ref_00496d0a]  ; mov dx, word [eax*8 + 0x496d0a]
+mov dx, word [eax*8 + (ref_00496d08 + 2)]  ; mov dx, word [eax*8 + 0x496d0a]
 mov eax, edx
 shl eax, 2
 add edx, eax
 shl edx, 3
-mov eax, dword [ref_00498e80]  ; mov eax, dword [0x498e80]
+mov eax, dword [_rich4_map_node_ptr]  ; mov eax, dword [0x498e80]
 add eax, edx
 movsx edx, word [eax + 2]
 push edx
@@ -232,7 +232,7 @@ xor eax, eax
 mov ax, word [ebx + (_all_players_state + 8)]  ; mov ax, word [ebx + 0x496b70]
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00443d97:
@@ -253,7 +253,7 @@ loc_00443db6:
 push 0
 push 0
 push 0x211
-mov edx, dword [ref_0048a0e4]  ; mov edx, dword [0x48a0e4]
+mov edx, dword [_rich4_data_mkf]  ; mov edx, dword [0x48a0e4]
 push edx
 call _read_mkf  ; call 0x450441
 mov ebx, eax

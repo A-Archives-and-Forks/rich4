@@ -6,14 +6,14 @@ extern _rich4_player_say
 extern fcn_0040a4e1
 extern fcn_0040df69
 extern fcn_0041906a
-extern fcn_0043bde5
+extern _rich4_ui_auction_entry
 extern ref_00465324
 extern ref_00465328
 extern ref_0048be18
-extern ref_00498e80
-extern ref_00498e84
-extern ref_00498e88
-extern ref_004990e8
+extern _rich4_map_node_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_price_index
 
 global _rich4_use_card_paimaika
 
@@ -32,7 +32,7 @@ mov dx, word [eax + (_all_players_state + 12)]  ; mov dx, word [eax + 0x496b74]
 mov eax, edx
 shl eax, 2
 add eax, edx
-mov edi, dword [ref_00498e80]  ; mov edi, dword [0x498e80]
+mov edi, dword [_rich4_map_node_ptr]  ; mov edi, dword [0x498e80]
 mov di, word [edi + eax*8 + 0x20]
 and edi, 0xffff
 cmp edi, 0x7d0
@@ -41,14 +41,14 @@ cmp edi, 0xfa0
 jge near loc_00443375  ; jge 0x443375
 lea eax, [edi - 0x7d0]
 imul eax, eax, 0x34
-mov esi, dword [ref_00498e84]  ; mov esi, dword [0x498e84]
+mov esi, dword [_rich4_land_info_ptr]  ; mov esi, dword [0x498e84]
 add esi, eax
 mov bl, byte [esi + 0x19]
 test ebx, ebx
 je short loc_004432ce  ; je 0x4432ce
 xor eax, eax
 mov ax, word [esi + 0x1c]
-mov ebp, dword [ref_004990e8]  ; mov ebp, dword [0x4990e8]
+mov ebp, dword [_rich4_price_index]  ; mov ebp, dword [0x4990e8]
 imul eax, ebp
 mov dword [esp], eax
 fild dword [esp]
@@ -115,7 +115,7 @@ push 1
 push edi
 mov ebx, dword [_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
-call fcn_0043bde5  ; call 0x43bde5
+call _rich4_ui_auction_entry  ; call 0x43bde5
 add esp, 0xc
 test eax, eax
 jne short loc_0044336b  ; jne 0x44336b
@@ -141,7 +141,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov esi, dword [ref_00498e88]  ; mov esi, dword [0x498e88]
+mov esi, dword [_rich4_facility_info_ptr]  ; mov esi, dword [0x498e88]
 add esi, eax
 xor ebx, ebx
 mov bl, byte [esi + 0x19]
@@ -149,7 +149,7 @@ test ebx, ebx
 je short loc_004433f7  ; je 0x4433f7
 xor eax, eax
 mov ax, word [esi + 0x22]
-mov ecx, dword [ref_004990e8]  ; mov ecx, dword [0x4990e8]
+mov ecx, dword [_rich4_price_index]  ; mov ecx, dword [0x4990e8]
 imul eax, ecx
 mov dword [esp], eax
 fild dword [esp]
@@ -216,7 +216,7 @@ push 1
 push edi
 mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
 push ecx
-call fcn_0043bde5  ; call 0x43bde5
+call _rich4_ui_auction_entry  ; call 0x43bde5
 add esp, 0xc
 test eax, eax
 jne near loc_0044336b  ; jne 0x44336b

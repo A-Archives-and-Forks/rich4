@@ -10,10 +10,10 @@ extern fcn_0040b110
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_00420eee
-extern fcn_00445aa2
+extern _rich4_after_player_use_tool
 extern fcn_00446ae8
 extern fcn_0045144f
-extern ref_0048a0e4
+extern _rich4_data_mkf
 
 global _rich4_use_tool_jiqigongren
 
@@ -55,7 +55,7 @@ je near loc_0044737d  ; je 0x44737d
 push 9
 mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
 push edi
-call fcn_00445aa2  ; call 0x445aa2
+call _rich4_after_player_use_tool  ; call 0x445aa2
 add esp, 8
 lea eax, [esp + 4]
 push eax
@@ -67,7 +67,7 @@ add esp, 0xc
 push 0
 push 0
 push 0x229
-mov ebp, dword [ref_0048a0e4]  ; mov ebp, dword [0x48a0e4]
+mov ebp, dword [_rich4_data_mkf]  ; mov ebp, dword [0x48a0e4]
 push ebp
 call _read_mkf  ; call 0x450441
 mov esi, eax

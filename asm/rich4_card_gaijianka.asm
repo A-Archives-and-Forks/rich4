@@ -6,9 +6,9 @@ extern _rich4_player_say
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00440aac
-extern ref_00498e80
-extern ref_00498e84
-extern ref_00498e88
+extern _rich4_map_node_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
 
 global _rich4_use_card_gaijianka
 
@@ -25,7 +25,7 @@ mov bx, word [edx + (_all_players_state + 12)]  ; mov bx, word [edx + 0x496b74]
 mov eax, ebx
 shl eax, 2
 add eax, ebx
-mov ebx, dword [ref_00498e80]  ; mov ebx, dword [0x498e80]
+mov ebx, dword [_rich4_map_node_ptr]  ; mov ebx, dword [0x498e80]
 mov ax, word [ebx + eax*8 + 0x20]
 and eax, 0xffff
 cmp eax, 0x7d0
@@ -34,7 +34,7 @@ cmp eax, 0xfa0
 jge short loc_00443147  ; jge 0x443147
 sub eax, 0x7d0
 imul eax, eax, 0x34
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 add ebx, eax
 cmp byte [ebx + 0x1a], 0
 je near loc_00443202  ; je 0x443202
@@ -76,7 +76,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 cmp byte [ebx + 0x1a], 0
 je near loc_00443202  ; je 0x443202

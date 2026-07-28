@@ -6,7 +6,7 @@ extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040d293
 extern fcn_0040df69
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_0044192a
@@ -76,7 +76,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00443eff:

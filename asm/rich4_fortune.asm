@@ -24,13 +24,13 @@ extern fcn_00436b0a
 extern fcn_0043d593
 extern fcn_0043ec3f
 extern fcn_00440cac
-extern fcn_00441210
-extern fcn_00441262
-extern fcn_004412e4
+extern _rich4_try_mianzui_jiahuo_card
+extern _rich4_player_card_num
+extern _rich4_receive_card
 extern fcn_0044192a
-extern fcn_00441e77
-extern fcn_00441f21
-extern fcn_00445b3f
+extern _rich4_player_drop_random_card
+extern _rich4_player_sell_all_the_card
+extern _rich4_player_sell_all_tools
 extern fcn_0044b896
 extern fcn_0044ba63
 extern fcn_0044bb4b
@@ -47,59 +47,7 @@ extern fcn_004562a5
 extern fcn_004563f5
 extern fcn_0045643d
 extern fcn_00456c0a
-extern fcn_00457dbc
-extern ref_00465915
-extern ref_0046592b
-extern ref_00465941
-extern ref_00465959
-extern ref_0046597a
-extern ref_004659a0
-extern ref_004659a4
-extern ref_004659c9
-extern ref_004659d8
-extern ref_004659ee
-extern ref_00465a04
-extern ref_00465a24
-extern ref_00465a28
-extern ref_00465a3e
-extern ref_00465a50
-extern ref_00465a66
-extern ref_00465a7c
-extern ref_00465a94
-extern ref_00465aae
-extern ref_00465acd
-extern ref_00465ae3
-extern ref_00465b00
-extern ref_00465b16
-extern ref_00465b35
-extern ref_00465b49
-extern ref_00465b5d
-extern ref_00465b71
-extern ref_00465b87
-extern ref_00465b9d
-extern ref_00465bb3
-extern ref_00465bc7
-extern ref_00465bd9
-extern ref_00465beb
-extern ref_00465bfd
-extern ref_00465c0f
-extern ref_00465c23
-extern ref_00465c39
-extern ref_00465c53
-extern ref_00465c69
-extern ref_00465c7f
-extern ref_00465c97
-extern ref_00465cb1
-extern ref_00465ccb
-extern ref_00465ce5
-extern ref_00465cfb
-extern ref_00465d17
-extern ref_00465d2d
-extern ref_00465d43
-extern ref_00465d59
-extern ref_00465d73
-extern ref_00465d89
-extern ref_00465da3
+extern __round_toward_zero
 extern ref_0046caf8
 extern ref_00474938
 extern ref_00475ef0
@@ -107,24 +55,23 @@ extern ref_00475fb4
 extern ref_0048084a
 extern ref_00480856
 extern ref_0048085e
-extern ref_0048a05c
+extern _rich4_panel_mkf
 extern ref_0048a068
 extern ref_0048a08c
-extern ref_0048a0dc
-extern ref_0048a0e0
-extern ref_0048a0e4
+extern _g_ddraw_sf1_ptr
+extern _g_ddraw_sf2_ptr
+extern _rich4_data_mkf
 extern ref_0048c5b0
 extern ref_0048c5b4
 extern ref_0048c5b8
 extern ref_0048c5e0
 extern ref_00496b38
-extern ref_00497324
-extern ref_00497325
-extern ref_00498e84
-extern ref_00498e98
+extern _rich4_remain_tool_amount
+extern _rich4_land_info_ptr
+extern _rich4_num_lands
 extern ref_00498eb0
 extern ref_004990b4
-extern ref_004990e8
+extern _rich4_price_index
 extern ref_004991b8
 
 global fcn_0044db81
@@ -142,10 +89,10 @@ xor ebx, ebx
 mov eax, 1
 
 loc_0044be34:
-cmp eax, dword [ref_00498e98]  ; cmp eax, dword [0x498e98]
+cmp eax, dword [_rich4_num_lands]  ; cmp eax, dword [0x498e98]
 jg short loc_0044be65  ; jg 0x44be65
 imul edx, eax, 0x34
-mov ecx, dword [ref_00498e84]  ; mov ecx, dword [0x498e84]
+mov ecx, dword [_rich4_land_info_ptr]  ; mov ecx, dword [0x498e84]
 add edx, ecx
 xor ecx, ecx
 mov cl, byte [edx + 0x19]
@@ -194,7 +141,7 @@ jmp near loc_0044bfa7  ; jmp 0x44bfa7
 
 loc_0044becf:
 imul ebx, dword [ref_0048c5b0], 0x34  ; imul ebx, dword [0x48c5b0], 0x34
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
 add ebx, eax
 push 2
 movsx eax, word [ebx + 2]
@@ -277,10 +224,10 @@ xor ebx, ebx
 mov eax, 1
 
 loc_0044bfcf:
-cmp eax, dword [ref_00498e98]  ; cmp eax, dword [0x498e98]
+cmp eax, dword [_rich4_num_lands]  ; cmp eax, dword [0x498e98]
 jg short loc_0044c000  ; jg 0x44c000
 imul edx, eax, 0x34
-mov ecx, dword [ref_00498e84]  ; mov ecx, dword [0x498e84]
+mov ecx, dword [_rich4_land_info_ptr]  ; mov ecx, dword [0x498e84]
 add edx, ecx
 xor ecx, ecx
 mov cl, byte [edx + 0x19]
@@ -329,7 +276,7 @@ jmp near loc_0044bfa7  ; jmp 0x44bfa7
 
 loc_0044c067:
 imul ebx, dword [ref_0048c5b0], 0x34  ; imul ebx, dword [0x48c5b0], 0x34
-mov eax, dword [ref_00498e84]  ; mov eax, dword [0x498e84]
+mov eax, dword [_rich4_land_info_ptr]  ; mov eax, dword [0x498e84]
 add ebx, eax
 push 2
 movsx eax, word [ebx + 2]
@@ -371,7 +318,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x8c], 0
 jne near loc_0044c180  ; jne 0x44c180
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -573,7 +520,7 @@ cmp dword [eax + (_all_players_state + 32)], 0  ; cmp dword [eax + 0x496b88], 0
 je short loc_0044c3ab  ; je 0x44c3ab
 fild dword [eax + (_all_players_state + 32)]  ; fild dword [eax + 0x496b88]
 fmul dword [esp + 0x84]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x80]
 push 4
 mov eax, dword [esp + 0x84]
@@ -637,7 +584,7 @@ imul esi, ebx, 0x68
 cmp byte [esi + (_all_players_state + 21)], 0  ; cmp byte [esi + 0x496b7d], 0
 je near loc_0044c575  ; je 0x44c575
 push ebx
-call fcn_00441262  ; call 0x441262
+call _rich4_player_card_num  ; call 0x441262
 add esp, 4
 test eax, eax
 je near loc_0044c575  ; je 0x44c575
@@ -647,12 +594,12 @@ mov dl, byte [eax + (_all_players_state + 21)]  ; mov dl, byte [eax + 0x496b7d]
 cmp dl, 1
 jbe short loc_0044c48b  ; jbe 0x44c48b
 push ebx
-call fcn_00441e77  ; call 0x441e77
+call _rich4_player_drop_random_card  ; call 0x441e77
 add esp, 4
 push eax
 mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
 push ecx
-call fcn_004412e4  ; call 0x4412e4
+call _rich4_receive_card  ; call 0x4412e4
 add esp, 8
 jmp near loc_0044c573  ; jmp 0x44c573
 
@@ -665,7 +612,7 @@ push 0xf0f0f0
 push 0x14
 call _rich4_create_font  ; call 0x44f9d8
 add esp, 0x14
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edi, dword [eax]
 push 0
 push 1
@@ -694,7 +641,7 @@ push eax
 push 0
 call _rich4_draw_text  ; call 0x44fabc
 add esp, 0x14
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov esi, dword [eax]
 push 0
 push eax
@@ -705,7 +652,7 @@ push eax
 push ebx
 call fcn_0044192a  ; call 0x44192a
 add esp, 0xc
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov esi, dword [eax]
 push 0
 push 1
@@ -726,7 +673,7 @@ mov edx, dword [ref_0048a08c]  ; mov edx, dword [0x48a08c]
 push edx
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov esi, dword [eax]
 push 0
 push eax
@@ -847,7 +794,7 @@ mov dword [ref_0048c5b4], esi  ; mov dword [0x48c5b4], esi
 loc_0044c6be:
 mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
 push edi
-call fcn_00441210  ; call 0x441210
+call _rich4_try_mianzui_jiahuo_card  ; call 0x441210
 add esp, 4
 cmp eax, 0xffffffff
 je near loc_0044d3d1  ; je 0x44d3d1
@@ -932,7 +879,7 @@ mov dword [ref_0048c5b4], esi  ; mov dword [0x48c5b4], esi
 loc_0044c7d0:
 mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
 push edi
-call fcn_00441210  ; call 0x441210
+call _rich4_try_mianzui_jiahuo_card  ; call 0x441210
 add esp, 4
 cmp eax, 0xffffffff
 je near loc_0044d3d1  ; je 0x44d3d1
@@ -1012,7 +959,7 @@ shl edx, 5
 mov eax, ebx
 fild dword [edx + eax*8 + _player_stocks]  ; fild dword [edx + eax*8 + 0x4971a0]
 fmul dword [esp + 0x84]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x80]
 push 0
 mov esi, dword [esp + 0x84]
@@ -1235,7 +1182,7 @@ mov ebp, dword [_current_player]  ; mov ebp, dword [0x49910c]
 push ebp
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
-inc byte [ref_00497324]  ; inc byte [0x497324]
+inc byte [(_rich4_remain_tool_amount + 4)]  ; inc byte [0x497324]
 pop ebp
 pop edi
 pop ebx
@@ -1324,7 +1271,7 @@ push 2
 push edi
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
-inc byte [ref_00497325]  ; inc byte [0x497325]
+inc byte [(_rich4_remain_tool_amount + 5)]  ; inc byte [0x497325]
 pop ebp
 pop edi
 pop ebx
@@ -1407,7 +1354,7 @@ mov dword [ref_0048c5b4], esi  ; mov dword [0x48c5b4], esi
 loc_0044cd3a:
 mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
 push edi
-call fcn_00441210  ; call 0x441210
+call _rich4_try_mianzui_jiahuo_card  ; call 0x441210
 mov ebx, eax
 add esp, 4
 cmp eax, 0xffffffff
@@ -1443,7 +1390,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne near loc_0044ce35  ; jne 0x44ce35
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1569,7 +1516,7 @@ jmp near loc_0044d800  ; jmp 0x44d800
 loc_0044cf4d:
 cmp dword [esp + 0x94], 0
 jne near loc_0044cfdf  ; jne 0x44cfdf
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1676,7 +1623,7 @@ jmp near loc_0044d800  ; jmp 0x44d800
 loc_0044d09c:
 cmp dword [esp + 0x94], 0
 jne near loc_0044cfdf  ; jne 0x44cfdf
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1699,7 +1646,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne near loc_0044d172  ; jne 0x44d172
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1765,7 +1712,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne short loc_0044d172  ; jne 0x44d172
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -1786,7 +1733,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne near loc_0044d172  ; jne 0x44d172
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1808,7 +1755,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne short loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1899,7 +1846,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne near loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1956,7 +1903,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne near loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -1979,7 +1926,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne near loc_0044d172  ; jne 0x44d172
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2002,7 +1949,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne near loc_0044d172  ; jne 0x44d172
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2024,7 +1971,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne near loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -2046,7 +1993,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne near loc_0044d172  ; jne 0x44d172
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2068,7 +2015,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne near loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2090,7 +2037,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne near loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2112,7 +2059,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne near loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2135,7 +2082,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x94], 0
 jne near loc_0044d172  ; jne 0x44d172
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -2156,7 +2103,7 @@ push ebp
 sub esp, 0x80
 cmp dword [esp + 0x90], 0
 jne near loc_0044d2a9  ; jne 0x44d2a9
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -2228,13 +2175,13 @@ loc_0044d70e:
 mov esi, dword [_current_player]  ; mov esi, dword [0x49910c]
 imul ebx, esi, 0x68
 push esi
-call fcn_00445b3f  ; call 0x445b3f
+call _rich4_player_sell_all_tools  ; call 0x445b3f
 add esp, 4
 add word [ebx + (_all_players_state + 48)], ax  ; add word [ebx + 0x496b98], ax
 mov ebp, dword [_current_player]  ; mov ebp, dword [0x49910c]
 imul ebx, ebp, 0x68
 push ebp
-call fcn_00441f21  ; call 0x441f21
+call _rich4_player_sell_all_the_card  ; call 0x441f21
 add esp, 4
 add word [ebx + (_all_players_state + 48)], ax  ; add word [ebx + 0x496b98], ax
 mov edx, dword [_current_player]  ; mov edx, dword [0x49910c]
@@ -2358,7 +2305,7 @@ mov dword [ref_0048c5b4], esi  ; mov dword [0x48c5b4], esi
 loc_0044d8a2:
 mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
 push edi
-call fcn_00441210  ; call 0x441210
+call _rich4_try_mianzui_jiahuo_card  ; call 0x441210
 add esp, 4
 cmp eax, 0xffffffff
 je near loc_0044d800  ; je 0x44d800
@@ -2590,7 +2537,7 @@ sub esp, 0x14
 push 0
 push 0
 push 0x42
-mov edx, dword [ref_0048a05c]  ; mov edx, dword [0x48a05c]
+mov edx, dword [_rich4_panel_mkf]  ; mov edx, dword [0x48a05c]
 push edx
 call _read_mkf  ; call 0x450441
 add esp, 0x10
@@ -2632,7 +2579,7 @@ mov edx, dword [ebx + 8]
 push edx
 movsx eax, word [eax + ref_00475fb4]  ; movsx eax, word [eax + 0x475fb4]
 push eax
-mov ecx, dword [ref_0048a0e4]  ; mov ecx, dword [0x48a0e4]
+mov ecx, dword [_rich4_data_mkf]  ; mov ecx, dword [0x48a0e4]
 push ecx
 call _read_mkf  ; call 0x450441
 add esp, 0x10
@@ -2656,7 +2603,7 @@ push esi
 movsx esi, word [ref_004991b8]  ; movsx esi, word [0x4991b8]
 movsx eax, word [eax + esi*8 + ref_00475fb4]  ; movsx eax, word [eax + esi*8 + 0x475fb4]
 push eax
-mov eax, dword [ref_0048a0e4]  ; mov eax, dword [0x48a0e4]
+mov eax, dword [_rich4_data_mkf]  ; mov eax, dword [0x48a0e4]
 push eax
 call _read_mkf  ; call 0x450441
 add esp, 0x10
@@ -2692,7 +2639,7 @@ mov dword [ref_004990b4], edx  ; mov dword [0x4990b4], edx
 loc_0044dcc4:
 test edi, edi
 je near loc_0044dbba  ; je 0x44dbba
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov ebx, dword [eax]
 push 0
 push 1
@@ -2709,7 +2656,7 @@ mov ecx, dword [ref_0048a08c]  ; mov ecx, dword [0x48a08c]
 push ecx
 call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov ebx, dword [eax]
 push 0
 push eax
@@ -2719,12 +2666,12 @@ mov dword [esp], ebx
 mov dword [esp + 4], ebx
 mov dword [esp + 8], 0x1b8
 mov dword [esp + 0xc], 0x1e0
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov ebx, dword [eax]
 push 0x10
 lea esi, [esp + 4]
 push esi
-mov edx, dword [ref_0048a0e0]  ; mov edx, dword [0x48a0e0]
+mov edx, dword [_g_ddraw_sf2_ptr]  ; mov edx, dword [0x48a0e0]
 push edx
 push 0
 push 0
@@ -2764,6 +2711,535 @@ pop ebx
 ret
 
 section .data
+
+ref_00465915:
+db 0x23
+db 0x30
+db 0x31
+dd 0x6ab13538
+dd 0xeea9eea8
+dd 0xd0a9a3b0
+dd 0x40a4ceab
+db 0xb4
+db 0xc9
+db 0x00
+
+ref_0046592b:
+db 0x23
+dd 0x36383130
+dd 0xeea86ab1
+dd 0xaca678bc
+dd 0x61a667a4
+dd 0x42b340a4
+db 0x00
+
+ref_00465941:
+db 0x23
+db 0x30
+db 0x31
+dd 0x48a43738
+dd 0x51b359c0
+dd 0xcea573b5
+dd 0x55b65fab
+dd 0xb8a46425
+db 0x00
+
+ref_00465959:
+db 0x23
+db 0x30
+db 0x31
+dd 0xe4a43838
+dd 0xf5b8bcb2
+dd 0xbb0abcb2
+dd 0xa9e6a6c8
+dd 0xa9b4b5da
+dd 0xa4d3a8b9
+dd 0xa4d3ad40
+db 0xeb
+db 0x00
+
+ref_0046597a:
+db 0x23
+db 0x30
+dd 0xab393831
+dd 0xbb4aa449
+dd 0xb9e6a6c8
+dd 0x0aa3b871
+dd 0xcea5bfae
+dd 0x4ca5e4a8
+dd 0x73a648a4
+dd 0x6425dab4
+dd 0x000048a2
+
+ref_004659a0:
+dd 0x42c80000
+
+ref_004659a4:
+dd 0x39313023
+dd 0xa4b5a430
+dd 0xa74facd1
+dd 0xa4cda541
+dd 0x56a60ae9
+dd 0x48a443a8
+dd 0xfaa8aca6
+dd 0x69b140a4
+dd 0xf9a464a5
+db 0x00
+
+ref_004659c9:
+db 0xa6
+db 0x56
+db 0x25
+dd 0xa4aca673
+dd 0xa569b140
+dd 0x00f9a464
+
+ref_004659d8:
+dd 0x39313023
+dd 0xad6ab131
+dd 0xb058a5a2
+dd 0xa55bc6ea
+dd 0xa46425fa
+db 0xd1
+db 0x00
+
+ref_004659ee:
+db 0x23
+db 0x30
+dd 0xb3323931
+dd 0xac7ea551
+dd 0xb848a450
+dd 0x255bac6a
+dd 0x00d1a464
+
+ref_00465a04:
+dd 0x39313023
+dd 0xb2d1aa33
+dd 0xac48b9bc
+dd 0xb3e6a5f9
+dd 0xa56cb7ce
+dd 0xb2d1aaa2
+dd 0xa26425bc
+dd 0x00000048
+
+ref_00465a24:
+dd 0x42c80000
+
+ref_00465a28:
+dd 0x39313023
+dd 0xbddcc534
+dd 0xa6d2a9e6
+dd 0xb2d1aab3
+dd 0xb244a8bc
+db 0x7b
+db 0x00
+
+ref_00465a3e:
+db 0x23
+db 0x30
+dd 0xbe353931
+dd 0xb3aea8f7
+dd 0xbfbdb051
+dd 0x00a2a5f2
+
+ref_00465a50:
+dd 0x39313023
+dd 0xa854a836
+dd 0xb9b2bcae
+dd 0xb175bd71
+dd 0xb7fea5ec
+db 0xb4
+db 0x00
+
+ref_00465a66:
+db 0x23
+db 0x30
+dd 0xb1373931
+dd 0xa469b6bc
+dd 0xb4beb7f4
+dd 0x25e5c24e
+dd 0x00d1a464
+
+ref_00465a7c:
+dd 0x39313023
+dd 0xbe4dc338
+dd 0xbaaea8f7
+dd 0xa6cbb64c
+dd 0x257cb0ed
+dd 0x00d1a464
+
+ref_00465a94:
+dd 0x39313023
+dd 0xa4e6a639
+dd 0xb6f4c248
+dd 0xb8a8b056
+dd 0xb440bbf4
+dd 0xa46425da
+db 0xb8
+db 0x00
+
+ref_00465aae:
+db 0x23
+db 0x30
+dd 0xc3303032
+dd 0xa8f7be4d
+dd 0xc0bca5ae
+dd 0xa577a6b9
+dd 0x0a55b4fe
+dd 0xdab440bb
+dd 0xb8a46425
+db 0x00
+
+ref_00465acd:
+db 0x23
+db 0x30
+db 0x32
+dd 0x54a83130
+dd 0x57b6aea8
+dd 0x40bb74b3
+dd 0x6425dab4
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465ae3:
+db 0x23
+dd 0x32303230
+dd 0xd2a9d0bd
+dd 0x48a4b3a6
+dd 0x6aa459a6
+dd 0xaa0a5cc0
+dd 0x254fb6e1
+dd 0x00b8a464
+
+ref_00465b00:
+dd 0x30323023
+dd 0xa5c3b633
+dd 0xa755a9e1
+dd 0xb440bba3
+dd 0xa46425da
+db 0xb8
+db 0x00
+
+ref_00465b16:
+db 0x23
+db 0x30
+dd 0xa7343032
+dd 0xa461ae41
+dd 0xb6afaa70
+dd 0xa46aa4c3
+dd 0x0a4bab70
+dd 0xdab440bb
+dd 0xb8a46425
+db 0x00
+
+ref_00465b35:
+db 0x23
+db 0x30
+db 0x32
+dd 0x62a63530
+dd 0xe4c3f4b8
+dd 0xeca8dfbe
+dd 0xb8a46425
+db 0x00
+
+ref_00465b49:
+db 0x23
+db 0x30
+db 0x32
+dd 0x62a63630
+dd 0xe4c3f4b8
+dd 0xeca8dfbe
+dd 0xb8a46425
+db 0x00
+
+ref_00465b5d:
+db 0x23
+db 0x30
+db 0x32
+dd 0x62a63730
+dd 0xe4c3f4b8
+dd 0xeca8dfbe
+dd 0xb8a46425
+db 0x00
+
+ref_00465b71:
+db 0x23
+db 0x30
+db 0x32
+dd 0xf2bf3830
+dd 0xfabfa2a5
+dd 0x6cb75da5
+dd 0x6425a2a5
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465b87:
+db 0x23
+dd 0x39303230
+dd 0xa2a5f2bf
+dd 0x5da5fabf
+dd 0xa2a56cb7
+dd 0xb8a46425
+db 0x00
+
+ref_00465b9d:
+db 0x23
+db 0x30
+db 0x32
+dd 0x4eb73031
+dd 0xf2c07ea5
+dd 0xf2bf6fb1
+dd 0x6425a3b2
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465bb3:
+db 0x23
+dd 0x31313230
+dd 0xcbad51b3
+dd 0x6cb77cb7
+dd 0x6425a2a5
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465bc7:
+db 0x23
+dd 0x32313230
+dd 0xbcb26fb5
+dd 0xfabca4a4
+dd 0xb8a46425
+db 0x00
+
+ref_00465bd9:
+db 0x23
+db 0x30
+db 0x32
+dd 0x6fb53331
+dd 0xa4a4bcb2
+dd 0x6425fabc
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465beb:
+db 0x23
+dd 0x34313230
+dd 0xbcb26fb5
+dd 0xfabca4a4
+dd 0xb8a46425
+db 0x00
+
+ref_00465bfd:
+db 0x23
+db 0x30
+db 0x32
+dd 0x49a53531
+dd 0x49c04fab
+dd 0x6425f7aa
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465c0f:
+db 0x23
+dd 0x36313230
+dd 0xfaa8e2bb
+dd 0x49c04fab
+dd 0x6425f7aa
+db 0xa4
+db 0xb8
+db 0x00
+
+ref_00465c23:
+db 0x23
+dd 0x37313230
+dd 0xe6bddcc5
+dd 0xb3a6d2a9
+dd 0xf9a464a5
+dd 0xe3a844b9
+db 0x00
+
+ref_00465c39:
+db 0x23
+db 0x30
+db 0x32
+dd 0x73b03831
+dd 0x6aa44bbe
+dd 0xb5c478be
+dd 0xa4a7bda7
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465c53:
+db 0x23
+dd 0x39313230
+dd 0xaac3bea8
+dd 0xc6a4b7ad
+dd 0x63a8a4a7
+dd 0xd1a46425
+db 0x00
+
+ref_00465c69:
+db 0x23
+db 0x30
+db 0x32
+dd 0xaba83032
+dd 0x72ac70a8
+dd 0xa4a77eab
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465c7f:
+db 0x23
+dd 0x31323230
+dd 0xe6bd63b3
+dd 0xc9b86aa4
+dd 0xa4a7aba9
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465c97:
+db 0x23
+dd 0x32323230
+dd 0x4bbe73b0
+dd 0x78be6aa4
+dd 0xbda7b5c4
+dd 0x63a8a4a7
+dd 0xd1a46425
+db 0x00
+
+ref_00465cb1:
+db 0x23
+db 0x30
+db 0x32
+dd 0x48b93332
+dd 0x45bb6baa
+dd 0xdca5b3b2
+dd 0xa4a7c2ab
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465ccb:
+db 0x23
+dd 0x34323230
+dd 0xb7ae79c2
+dd 0x7ca84fab
+dd 0xabaacab0
+dd 0x63a8a4a7
+dd 0xd1a46425
+db 0x00
+
+ref_00465ce5:
+db 0x23
+db 0x30
+db 0x32
+dd 0x73b53532
+dd 0xeab0e6bd
+dd 0xa4a75fc4
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465cfb:
+db 0x23
+dd 0x36323230
+dd 0x46c4a4bb
+dd 0xa8a6bca5
+dd 0xd6a47ea6
+dd 0xeba96ba4
+dd 0x6425d0a7
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465d17:
+db 0x23
+dd 0x37323230
+dd 0xaac3bea8
+dd 0xc6a4b7ad
+dd 0x63a8a4a7
+dd 0xd1a46425
+db 0x00
+
+ref_00465d2d:
+db 0x23
+db 0x30
+db 0x32
+dd 0xaba83832
+dd 0x72ac70a8
+dd 0xa4a77eab
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465d43:
+db 0x23
+dd 0x39323230
+dd 0xf1a949ac
+dd 0xf0ae72ac
+dd 0x63a8a4a7
+dd 0xd1a46425
+db 0x00
+
+ref_00465d59:
+db 0x23
+db 0x30
+db 0x32
+dd 0x44ab3033
+dd 0xf9ab6baa
+dd 0x6abab3a6
+dd 0xa4a7f1b1
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465d73:
+db 0x23
+dd 0x31333230
+dd 0xb4a5debc
+dd 0xfbadb5c4
+dd 0x63a8a4a7
+dd 0xd1a46425
+db 0x00
+
+ref_00465d89:
+db 0x23
+db 0x30
+db 0x32
+dd 0x79c23233
+dd 0x4fabb7ae
+dd 0xcab07ca8
+dd 0xa4a7abaa
+dd 0x642563a8
+db 0xa4
+db 0xd1
+db 0x00
+
+ref_00465da3:
+db 0x23
+dd 0x33333230
+dd 0xe6bd73b5
+dd 0x61aeeab0
+dd 0x4bb1f7be
+dd 0x63a8a4a7
+dd 0xd1a46425
+dd 0x00000000
+
 
 ref_00475ef0:  ; may contain a jump table
 dd fcn_0044be16

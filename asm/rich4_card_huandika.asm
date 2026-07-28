@@ -4,7 +4,7 @@ extern _current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040a4e1
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_0041e6f2
@@ -13,9 +13,9 @@ extern fcn_00451985
 extern fcn_0045285e
 extern fcn_00456c0a
 extern ref_00474938
-extern ref_00498e80
-extern ref_00498e84
-extern ref_00498e88
+extern _rich4_map_node_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
 
 global _rich4_use_card_huandika
 
@@ -34,7 +34,7 @@ mov cx, word [edx + (_all_players_state + 12)]  ; mov cx, word [edx + 0x496b74]
 mov eax, ecx
 shl eax, 2
 add eax, ecx
-mov esi, dword [ref_00498e80]  ; mov esi, dword [0x498e80]
+mov esi, dword [_rich4_map_node_ptr]  ; mov esi, dword [0x498e80]
 mov si, word [esi + eax*8 + 0x20]
 and esi, 0xffff
 cmp esi, 0x7d0
@@ -43,7 +43,7 @@ cmp esi, 0xfa0
 jge near loc_0044288c  ; jge 0x44288c
 lea eax, [esi - 0x7d0]
 imul eax, eax, 0x34
-mov edi, dword [ref_00498e84]  ; mov edi, dword [0x498e84]
+mov edi, dword [_rich4_land_info_ptr]  ; mov edi, dword [0x498e84]
 add edi, eax
 cmp byte [edx + (_all_players_state + 21)], 1  ; cmp byte [edx + 0x496b7d], 1
 jne short loc_00442691  ; jne 0x442691
@@ -76,7 +76,7 @@ call fcn_00456c0a  ; call 0x456c0a
 add esp, 0x10
 sub ebx, 0x7d0
 imul ebx, ebx, 0x34
-mov esi, dword [ref_00498e84]  ; mov esi, dword [0x498e84]
+mov esi, dword [_rich4_land_info_ptr]  ; mov esi, dword [0x498e84]
 add esi, ebx
 xor ebx, ebx
 mov bl, byte [edi + 0x19]
@@ -154,7 +154,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_004427bb:
@@ -248,7 +248,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edi, dword [ref_00498e88]  ; mov edi, dword [0x498e88]
+mov edi, dword [_rich4_facility_info_ptr]  ; mov edi, dword [0x498e88]
 add edi, eax
 imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 cmp byte [eax + (_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
@@ -285,7 +285,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov esi, dword [ref_00498e88]  ; mov esi, dword [0x498e88]
+mov esi, dword [_rich4_facility_info_ptr]  ; mov esi, dword [0x498e88]
 add esi, eax
 xor ebx, ebx
 mov bl, byte [edi + 0x19]
@@ -363,7 +363,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00442a09:

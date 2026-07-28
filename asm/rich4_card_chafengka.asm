@@ -4,13 +4,13 @@ extern _current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern _strcmp
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d476
 extern fcn_0041e6f2
 extern fcn_00446ae8
-extern ref_00498e84
-extern ref_00498e88
-extern ref_00498e98
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_num_lands
 
 global _rich4_use_card_chafengka
 
@@ -65,13 +65,13 @@ cmp ebp, 0xfa0
 jge near loc_0044569a  ; jge 0x44569a
 lea edi, [ebp - 0x7d0]
 imul edi, edi, 0x34
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 add edi, ebx
 mov esi, 1
 
 loc_0044563a:
 add ebx, 0x34
-cmp esi, dword [ref_00498e98]  ; cmp esi, dword [0x498e98]
+cmp esi, dword [_rich4_num_lands]  ; cmp esi, dword [0x498e98]
 jg short loc_00445660  ; jg 0x445660
 lea eax, [ebx + 4]
 push eax
@@ -114,7 +114,7 @@ mov ebx, eax
 shl eax, 3
 sub eax, ebx
 mov ebx, eax
-mov eax, dword [ref_00498e88]  ; mov eax, dword [0x498e88]
+mov eax, dword [_rich4_facility_info_ptr]  ; mov eax, dword [0x498e88]
 add eax, ebx
 mov byte [eax + 0x1c], 0x51
 cmp byte [eax + 0x18], 4
@@ -139,7 +139,7 @@ mov ax, word [ebx + (_all_players_state + 8)]  ; mov ax, word [ebx + 0x496b70]
 loc_00445573:
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_0044557e:

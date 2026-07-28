@@ -12,9 +12,9 @@ extern _libc_malloc
 extern _libc_sprintf
 extern _libc_srand
 extern _player_stocks
-extern fcn_00401543
-extern fcn_00407ad2
-extern fcn_004080f5
+extern _rich4_show_loading_scene
+extern _rich4_load_map
+extern _rich4_unload_map
 extern _rich4_create_font
 extern _rich4_draw_text
 extern fcn_004563f5
@@ -28,7 +28,7 @@ extern ref_0047493c
 extern ref_0047e80c
 extern ref_0048a068
 extern ref_0048a08c
-extern ref_0048a0e0
+extern _g_ddraw_sf2_ptr
 extern ref_0048a188
 extern ref_0048a19b
 extern ref_0048a328
@@ -46,19 +46,19 @@ extern ref_00496b38
 extern ref_00496b60
 extern _all_players_state
 extern ref_00496d08
-extern ref_00497320
+extern _rich4_remain_tool_amount
 extern ref_00497328
-extern ref_00498e28
+extern _all_special_players_state
 extern ref_00498e78
-extern ref_00498e7c
-extern ref_00498e80
-extern ref_00498e84
-extern ref_00498e88
-extern ref_00498e8c
-extern ref_00498e90
+extern _rich4_on_map_commercial_ptr
+extern _rich4_map_node_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_num_facilities
+extern _rich4_num_on_map_commercials
 extern ref_00498e94
-extern ref_00498e98
-extern ref_00498e9c
+extern _rich4_num_lands
+extern _rich4_num_map_nodes
 extern ref_00498ea0
 extern ref_00499074
 extern ref_00499078
@@ -66,28 +66,28 @@ extern ref_0049907c
 extern ref_00499080
 extern ref_00499084
 extern ref_00499088
-extern ref_0049908c
+extern _rich4_game_initial_fund
 extern ref_00499090
 extern ref_004990b4
 extern ref_004990b8
 extern ref_004990dc
 extern ref_004990e0
 extern ref_004990e4
-extern ref_004990e8
+extern _rich4_price_index
 extern ref_004990ec
 extern ref_004990f0
 extern ref_004990f4
 extern ref_00499100
-extern ref_00499104
+extern _num_human_players
 extern ref_00499108
 extern _current_player
 extern ref_00499110
 extern _num_players
 extern ref_00499118
 extern ref_0049911c
-extern ref_00499120
-extern ref_0049915c
-extern ref_00499198
+extern _player_cards
+extern _player_tool_amount
+extern _rich4_remain_card_amount
 extern ref_004991b6
 extern ref_004991b8
 
@@ -120,10 +120,10 @@ add esp, 8
 mov edi, eax
 test eax, eax
 je near loc_00402fbe  ; je 0x402fbe
-call fcn_00401543  ; call 0x401543
+call _rich4_show_loading_scene  ; call 0x401543
 call dword [cs:__imp__timeGetTime@0]  ; ucall: call dword cs:[0x46246c]
 mov ebp, eax
-call fcn_004080f5  ; call 0x4080f5
+call _rich4_unload_map  ; call 0x4080f5
 push esi
 push 4
 push ebx
@@ -162,7 +162,7 @@ add esp, 0x10
 push ebx
 push 1
 push 4
-push ref_00499104  ; push 0x499104
+push _num_human_players  ; push 0x499104
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 xor ebx, ebx
@@ -184,7 +184,7 @@ loc_00402bb7:
 push edi
 push 5
 push 0x10
-push ref_00498e28  ; push 0x498e28
+push _all_special_players_state  ; push 0x498e28
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
@@ -196,25 +196,25 @@ add esp, 0x10
 push edi
 push 0x3c
 push 1
-push ref_00499120  ; push 0x499120
+push _player_cards  ; push 0x499120
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
 push 0x3c
 push 1
-push ref_0049915c  ; push 0x49915c
+push _player_tool_amount  ; push 0x49915c
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
 push 0x1e
 push 1
-push ref_00499198  ; push 0x499198
+push _rich4_remain_card_amount  ; push 0x499198
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
 push 8
 push 1
-push ref_00497320  ; push 0x497320
+push _rich4_remain_tool_amount  ; push 0x497320
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
@@ -304,13 +304,13 @@ add esp, 0x10
 push edi
 push 1
 push 4
-push ref_0049908c  ; push 0x49908c
+push _rich4_game_initial_fund  ; push 0x49908c
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
 push 1
 push 4
-push ref_004990e8  ; push 0x4990e8
+push _rich4_price_index  ; push 0x4990e8
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
@@ -435,25 +435,25 @@ call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 mov eax, dword [ref_0047493c]  ; mov eax, dword [0x47493c]
 mov edx, dword [eax]
-mov dword [ref_00498e9c], edx  ; mov dword [0x498e9c], edx
+mov dword [_rich4_num_map_nodes], edx  ; mov dword [0x498e9c], edx
 mov edx, dword [eax + 4]
 lea ebx, [eax + edx]
-mov dword [ref_00498e80], ebx  ; mov dword [0x498e80], ebx
+mov dword [_rich4_map_node_ptr], ebx  ; mov dword [0x498e80], ebx
 mov edx, dword [eax + 8]
-mov dword [ref_00498e98], edx  ; mov dword [0x498e98], edx
+mov dword [_rich4_num_lands], edx  ; mov dword [0x498e98], edx
 mov edx, dword [eax + 0xc]
 lea ebx, [eax + edx]
-mov dword [ref_00498e84], ebx  ; mov dword [0x498e84], ebx
+mov dword [_rich4_land_info_ptr], ebx  ; mov dword [0x498e84], ebx
 mov edx, dword [eax + 0x10]
-mov dword [ref_00498e8c], edx  ; mov dword [0x498e8c], edx
+mov dword [_rich4_num_facilities], edx  ; mov dword [0x498e8c], edx
 mov edx, dword [eax + 0x14]
 lea ebx, [eax + edx]
-mov dword [ref_00498e88], ebx  ; mov dword [0x498e88], ebx
+mov dword [_rich4_facility_info_ptr], ebx  ; mov dword [0x498e88], ebx
 mov edx, dword [eax + 0x18]
-mov dword [ref_00498e90], edx  ; mov dword [0x498e90], edx
+mov dword [_rich4_num_on_map_commercials], edx  ; mov dword [0x498e90], edx
 mov edx, dword [eax + 0x1c]
 lea ebx, [eax + edx]
-mov dword [ref_00498e7c], ebx  ; mov dword [0x498e7c], ebx
+mov dword [_rich4_on_map_commercial_ptr], ebx  ; mov dword [0x498e7c], ebx
 mov edx, dword [eax + 0x20]
 mov dword [ref_00499074], edx  ; mov dword [0x499074], edx
 mov edx, dword [eax + 0x24]
@@ -500,7 +500,7 @@ inc ebx
 jmp short loc_00402f1b  ; jmp 0x402f1b
 
 loc_00402f86:
-call fcn_00407ad2  ; call 0x407ad2
+call _rich4_load_map  ; call 0x407ad2
 imul eax, dword [_current_player], 0x34  ; imul eax, dword [0x49910c], 0x34
 or byte [eax + ref_00498ea0], 0x80  ; or byte [eax + 0x498ea0], 0x80
 call dword [cs:__imp__GetTickCount@0]  ; ucall: call dword cs:[0x4623cc]
@@ -587,13 +587,13 @@ add esp, 0x10
 push ebx
 push 1
 push 4
-push ref_00499104  ; push 0x499104
+push _num_human_players  ; push 0x499104
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
 push 5
 push 0x10
-push ref_00498e28  ; push 0x498e28
+push _all_special_players_state  ; push 0x498e28
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
@@ -605,25 +605,25 @@ add esp, 0x10
 push ebx
 push 0x3c
 push 1
-push ref_00499120  ; push 0x499120
+push _player_cards  ; push 0x499120
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
 push 0x3c
 push 1
-push ref_0049915c  ; push 0x49915c
+push _player_tool_amount  ; push 0x49915c
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
 push 0x1e
 push 1
-push ref_00499198  ; push 0x499198
+push _rich4_remain_card_amount  ; push 0x499198
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
 push 8
 push 1
-push ref_00497320  ; push 0x497320
+push _rich4_remain_tool_amount  ; push 0x497320
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
@@ -689,13 +689,13 @@ add esp, 0x10
 push ebx
 push 1
 push 4
-push ref_0049908c  ; push 0x49908c
+push _rich4_game_initial_fund  ; push 0x49908c
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
 push 1
 push 4
-push ref_004990e8  ; push 0x4990e8
+push _rich4_price_index  ; push 0x4990e8
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
@@ -865,7 +865,7 @@ push esi
 push edi
 push ebp
 sub esp, 0x38
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -882,7 +882,7 @@ mov edx, dword [ref_0048a08c]  ; mov edx, dword [0x48a08c]
 push edx
 call fcn_00456418  ; call 0x456418
 add esp, 0x10
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -931,7 +931,7 @@ push 0xf0f0f0
 push 0x10
 call _rich4_create_font  ; call 0x44f9d8
 add esp, 0x14
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -1053,7 +1053,7 @@ add esi, 0x48
 jmp short loc_00403588  ; jmp 0x403588
 
 loc_004035c9:
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax

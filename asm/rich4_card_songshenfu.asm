@@ -4,7 +4,7 @@ extern _current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040e14d
-extern fcn_0040e32c
+extern _rich4_detach_god
 extern ref_00496d08
 
 global _rich4_use_card_songshenfu
@@ -57,7 +57,7 @@ jne short loc_00444cd3  ; jne 0x444cd3
 loc_00444cbd:
 mov ebx, dword [_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
-call fcn_0040e32c  ; call 0x40e32c
+call _rich4_detach_god  ; call 0x40e32c
 add esp, 4
 mov ebx, 1
 jmp short loc_00444cdb  ; jmp 0x444cdb

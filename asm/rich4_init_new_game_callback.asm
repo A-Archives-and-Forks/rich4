@@ -8,6 +8,7 @@ extern __imp__PostMessageA@16
 extern __imp__SetTimer@16
 extern __imp__ValidateRect@8
 extern _callbackSize
+extern _libc_free
 extern _libc_rand
 extern _memcpy
 extern _memset
@@ -17,10 +18,8 @@ extern fcn_0040235d
 extern fcn_00402460
 extern fcn_004024c0
 extern fcn_0040423c
-extern fcn_00404504
+extern _rich4_draw_game_config_menu
 extern fcn_0040482c
-extern fcn_00404d0a
-extern fcn_00404d82
 extern fcn_004542ce
 extern fcn_004552b7
 extern fcn_00456180
@@ -51,13 +50,11 @@ extern ref_0048231a
 extern ref_00482322
 extern ref_0048a068
 extern ref_0048a08c
-extern ref_0048a0dc
-extern ref_0048a0e0
+extern _g_ddraw_sf1_ptr
+extern _g_ddraw_sf2_ptr
 extern ref_0048a354
 extern ref_0048a358
-extern ref_0048a35c
-extern ref_0048a360
-extern ref_0048a364
+global _rich4_player_selection_info
 extern ref_0048a390
 extern ref_0048a394
 extern ref_0048a398
@@ -65,7 +62,7 @@ extern ref_0048a39c
 extern ref_0048a3a0
 extern ref_0048a3a4
 extern ref_0048a3ac
-extern ref_0048a3b0
+extern _rich4_jump_mkf
 extern ref_0048a3b4
 extern ref_0048a3b8
 extern ref_0048a3c4
@@ -93,8 +90,123 @@ extern ref_004990f4
 extern ref_004991b6
 
 global _rich4_init_new_game_callback
+global _rich4_select_nth_player
+global ref_0046cb44
 
 section .text
+
+_rich4_select_nth_player:
+push ebx
+push esi
+push edi
+push ebp
+mov ebx, dword [esp + 0x18]
+mov eax, ebx
+shl eax, 2
+sub eax, ebx
+add eax, dword [ref_0046cb44]  ; add eax, dword [0x46cb44]
+lea esi, [eax + 9]
+mov ebx, dword [esp + 0x14]
+mov eax, ebx
+shl eax, 2
+sub eax, ebx
+shl eax, 2
+mov ecx, dword [eax + (_rich4_player_selection_info + 8)]  ; mov ecx, dword [eax + 0x48a364]
+test ecx, ecx
+je short loc_00404d43  ; je 0x404d43
+push ecx
+call _libc_free  ; call 0x456e11
+add esp, 4
+
+loc_00404d43:
+mov ebx, dword [esp + 0x14]
+mov eax, ebx
+shl eax, 2
+sub eax, ebx
+mov ebx, eax
+shl ebx, 2
+mov eax, dword [esp + 0x18]
+mov dword [ebx + _rich4_player_selection_info], eax  ; mov dword [ebx + 0x48a35c], eax
+xor edi, edi
+mov dword [ebx + (_rich4_player_selection_info + 4)], edi  ; mov dword [ebx + 0x48a360], edi
+push edi
+push edi
+push esi
+mov ebp, dword [_rich4_jump_mkf]  ; mov ebp, dword [0x48a3b0]
+push ebp
+call _read_mkf  ; call 0x450441
+add esp, 0x10
+mov dword [ebx + (_rich4_player_selection_info + 8)], eax  ; mov dword [ebx + 0x48a364], eax
+pop ebp
+pop edi
+pop esi
+pop ebx
+ret
+
+_rich4_remove_selected_player:
+push ebx
+push esi
+push edi
+push ebp
+mov ebp, dword [esp + 0x14]
+xor edi, edi
+xor ebx, ebx
+jmp short loc_00404dc5  ; jmp 0x404dc5
+
+loc_00404d90:
+test edi, edi
+je short loc_00404dbf  ; je 0x404dbf
+push 0xc
+push esi
+lea edx, [ebx - 1]
+mov eax, edx
+shl eax, 2
+sub eax, edx
+shl eax, 2
+add eax, _rich4_player_selection_info  ; add eax, 0x48a35c
+push eax
+call _memcpy  ; call 0x456de8
+add esp, 0xc
+push 0xc
+push 0
+push esi
+call _memset  ; call 0x456f60
+add esp, 0xc
+
+loc_00404dbf:
+inc ebx
+cmp ebx, 4
+jge short loc_00404e01  ; jge 0x404e01
+
+loc_00404dc5:
+mov eax, ebx
+shl eax, 2
+sub eax, ebx
+shl eax, 2
+mov esi, _rich4_player_selection_info  ; mov esi, 0x48a35c
+add esi, eax
+cmp ebp, dword [eax + _rich4_player_selection_info]  ; cmp ebp, dword [eax + 0x48a35c]
+jne short loc_00404d90  ; jne 0x404d90
+mov ecx, dword [eax + (_rich4_player_selection_info + 8)]  ; mov ecx, dword [eax + 0x48a364]
+push ecx
+call _libc_free  ; call 0x456e11
+add esp, 4
+push 0xc
+push 0
+push esi
+call _memset  ; call 0x456f60
+add esp, 0xc
+mov edi, 1
+jmp short loc_00404dbf  ; jmp 0x404dbf
+
+loc_00404e01:
+xor ah, ah
+mov byte [ebp + ref_004990f4], ah  ; mov byte [ebp + 0x4990f4], ah
+pop ebp
+pop edi
+pop esi
+pop ebx
+ret
 
 ref_00404e10:  ; may contain a jump table
 dd loc_00405339
@@ -160,14 +272,14 @@ mov byte [ref_0048a40f], bh  ; mov byte [0x48a40f], bh
 mov byte [ref_0048a40c], bh  ; mov byte [0x48a40c], bh
 mov byte [ref_0048a410], bh  ; mov byte [0x48a410], bh
 mov dword [ref_0048a3b4], ebp  ; mov dword [0x48a3b4], ebp
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov eax, dword [eax]
 push ecx
 push 1
 mov edx, ref_0048a068  ; mov edx, 0x48a068
 push edx
 push ecx
-mov ebx, dword [ref_0048a0e0]  ; mov ebx, dword [0x48a0e0]
+mov ebx, dword [_g_ddraw_sf2_ptr]  ; mov ebx, dword [0x48a0e0]
 push ebx
 call dword [eax + 0x64]  ; ucall
 push 0x96000
@@ -177,10 +289,10 @@ mov edi, dword [ref_0048a08c]  ; mov edi, dword [0x48a08c]
 push edi
 call _memcpy  ; call 0x456de8
 add esp, 0xc
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov eax, dword [eax]
 push 0
-mov edx, dword [ref_0048a0e0]  ; mov edx, dword [0x48a0e0]
+mov edx, dword [_g_ddraw_sf2_ptr]  ; mov edx, dword [0x48a0e0]
 push edx
 call dword [eax + 0x80]  ; ucall
 xor ebx, ebx
@@ -211,7 +323,7 @@ movsx eax, byte [ref_0048a410]  ; movsx eax, byte [0x48a410]
 push eax
 call fcn_0040423c  ; call 0x40423c
 add esp, 4
-call fcn_00404504  ; call 0x404504
+call _rich4_draw_game_config_menu  ; call 0x404504
 push 0
 push 0x64
 mov edx, dword [_callbackSize]  ; mov edx, dword [0x46cad8]
@@ -263,7 +375,7 @@ jl short loc_00405019  ; jl 0x405019
 mov dword [ref_0048a3c8], ecx  ; mov dword [0x48a3c8], ecx
 
 loc_00405019:
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -290,7 +402,7 @@ mov esi, ebx
 shl esi, 2
 sub esi, ebx
 shl esi, 2
-cmp dword [esi + ref_0048a364], 0  ; cmp dword [esi + 0x48a364], 0
+cmp dword [esi + (_rich4_player_selection_info + 8)], 0  ; cmp dword [esi + 0x48a364], 0
 je short loc_004050cb  ; je 0x4050cb
 push 0x1b8
 mov eax, dword [ref_0046cb3c]  ; mov eax, dword [0x46cb3c]
@@ -298,34 +410,34 @@ shl eax, 4
 mov edx, ebx
 mov ecx, dword [eax + edx*4 + ref_0046cb58]  ; mov ecx, dword [eax + edx*4 + 0x46cb58]
 push ecx
-mov edi, dword [esi + ref_0048a360]  ; mov edi, dword [esi + 0x48a360]
+mov edi, dword [esi + (_rich4_player_selection_info + 4)]  ; mov edi, dword [esi + 0x48a360]
 push edi
-mov eax, dword [esi + ref_0048a364]  ; mov eax, dword [esi + 0x48a364]
+mov eax, dword [esi + (_rich4_player_selection_info + 8)]  ; mov eax, dword [esi + 0x48a364]
 push eax
 mov edx, dword [ref_0048a08c]  ; mov edx, dword [0x48a08c]
 push edx
 call fcn_0045663e  ; call 0x45663e
 add esp, 0x14
-mov eax, dword [esi + ref_0048a364]  ; mov eax, dword [esi + 0x48a364]
+mov eax, dword [esi + (_rich4_player_selection_info + 8)]  ; mov eax, dword [esi + 0x48a364]
 mov eax, dword [eax + 4]
 dec eax
-mov ecx, dword [esi + ref_0048a360]  ; mov ecx, dword [esi + 0x48a360]
+mov ecx, dword [esi + (_rich4_player_selection_info + 4)]  ; mov ecx, dword [esi + 0x48a360]
 cmp eax, ecx
 jle short loc_004050c3  ; jle 0x4050c3
 lea eax, [ecx + 1]
-mov dword [esi + ref_0048a360], eax  ; mov dword [esi + 0x48a360], eax
+mov dword [esi + (_rich4_player_selection_info + 4)], eax  ; mov dword [esi + 0x48a360], eax
 jmp short loc_004050cb  ; jmp 0x4050cb
 
 loc_004050c3:
 xor edi, edi
-mov dword [esi + ref_0048a360], edi  ; mov dword [esi + 0x48a360], edi
+mov dword [esi + (_rich4_player_selection_info + 4)], edi  ; mov dword [esi + 0x48a360], edi
 
 loc_004050cb:
 inc ebx
 jmp near loc_0040504d  ; jmp 0x40504d
 
 loc_004050d1:
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -531,7 +643,7 @@ jge short loc_0040539e  ; jge 0x40539e
 mov byte [eax + ref_004990f4], 1  ; mov byte [eax + 0x4990f4], 1
 push eax
 push edx
-call fcn_00404d0a  ; call 0x404d0a
+call _rich4_select_nth_player  ; call 0x404d0a
 add esp, 8
 push 0
 push ref_00482322  ; push 0x482322
@@ -550,7 +662,7 @@ movsx eax, byte [ref_0048a410]  ; movsx eax, byte [0x48a410]
 cmp byte [eax + ref_004990f4], 1  ; cmp byte [eax + 0x4990f4], 1
 jne near loc_00404fdf  ; jne 0x404fdf
 push eax
-call fcn_00404d82  ; call 0x404d82
+call _rich4_remove_selected_player  ; call 0x404d82
 add esp, 4
 movsx eax, byte [ref_0048a410]  ; movsx eax, byte [0x48a410]
 xor bl, bl
@@ -592,7 +704,7 @@ movsx eax, word [esi + ref_0046cc1a]  ; movsx eax, word [esi + 0x46cc1a]
 mov dword [esp + 0x44], eax
 movsx eax, word [esi + ref_0046cc1e]  ; movsx eax, word [esi + 0x46cc1e]
 mov dword [esp + 0x4c], eax
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -620,7 +732,7 @@ mov ecx, dword [ref_0048a08c]  ; mov ecx, dword [0x48a08c]
 push ecx
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -665,7 +777,7 @@ movsx eax, word [ebx*8 + ref_0046cc1a]  ; movsx eax, word [ebx*8 + 0x46cc1a]
 mov dword [esp + 0x44], eax
 movsx eax, word [ebx*8 + ref_0046cc1e]  ; movsx eax, word [ebx*8 + 0x46cc1e]
 mov dword [esp + 0x4c], eax
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -693,7 +805,7 @@ mov eax, dword [ref_0048a08c]  ; mov eax, dword [0x48a08c]
 push eax
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -742,7 +854,7 @@ movsx eax, word [ref_004991b6]  ; movsx eax, word [0x4991b6]
 shl eax, 2
 add eax, dword [ref_0046cb54]  ; add eax, dword [0x46cb54]
 push eax
-mov ecx, dword [ref_0048a3b0]  ; mov ecx, dword [0x48a3b0]
+mov ecx, dword [_rich4_jump_mkf]  ; mov ecx, dword [0x48a3b0]
 push ecx
 call _read_mkf  ; call 0x450441
 add esp, 0x10
@@ -783,11 +895,11 @@ mov eax, ebx
 shl eax, 2
 sub eax, ebx
 shl eax, 2
-cmp dword [eax + ref_0048a364], 0  ; cmp dword [eax + 0x48a364], 0
+cmp dword [eax + (_rich4_player_selection_info + 8)], 0  ; cmp dword [eax + 0x48a364], 0
 je short loc_004056df  ; je 0x4056df
-mov edx, dword [eax + ref_0048a35c]  ; mov edx, dword [eax + 0x48a35c]
+mov edx, dword [eax + _rich4_player_selection_info]  ; mov edx, dword [eax + 0x48a35c]
 push edx
-call fcn_00404d82  ; call 0x404d82
+call _rich4_remove_selected_player  ; call 0x404d82
 add esp, 4
 dec byte [ref_0048a40d]  ; dec byte [0x48a40d]
 
@@ -815,12 +927,12 @@ mov eax, ebx
 shl eax, 2
 sub eax, ebx
 shl eax, 2
-cmp dword [eax + ref_0048a364], 0  ; cmp dword [eax + 0x48a364], 0
+cmp dword [eax + (_rich4_player_selection_info + 8)], 0  ; cmp dword [eax + 0x48a364], 0
 je short loc_004056f2  ; je 0x4056f2
-mov edi, dword [eax + ref_0048a35c]  ; mov edi, dword [eax + 0x48a35c]
+mov edi, dword [eax + _rich4_player_selection_info]  ; mov edi, dword [eax + 0x48a35c]
 push edi
 push ebx
-call fcn_00404d0a  ; call 0x404d0a
+call _rich4_select_nth_player  ; call 0x404d0a
 add esp, 8
 jmp short loc_004056f2  ; jmp 0x4056f2
 
@@ -830,7 +942,7 @@ mov byte [ref_0048a40f], ch  ; mov byte [0x48a40f], ch
 mov byte [ref_0048a40c], ch  ; mov byte [0x48a40c], ch
 
 loc_0040572b:
-call fcn_00404504  ; call 0x404504
+call _rich4_draw_game_config_menu  ; call 0x404504
 jmp near loc_00404fdf  ; jmp 0x404fdf
 
 loc_00405735:
@@ -878,14 +990,14 @@ mov dword [esp + 0x44], eax
 movsx eax, byte [ref_0048a40e]  ; movsx eax, byte [0x48a40e]
 movsx eax, word [eax*8 + ref_0046cc1e]  ; movsx eax, word [eax*8 + 0x46cc1e]
 mov dword [esp + 0x4c], eax
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov eax, dword [eax]
 push 0
 push 1
 mov edx, ref_0048a068  ; mov edx, 0x48a068
 push edx
 push 0
-mov edx, dword [ref_0048a0e0]  ; mov edx, dword [0x48a0e0]
+mov edx, dword [_g_ddraw_sf2_ptr]  ; mov edx, dword [0x48a0e0]
 push edx
 call dword [eax + 0x64]  ; ucall
 mov eax, dword [esp + 0x4c]
@@ -908,10 +1020,10 @@ mov edx, dword [ref_0048a08c]  ; mov edx, dword [0x48a08c]
 push edx
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov eax, dword [eax]
 push 0
-mov ecx, dword [ref_0048a0e0]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 call dword [eax + 0x80]  ; ucall
 push 0
@@ -984,14 +1096,14 @@ mov dword [esp + 0x44], eax
 movsx eax, byte [ref_0048a40e]  ; movsx eax, byte [0x48a40e]
 movsx eax, word [eax*8 + ref_0046cc1e]  ; movsx eax, word [eax*8 + 0x46cc1e]
 mov dword [esp + 0x4c], eax
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov eax, dword [eax]
 push 0
 push 1
 mov edx, ref_0048a068  ; mov edx, 0x48a068
 push edx
 push 0
-mov edx, dword [ref_0048a0e0]  ; mov edx, dword [0x48a0e0]
+mov edx, dword [_g_ddraw_sf2_ptr]  ; mov edx, dword [0x48a0e0]
 push edx
 call dword [eax + 0x64]  ; ucall
 mov eax, dword [esp + 0x4c]
@@ -1014,10 +1126,10 @@ mov edx, dword [ref_0048a08c]  ; mov edx, dword [0x48a08c]
 push edx
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov eax, dword [eax]
 push 0
-mov ecx, dword [ref_0048a0e0]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 call dword [eax + 0x80]  ; ucall
 push 0
@@ -1115,17 +1227,17 @@ jle short loc_00405b78  ; jle 0x405b78
 xor ebx, ebx
 mov dword [esp + 0x54], eax
 mov dword [esp + 0x5c], ecx
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov eax, dword [eax]
 push 0x10
 lea edx, [esp + 0x54]
 push edx
-mov esi, dword [ref_0048a0e0]  ; mov esi, dword [0x48a0e0]
+mov esi, dword [_g_ddraw_sf2_ptr]  ; mov esi, dword [0x48a0e0]
 push esi
 mov edi, ebx
 push edi
 push ebx
-mov ecx, dword [ref_0048a0dc]  ; mov ecx, dword [0x48a0dc]
+mov ecx, dword [_g_ddraw_sf1_ptr]  ; mov ecx, dword [0x48a0dc]
 push ecx
 call dword [eax + 0x1c]  ; ucall
 
@@ -1137,12 +1249,12 @@ mov dword [esp + 0x5c], eax
 push 0
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ebx, [esp + 0x54]
 push ebx
-mov ebx, dword [ref_0048a0e0]  ; mov ebx, dword [0x48a0e0]
+mov ebx, dword [_g_ddraw_sf2_ptr]  ; mov ebx, dword [0x48a0e0]
 push ebx
 mov esi, dword [esp + 0x60]
 push esi
@@ -1158,12 +1270,12 @@ cmp eax, 0x1e0
 jge short loc_00405c38  ; jge 0x405c38
 mov dword [esp + 0x54], eax
 mov dword [esp + 0x5c], 0x1e0
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ebx, [esp + 0x54]
 push ebx
-mov ecx, dword [ref_0048a0e0]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 mov ebx, dword [esp + 0x58]
 push ebx
@@ -1178,12 +1290,12 @@ lea eax, [esp + 8]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ebx, [esp + 0xc]
 push ebx
-mov ebx, dword [ref_0048a0e0]  ; mov ebx, dword [0x48a0e0]
+mov ebx, dword [_g_ddraw_sf2_ptr]  ; mov ebx, dword [0x48a0e0]
 push ebx
 mov esi, dword [esp + 0x18]
 push esi
@@ -1279,7 +1391,7 @@ mov byte [ebx + ref_004990f4], 1  ; mov byte [ebx + 0x4990f4], 1
 push ebx
 movsx eax, byte [ref_0048a40d]  ; movsx eax, byte [0x48a40d]
 push eax
-call fcn_00404d0a  ; call 0x404d0a
+call _rich4_select_nth_player  ; call 0x404d0a
 add esp, 8
 push 0
 push ref_00482322  ; push 0x482322
@@ -1293,13 +1405,13 @@ movsx edx, bl
 mov eax, edx
 shl eax, 2
 sub eax, edx
-or byte [eax*4 + (ref_0048a360 - 1)], 0x80  ; or byte [eax*4 + 0x48a35f], 0x80
+or byte [eax*4 + ((_rich4_player_selection_info + 4) - 1)], 0x80  ; or byte [eax*4 + 0x48a35f], 0x80
 inc bl
 mov byte [ref_0048a40d], bl  ; mov byte [0x48a40d], bl
 jmp near loc_00404fd3  ; jmp 0x404fd3
 
 loc_00405d8f:
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push ecx
@@ -1342,7 +1454,7 @@ mov esi, ebx
 shl esi, 2
 sub esi, ebx
 shl esi, 2
-cmp dword [esi + ref_0048a364], 0  ; cmp dword [esi + 0x48a364], 0
+cmp dword [esi + (_rich4_player_selection_info + 8)], 0  ; cmp dword [esi + 0x48a364], 0
 je short loc_00405e76  ; je 0x405e76
 push 0x1b8
 mov eax, dword [ref_0046cb3c]  ; mov eax, dword [0x46cb3c]
@@ -1350,43 +1462,43 @@ shl eax, 4
 mov edx, ebx
 mov ecx, dword [eax + edx*4 + ref_0046cb58]  ; mov ecx, dword [eax + edx*4 + 0x46cb58]
 push ecx
-mov edi, dword [esi + ref_0048a360]  ; mov edi, dword [esi + 0x48a360]
+mov edi, dword [esi + (_rich4_player_selection_info + 4)]  ; mov edi, dword [esi + 0x48a360]
 push edi
-mov eax, dword [esi + ref_0048a364]  ; mov eax, dword [esi + 0x48a364]
+mov eax, dword [esi + (_rich4_player_selection_info + 8)]  ; mov eax, dword [esi + 0x48a364]
 push eax
 mov edx, dword [ref_0048a08c]  ; mov edx, dword [0x48a08c]
 push edx
 call fcn_0045663e  ; call 0x45663e
 add esp, 0x14
-mov eax, dword [esi + ref_0048a364]  ; mov eax, dword [esi + 0x48a364]
+mov eax, dword [esi + (_rich4_player_selection_info + 8)]  ; mov eax, dword [esi + 0x48a364]
 mov eax, dword [eax + 4]
 dec eax
-mov ecx, dword [esi + ref_0048a360]  ; mov ecx, dword [esi + 0x48a360]
+mov ecx, dword [esi + (_rich4_player_selection_info + 4)]  ; mov ecx, dword [esi + 0x48a360]
 cmp eax, ecx
 jle short loc_00405e6e  ; jle 0x405e6e
 lea eax, [ecx + 1]
-mov dword [esi + ref_0048a360], eax  ; mov dword [esi + 0x48a360], eax
+mov dword [esi + (_rich4_player_selection_info + 4)], eax  ; mov dword [esi + 0x48a360], eax
 jmp short loc_00405e76  ; jmp 0x405e76
 
 loc_00405e6e:
 xor edi, edi
-mov dword [esi + ref_0048a360], edi  ; mov dword [esi + 0x48a360], edi
+mov dword [esi + (_rich4_player_selection_info + 4)], edi  ; mov dword [esi + 0x48a360], edi
 
 loc_00405e76:
 inc ebx
 jmp near loc_00405df8  ; jmp 0x405df8
 
 loc_00405e7c:
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
 call dword [edx + 0x80]  ; ucall
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 push ref_0046cadc  ; push 0x46cadc
-mov ecx, dword [ref_0048a0e0]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 push 0
 push 0
@@ -1458,7 +1570,7 @@ push 1
 jmp near loc_00405af7  ; jmp 0x405af7
 
 loc_00405f80:
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -1520,44 +1632,44 @@ mov esi, ebx
 shl esi, 2
 sub esi, ebx
 shl esi, 2
-mov eax, dword [esi + ref_0048a360]  ; mov eax, dword [esi + 0x48a360]
+mov eax, dword [esi + (_rich4_player_selection_info + 4)]  ; mov eax, dword [esi + 0x48a360]
 push eax
-mov edx, dword [esi + ref_0048a364]  ; mov edx, dword [esi + 0x48a364]
+mov edx, dword [esi + (_rich4_player_selection_info + 8)]  ; mov edx, dword [esi + 0x48a364]
 push edx
 mov ecx, dword [ref_0048a08c]  ; mov ecx, dword [0x48a08c]
 push ecx
 call fcn_0045663e  ; call 0x45663e
 add esp, 0x14
 mov dword [edi + ref_0048a3d4], eax  ; mov dword [edi + 0x48a3d4], eax
-mov eax, dword [esi + ref_0048a364]  ; mov eax, dword [esi + 0x48a364]
+mov eax, dword [esi + (_rich4_player_selection_info + 8)]  ; mov eax, dword [esi + 0x48a364]
 mov eax, dword [eax + 4]
 dec eax
-mov edi, dword [esi + ref_0048a360]  ; mov edi, dword [esi + 0x48a360]
+mov edi, dword [esi + (_rich4_player_selection_info + 4)]  ; mov edi, dword [esi + 0x48a360]
 cmp eax, edi
 jle short loc_00406083  ; jle 0x406083
 lea edx, [edi + 1]
-mov dword [esi + ref_0048a360], edx  ; mov dword [esi + 0x48a360], edx
+mov dword [esi + (_rich4_player_selection_info + 4)], edx  ; mov dword [esi + 0x48a360], edx
 jmp short loc_0040608b  ; jmp 0x40608b
 
 loc_00406083:
 xor eax, eax
-mov dword [esi + ref_0048a360], eax  ; mov dword [esi + 0x48a360], eax
+mov dword [esi + (_rich4_player_selection_info + 4)], eax  ; mov dword [esi + 0x48a360], eax
 
 loc_0040608b:
 inc ebx
 jmp near loc_0040600d  ; jmp 0x40600d
 
 loc_00406091:
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
 call dword [edx + 0x80]  ; ucall
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 push ref_0046cadc  ; push 0x46cadc
-mov edi, dword [ref_0048a0e0]  ; mov edi, dword [0x48a0e0]
+mov edi, dword [_g_ddraw_sf2_ptr]  ; mov edi, dword [0x48a0e0]
 push edi
 push 0
 push 0
@@ -1575,6 +1687,9 @@ push 0x100
 jmp near loc_00405156  ; jmp 0x405156
 
 section .text
+
+ref_0046cb44:
+dd 0x00000000
 
 ref_0046cb58:
 db 'J',0x01,0x00,0x00
@@ -1638,6 +1753,9 @@ dd 0x007f01c9
 dd 0x009e0271
 
 section .bss
+
+_rich4_player_selection_info:
+resb 48
 
 ref_0048a3c4:
 resb 4

@@ -1,4 +1,5 @@
 extern _all_players_state
+extern _all_special_players_state
 extern _card_strings
 extern _current_player
 extern _rich4_consume_card
@@ -6,20 +7,17 @@ extern _rich4_player_say
 extern fcn_0040b93b
 extern fcn_0040d293
 extern fcn_0040df69
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_0041e6f2
-extern fcn_004413ad
-extern fcn_00444691
-extern fcn_0044476a
-extern fcn_00444bb2
+extern _rich4_player_has_card
+extern _rich4_use_card_fuchouka
+extern _rich4_try_use_card_jiahuoka
+extern _rich4_use_card_mianzuika
 extern fcn_00446ae8
 extern ref_0048089e
-extern ref_00498df4
-extern ref_00498df5
-extern ref_004990e8
-extern ref_00499160
-extern ref_00499161
+extern _rich4_price_index
+extern _player_tool_amount
 
 global _rich4_use_card_mengyouka
 
@@ -92,7 +90,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_004442b2:
@@ -101,7 +99,7 @@ jge near loc_0044449b  ; jge 0x44449b
 imul eax, ebx, 0x68
 cmp byte [eax + (_all_players_state + 54)], 0  ; cmp byte [eax + 0x496b9e], 0
 jne near loc_0044449b  ; jne 0x44449b
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -117,26 +115,26 @@ call fcn_0040df69  ; call 0x40df69
 add esp, 0xc
 push 0x15
 push ebx
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne short loc_00444310  ; jne 0x444310
 push ebx
-call fcn_00444bb2  ; call 0x444bb2
+call _rich4_use_card_mianzuika  ; call 0x444bb2
 add esp, 4
 jmp near loc_004444b3  ; jmp 0x4444b3
 
 loc_00444310:
 push 0x13
 push ebx
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne short loc_00444334  ; jne 0x444334
 push 0
 push 0
 push ebx
-call fcn_0044476a  ; call 0x44476a
+call _rich4_try_use_card_jiahuoka  ; call 0x44476a
 add esp, 0xc
 cmp eax, 0xffffffff
 je short loc_00444334  ; je 0x444334
@@ -178,7 +176,7 @@ add eax, ebx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-inc byte [eax + ref_00499160]  ; inc byte [eax + 0x499160]
+inc byte [eax + (_player_tool_amount + 4)]  ; inc byte [eax + 0x499160]
 
 loc_004443b4:
 imul eax, ebx, 0x68
@@ -190,7 +188,7 @@ add eax, ebx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-inc byte [eax + ref_00499161]  ; inc byte [eax + 0x499161]
+inc byte [eax + (_player_tool_amount + 5)]  ; inc byte [eax + 0x499161]
 
 loc_004443d4:
 imul eax, ebx, 0x68
@@ -206,12 +204,12 @@ cmp ebx, ebp
 jne near loc_004444b3  ; jne 0x4444b3
 push 0x12
 push ebp
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne near loc_004444b3  ; jne 0x4444b3
 push ebp
-call fcn_00444691  ; call 0x444691
+call _rich4_use_card_fuchouka  ; call 0x444691
 add esp, 4
 mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
 imul eax, ecx, 0x68
@@ -228,7 +226,7 @@ add eax, ecx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-inc byte [eax + ref_00499160]  ; inc byte [eax + 0x499160]
+inc byte [eax + (_player_tool_amount + 4)]  ; inc byte [eax + 0x499160]
 
 loc_00444459:
 imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
@@ -241,7 +239,7 @@ add eax, edx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-inc byte [eax + ref_00499161]  ; inc byte [eax + 0x499161]
+inc byte [eax + (_player_tool_amount + 5)]  ; inc byte [eax + 0x499161]
 
 loc_00444483:
 imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
@@ -254,9 +252,9 @@ loc_0044449b:
 cmp ebx, 4
 jl short loc_004444b3  ; jl 0x4444b3
 shl ebx, 4
-cmp byte [ebx + ref_00498df4], 0  ; cmp byte [ebx + 0x498df4], 0
+cmp byte [ebx + (_all_special_players_state - (64 - 12))], 0  ; cmp byte [ebx + 0x498df4], 0
 jne short loc_004444b3  ; jne 0x4444b3
-mov byte [ebx + ref_00498df5], 5  ; mov byte [ebx + 0x498df5], 5
+mov byte [ebx + (_all_special_players_state - (64 - 13))], 5  ; mov byte [ebx + 0x498df5], 5
 
 loc_004444b3:
 call fcn_0041d546  ; call 0x41d546

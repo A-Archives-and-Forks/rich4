@@ -6,16 +6,16 @@ extern _rich4_player_say
 extern _strcmp
 extern fcn_0040b0cd
 extern fcn_0040b110
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d476
 extern fcn_0041e6f2
 extern fcn_00446ae8
 extern fcn_00451985
 extern fcn_00456c0a
 extern ref_00474938
-extern ref_00498e84
-extern ref_00498e88
-extern ref_00498e98
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_num_lands
 
 global _rich4_use_card_tianshika
 
@@ -73,13 +73,13 @@ cmp ebp, 0xfa0
 jge near loc_00443621  ; jge 0x443621
 lea eax, [ebp - 0x7d0]
 imul eax, eax, 0x34
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 lea edi, [ebx + eax]
 mov esi, 1
 
 loc_00443570:
 add ebx, 0x34
-cmp esi, dword [ref_00498e98]  ; cmp esi, dword [0x498e98]
+cmp esi, dword [_rich4_num_lands]  ; cmp esi, dword [0x498e98]
 jg near loc_004435e4  ; jg 0x4435e4
 lea eax, [ebx + 4]
 push eax
@@ -134,7 +134,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 call fcn_00451985  ; call 0x451985
 jmp near loc_004436c0  ; jmp 0x4436c0
@@ -149,7 +149,7 @@ shl eax, 3
 mov ebx, eax
 shl eax, 3
 sub eax, ebx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 push 0xffff
 push ebp
@@ -173,7 +173,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_004436a7:

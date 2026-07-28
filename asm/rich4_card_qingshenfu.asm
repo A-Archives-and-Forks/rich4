@@ -3,14 +3,14 @@ extern _card_strings
 extern _current_player
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040e669
-extern fcn_0040ead7
+extern _rich4_animate_object
+extern _rich4_attach_god
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00444d1a
-extern ref_00496d0a
-extern ref_00498e80
+extern ref_00496d08
+extern _rich4_map_node_ptr
 
 global _rich4_use_card_qingshenfu
 
@@ -63,9 +63,9 @@ mov ebx, eax
 shl ebx, 2
 sub ebx, eax
 xor edi, edi
-mov di, word [ebx*8 + ref_00496d0a]  ; mov di, word [ebx*8 + 0x496d0a]
+mov di, word [ebx*8 + (ref_00496d08 + 2)]  ; mov di, word [ebx*8 + 0x496d0a]
 xor edx, edx
-mov word [ebx*8 + ref_00496d0a], dx  ; mov word [ebx*8 + 0x496d0a], dx
+mov word [ebx*8 + (ref_00496d08 + 2)], dx  ; mov word [ebx*8 + 0x496d0a], dx
 push 1
 push 0
 push 0
@@ -83,23 +83,23 @@ mov eax, edi
 shl eax, 2
 add eax, edi
 shl eax, 3
-mov edx, dword [ref_00498e80]  ; mov edx, dword [0x498e80]
+mov edx, dword [_rich4_map_node_ptr]  ; mov edx, dword [0x498e80]
 add eax, edx
 movsx edx, word [eax + 2]
 push edx
 movsx eax, word [eax]
 push eax
 push esi
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
-mov word [ebx*8 + ref_00496d0a], di  ; mov word [ebx*8 + 0x496d0a], di
+mov word [ebx*8 + (ref_00496d08 + 2)], di  ; mov word [ebx*8 + 0x496d0a], di
 push esi
 xor eax, eax
 mov ax, di
 push eax
 mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
 push ecx
-call fcn_0040ead7  ; call 0x40ead7
+call _rich4_attach_god  ; call 0x40ead7
 add esp, 0xc
 
 loc_00444685:

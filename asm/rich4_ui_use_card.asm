@@ -22,11 +22,11 @@ extern fcn_0041d546
 extern fcn_0041e69e
 extern fcn_0041e6f2
 extern fcn_00440cac
-extern fcn_00441262
-extern fcn_004412e4
+extern _rich4_player_card_num
+extern _rich4_receive_card
 extern fcn_00441f73
-extern fcn_00445a4d
-extern fcn_00445aa2
+extern _rich4_receive_tool
+extern _rich4_after_player_use_tool
 extern fcn_00447c6e
 extern fcn_00451b9e
 extern fcn_00451d4e
@@ -40,17 +40,17 @@ extern ref_004652f8
 extern ref_00465305
 extern ref_00482322
 extern ref_0048233a
-extern ref_0048a05c
+extern _rich4_panel_mkf
 extern ref_0048a068
 extern ref_0048a08c
-extern ref_0048a0dc
-extern ref_0048a0e0
+extern _g_ddraw_sf1_ptr
+extern _g_ddraw_sf2_ptr
 extern ref_0048c538
 extern ref_0048c53c
 extern ref_0048c540
 extern ref_0048c544
 extern ref_0048c548
-extern ref_00499120
+extern _player_cards
 extern _rich4_use_card_junfuka
 extern _rich4_use_card_junpinka
 extern _rich4_use_card_goudika
@@ -164,7 +164,7 @@ add eax, edx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-cmp byte [ebx + eax + ref_00499120], 0  ; cmp byte [ebx + eax + 0x499120], 0
+cmp byte [ebx + eax + _player_cards], 0  ; cmp byte [ebx + eax + 0x499120], 0
 je near loc_00441579  ; je 0x441579
 mov ecx, 5
 mov eax, ebx
@@ -204,7 +204,7 @@ shl eax, 2
 sub eax, edx
 add ebx, eax
 xor eax, eax
-mov al, byte [ebx + ref_00499120]  ; mov al, byte [ebx + 0x499120]
+mov al, byte [ebx + _player_cards]  ; mov al, byte [ebx + 0x499120]
 
 loc_00441574:
 mov dword [ref_0048c538], eax  ; mov dword [0x48c538], eax
@@ -305,12 +305,12 @@ lea eax, [esp + 8]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ecx, [esp + 0xc]
 push ecx
-mov ebp, dword [ref_0048a0e0]  ; mov ebp, dword [0x48a0e0]
+mov ebp, dword [_g_ddraw_sf2_ptr]  ; mov ebp, dword [0x48a0e0]
 push ebp
 mov ecx, dword [esp + 0x18]
 push ecx
@@ -422,7 +422,7 @@ add eax, edx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-cmp byte [ebx + eax + ref_00499120], 0  ; cmp byte [ebx + eax + 0x499120], 0
+cmp byte [ebx + eax + _player_cards], 0  ; cmp byte [ebx + eax + 0x499120], 0
 je near loc_00441579  ; je 0x441579
 mov ecx, 5
 mov eax, ebx
@@ -462,7 +462,7 @@ shl eax, 2
 sub eax, edx
 add ebx, eax
 xor eax, eax
-mov al, byte [ebx + ref_00499120]  ; mov al, byte [ebx + 0x499120]
+mov al, byte [ebx + _player_cards]  ; mov al, byte [ebx + 0x499120]
 mov dword [ref_0048c544], eax  ; mov dword [0x48c544], eax
 push 0
 push ref_00482322  ; push 0x482322
@@ -501,12 +501,12 @@ lea eax, [esp + 8]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [ref_0048a0dc]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ecx, [esp + 0xc]
 push ecx
-mov esi, dword [ref_0048a0e0]  ; mov esi, dword [0x48a0e0]
+mov esi, dword [_g_ddraw_sf2_ptr]  ; mov esi, dword [0x48a0e0]
 push esi
 mov edi, dword [esp + 0x18]
 push edi
@@ -543,7 +543,7 @@ jne near loc_00441a5d  ; jne 0x441a5d
 push 0
 push 0
 push 0xb
-mov eax, dword [ref_0048a05c]  ; mov eax, dword [0x48a05c]
+mov eax, dword [_rich4_panel_mkf]  ; mov eax, dword [0x48a05c]
 push eax
 call _read_mkf  ; call 0x450441
 mov ebx, eax
@@ -569,7 +569,7 @@ push eax
 call fcn_00451e7e  ; call 0x451e7e
 add esp, 4
 mov dword [esp + 0xa4], eax
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov esi, dword [eax]
 push 0
 push 1
@@ -597,7 +597,7 @@ call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
 
 loc_00441a11:
-mov ebx, dword [ref_0048a0e0]  ; mov ebx, dword [0x48a0e0]
+mov ebx, dword [_g_ddraw_sf2_ptr]  ; mov ebx, dword [0x48a0e0]
 mov eax, dword [ebx]
 push 0
 push ebx
@@ -657,12 +657,12 @@ je short loc_00441ae2  ; je 0x441ae2
 and ebx, 0x7fff
 push ebx
 push edi
-call fcn_00445aa2  ; call 0x445aa2
+call _rich4_after_player_use_tool  ; call 0x445aa2
 add esp, 8
 push ebx
 mov ebp, dword [esp + 0xc4]
 push ebp
-call fcn_00445a4d  ; call 0x445a4d
+call _rich4_receive_tool  ; call 0x445a4d
 jmp short loc_00441afa  ; jmp 0x441afa
 
 loc_00441ae2:
@@ -673,7 +673,7 @@ add esp, 8
 push ebx
 mov edi, dword [esp + 0xc4]
 push edi
-call fcn_004412e4  ; call 0x4412e4
+call _rich4_receive_card  ; call 0x4412e4
 
 loc_00441afa:
 add esp, 8
@@ -737,7 +737,7 @@ mov edx, eax
 shl eax, 2
 sub eax, edx
 add eax, esi
-mov dl, byte [eax + ref_00499120]  ; mov dl, byte [eax + 0x499120]
+mov dl, byte [eax + _player_cards]  ; mov dl, byte [eax + 0x499120]
 test dl, dl
 je short loc_00441b55  ; je 0x441b55
 push 2
@@ -771,7 +771,7 @@ call fcn_0041d546  ; call 0x41d546
 push 0
 push 0
 push 0xb
-mov ebx, dword [ref_0048a05c]  ; mov ebx, dword [0x48a05c]
+mov ebx, dword [_rich4_panel_mkf]  ; mov ebx, dword [0x48a05c]
 push ebx
 call _read_mkf  ; call 0x450441
 add esp, 0x10
@@ -795,7 +795,7 @@ push edi
 push 0
 call fcn_00441b0a  ; call 0x441b0a
 add esp, 0xc
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push esi
@@ -811,7 +811,7 @@ mov eax, dword [ref_0048a08c]  ; mov eax, dword [0x48a08c]
 push eax
 call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -869,7 +869,7 @@ test byte [eax + (_all_players_state + 22)], 1  ; test byte [eax + 0x496b7e], 1
 je near loc_00441e07  ; je 0x441e07
 mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
 push ecx
-call fcn_00441262  ; call 0x441262
+call _rich4_player_card_num  ; call 0x441262
 mov esi, eax
 add esp, 4
 mov edi, eax
@@ -912,7 +912,7 @@ shl eax, 2
 sub eax, edx
 mov edx, esi
 inc esi
-mov al, byte [edx + eax + ref_00499120]  ; mov al, byte [edx + eax + 0x499120]
+mov al, byte [edx + eax + _player_cards]  ; mov al, byte [edx + eax + 0x499120]
 mov byte [esp + ebx + 0x90], al
 cmp edi, 8
 jle short loc_00441d60  ; jle 0x441d60

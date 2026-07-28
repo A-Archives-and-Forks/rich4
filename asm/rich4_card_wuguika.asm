@@ -1,14 +1,14 @@
 extern _all_players_state
+extern _all_special_players_state
 extern _card_strings
 extern _current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040d293
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00446ae8
-extern ref_00498df7
 
 global _rich4_use_card_wuguika
 
@@ -84,7 +84,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_004459b7:
@@ -133,7 +133,7 @@ jmp near loc_004440e3  ; jmp 0x4440e3
 
 loc_00445a3e:
 shl esi, 4
-mov byte [esi + ref_00498df7], 3  ; mov byte [esi + 0x498df7], 3
+mov byte [esi + (_all_special_players_state - (64 - 15))], 3  ; mov byte [esi + 0x498df7], 3
 
 loc_004440e3:
 mov eax, edi

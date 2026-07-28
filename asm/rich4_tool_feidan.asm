@@ -12,11 +12,11 @@ extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_00420eee
 extern fcn_0043ec3f
-extern fcn_00445aa2
+extern _rich4_after_player_use_tool
 extern fcn_00446ae8
 extern fcn_0045144f
-extern ref_0048a0e4
-extern ref_004990e8
+extern _rich4_data_mkf
+extern _rich4_price_index
 
 global _rich4_use_tool_feidan
 
@@ -57,7 +57,7 @@ je near loc_004470ef  ; je 0x4470ef
 push 7
 mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
 push edi
-call fcn_00445aa2  ; call 0x445aa2
+call _rich4_after_player_use_tool  ; call 0x445aa2
 add esp, 8
 lea eax, [esp + 4]
 push eax
@@ -69,7 +69,7 @@ add esp, 0xc
 push 0
 push 0
 push 0x210
-mov ebp, dword [ref_0048a0e4]  ; mov ebp, dword [0x48a0e4]
+mov ebp, dword [_rich4_data_mkf]  ; mov ebp, dword [0x48a0e4]
 push ebp
 call _read_mkf  ; call 0x450441
 mov ebx, eax
@@ -106,7 +106,7 @@ jge short loc_004470ea  ; jge 0x4470ea
 imul eax, ebx, 0x68
 test byte [eax + (_all_players_state + 21)], 0x40  ; test byte [eax + 0x496b7d], 0x40
 je short loc_004470e7  ; je 0x4470e7
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 sub eax, edx

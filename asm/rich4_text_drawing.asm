@@ -193,11 +193,11 @@ mov dword [ref_0048a070], 0xc8  ; mov dword [0x48a070], 0xc8
 mov eax, dword [_g_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
 mov edx, dword [eax]
 push 0
-push ref_004762cc  ; push 0x4762cc
+push _g_ddraw_font_sf_ptr  ; push 0x4762cc
 push ref_0048a068  ; push 0x48a068
 push eax
 call dword [edx + 0x18]  ; ucall
-mov eax, dword [ref_004762cc]  ; mov eax, dword [0x4762cc]
+mov eax, dword [_g_ddraw_font_sf_ptr]  ; mov eax, dword [0x4762cc]
 mov edx, dword [eax]
 push 0
 push 1
@@ -211,7 +211,7 @@ mov edi, dword [ref_0048a08c]  ; mov edi, dword [0x48a08c]
 push edi
 call _memset  ; call 0x456f60
 add esp, 0xc
-mov eax, dword [ref_004762cc]  ; mov eax, dword [0x4762cc]
+mov eax, dword [_g_ddraw_font_sf_ptr]  ; mov eax, dword [0x4762cc]
 mov edx, dword [eax]
 push 0
 push eax
@@ -228,7 +228,7 @@ push edx
 call dword [cs:__imp__DeleteObject@4]  ; ucall: call dword cs:[0x462298]
 
 loc_0044f9c6:
-mov ebx, dword [ref_004762cc]  ; mov ebx, dword [0x4762cc]
+mov ebx, dword [_g_ddraw_font_sf_ptr]  ; mov ebx, dword [0x4762cc]
 test ebx, ebx
 je short loc_0044f9d6  ; je 0x44f9d6
 mov edx, dword [ebx]
@@ -383,7 +383,7 @@ add esp, 4
 add ebx, 5
 
 loc_0044fb59:
-mov eax, dword [ref_004762cc]  ; mov eax, dword [0x4762cc]
+mov eax, dword [_g_ddraw_font_sf_ptr]  ; mov eax, dword [0x4762cc]
 mov esi, dword [eax]
 lea edx, [esp + 0x8c]
 push edx
@@ -680,14 +680,14 @@ loc_0044fea6:
 call dword [cs:__imp__DrawTextA@20]  ; ucall: call dword cs:[0x4622e4]
 
 loc_0044fead:
-mov eax, dword [ref_004762cc]  ; mov eax, dword [0x4762cc]
+mov eax, dword [_g_ddraw_font_sf_ptr]  ; mov eax, dword [0x4762cc]
 mov ebx, dword [eax]
 mov edx, dword [esp + 0x8c]
 push edx
 push eax
 call dword [ebx + 0x68]  ; ucall
 mov dword [esp], 0x6c
-mov eax, dword [ref_004762cc]  ; mov eax, dword [0x4762cc]
+mov eax, dword [_g_ddraw_font_sf_ptr]  ; mov eax, dword [0x4762cc]
 mov ebx, dword [eax]
 push 0
 push 1
@@ -827,7 +827,7 @@ push ebx
 push ref_004762e8  ; push 0x4762e8
 call fcn_004561be  ; call 0x4561be
 add esp, 0x18
-mov eax, dword [ref_004762cc]  ; mov eax, dword [0x4762cc]
+mov eax, dword [_g_ddraw_font_sf_ptr]  ; mov eax, dword [0x4762cc]
 mov ebx, dword [eax]
 push 0
 push eax
@@ -843,7 +843,7 @@ ret
 
 section .data
 
-ref_004762cc:
+_g_ddraw_font_sf_ptr:
 dd 0x00000000
 
 ref_004762d0:

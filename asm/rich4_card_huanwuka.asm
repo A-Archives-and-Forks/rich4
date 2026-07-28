@@ -4,16 +4,16 @@ extern _current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040b4f8
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00446ae8
 extern fcn_00451985
 extern fcn_00456c0a
 extern ref_00474938
-extern ref_00498e80
-extern ref_00498e84
-extern ref_00498e88
+extern _rich4_map_node_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
 
 global _rich4_use_card_huanwuka
 
@@ -33,7 +33,7 @@ mov eax, edx
 shl eax, 2
 add edx, eax
 shl edx, 3
-mov eax, dword [ref_00498e80]  ; mov eax, dword [0x498e80]
+mov eax, dword [_rich4_map_node_ptr]  ; mov eax, dword [0x498e80]
 mov ax, word [edx + eax + 0x20]
 and eax, 0xffff
 mov dword [esp + 8], eax
@@ -43,7 +43,7 @@ cmp eax, 0xfa0
 jge near loc_00442d3a  ; jge 0x442d3a
 sub eax, 0x7d0
 imul eax, eax, 0x34
-mov edx, dword [ref_00498e84]  ; mov edx, dword [0x498e84]
+mov edx, dword [_rich4_land_info_ptr]  ; mov edx, dword [0x498e84]
 add edx, eax
 mov dword [esp + 4], edx
 cmp byte [esi + (_all_players_state + 21)], 1  ; cmp byte [esi + 0x496b7d], 1
@@ -78,7 +78,7 @@ call fcn_00456c0a  ; call 0x456c0a
 add esp, 0x10
 lea eax, [ebx - 0x7d0]
 imul eax, eax, 0x34
-mov ebp, dword [ref_00498e84]  ; mov ebp, dword [0x498e84]
+mov ebp, dword [_rich4_land_info_ptr]  ; mov ebp, dword [0x498e84]
 add ebp, eax
 mov edi, dword [esp + 4]
 movzx edi, byte [edi + 0x19]
@@ -143,7 +143,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00442c89:
@@ -232,7 +232,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov edx, dword [ref_00498e88]  ; mov edx, dword [0x498e88]
+mov edx, dword [_rich4_facility_info_ptr]  ; mov edx, dword [0x498e88]
 add edx, eax
 mov dword [esp], edx
 imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
@@ -271,7 +271,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebp, dword [ref_00498e88]  ; mov ebp, dword [0x498e88]
+mov ebp, dword [_rich4_facility_info_ptr]  ; mov ebp, dword [0x498e88]
 add ebp, eax
 mov edi, dword [esp]
 movzx edi, byte [edi + 0x19]
@@ -336,7 +336,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00442ea4:

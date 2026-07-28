@@ -12,10 +12,10 @@ extern fcn_00440cac
 extern fcn_004521cb
 
 extern ref_004751f0
-extern ref_00498e80
-extern ref_00498e84
-extern ref_00498e88
-extern ref_004990e8
+extern _rich4_map_node_ptr
+extern _rich4_land_info_ptr
+extern _rich4_facility_info_ptr
+extern _rich4_price_index
 extern ref_00499110
 
 global _rich4_use_card_goudika
@@ -35,7 +35,7 @@ mov cx, word [edx + (_all_players_state + 12)]  ; mov cx, word [edx + 0x496b74]
 mov eax, ecx
 shl eax, 2
 add eax, ecx
-mov ecx, dword [ref_00498e80]  ; mov ecx, dword [0x498e80]
+mov ecx, dword [_rich4_map_node_ptr]  ; mov ecx, dword [0x498e80]
 mov ax, word [ecx + eax*8 + 0x20]
 and eax, 0xffff
 cmp eax, 0x7d0
@@ -44,7 +44,7 @@ cmp eax, 0xfa0
 jge near loc_004424be  ; jge 0x4424be
 sub eax, 0x7d0
 imul eax, eax, 0x34
-mov ebx, dword [ref_00498e84]  ; mov ebx, dword [0x498e84]
+mov ebx, dword [_rich4_land_info_ptr]  ; mov ebx, dword [0x498e84]
 add ebx, eax
 mov cl, byte [ebx + 0x19]
 test cl, cl
@@ -62,11 +62,11 @@ imul edi, ecx
 xor ecx, ecx
 mov cx, word [ebx + 0x1c]
 add edi, ecx
-imul edi, dword [ref_004990e8]  ; imul edi, dword [0x4990e8]
+imul edi, dword [_rich4_price_index]  ; imul edi, dword [0x4990e8]
 cmp edi, dword [edx + (_all_players_state + 28)]  ; cmp edi, dword [edx + 0x496b84]
 jg near loc_004425f1  ; jg 0x4425f1
 lea esi, [eax - 1]
-mov eax, dword [ref_004990e8]  ; mov eax, dword [0x4990e8]
+mov eax, dword [_rich4_price_index]  ; mov eax, dword [0x4990e8]
 imul ecx, eax
 mov dword [esp], ecx
 fild dword [esp]
@@ -156,7 +156,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 3
 sub eax, edx
-mov ebx, dword [ref_00498e88]  ; mov ebx, dword [0x498e88]
+mov ebx, dword [_rich4_facility_info_ptr]  ; mov ebx, dword [0x498e88]
 add ebx, eax
 cmp byte [ebx + 0x19], 0
 je near loc_00442603  ; je 0x442603
@@ -174,12 +174,12 @@ imul edx, ecx
 xor ecx, ecx
 mov cx, word [ebx + 0x22]
 lea edi, [ecx + edx]
-imul edi, dword [ref_004990e8]  ; imul edi, dword [0x4990e8]
+imul edi, dword [_rich4_price_index]  ; imul edi, dword [0x4990e8]
 imul edx, dword [_current_player], 0x68  ; imul edx, dword [0x49910c], 0x68
 cmp edi, dword [edx + (_all_players_state + 28)]  ; cmp edi, dword [edx + 0x496b84]
 jg near loc_004425f1  ; jg 0x4425f1
 lea esi, [eax - 1]
-mov eax, dword [ref_004990e8]  ; mov eax, dword [0x4990e8]
+mov eax, dword [_rich4_price_index]  ; mov eax, dword [0x4990e8]
 imul ecx, eax
 mov dword [esp], ecx
 fild dword [esp]

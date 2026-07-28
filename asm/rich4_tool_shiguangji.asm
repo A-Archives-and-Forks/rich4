@@ -4,7 +4,7 @@ extern _rich4_player_say
 extern _tool_strings
 extern fcn_0040a4e1
 extern fcn_0041906a
-extern fcn_00445aa2
+extern _rich4_after_player_use_tool
 extern fcn_00448544
 extern fcn_00454acb
 extern fcn_00454d91
@@ -58,7 +58,7 @@ loc_004473fe:
 push 0xa
 mov esi, dword [_current_player]  ; mov esi, dword [0x49910c]
 push esi
-call fcn_00445aa2  ; call 0x445aa2
+call _rich4_after_player_use_tool  ; call 0x445aa2
 add esp, 8
 push 0
 call fcn_0040a4e1  ; call 0x40a4e1

@@ -3,14 +3,14 @@ extern _current_player
 extern _rich4_player_say
 extern _tool_strings
 extern fcn_0040e033
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_00420eee
 extern fcn_00446ae8
 extern fcn_004542ce
 extern ref_0048236a
-extern ref_00498e80
-extern ref_0049915d
+extern _rich4_map_node_ptr
+extern _player_tool_amount
 
 global _rich4_use_tool_luzhang
 
@@ -57,7 +57,7 @@ mov eax, ebx
 shl eax, 2
 lea edx, [ebx + eax]
 shl edx, 3
-mov eax, dword [ref_00498e80]  ; mov eax, dword [0x498e80]
+mov eax, dword [_rich4_map_node_ptr]  ; mov eax, dword [0x498e80]
 add eax, edx
 movsx edx, word [eax + 2]
 push edx
@@ -71,7 +71,7 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push ecx
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 push 0
 push ref_0048236a  ; push 0x48236a
@@ -85,7 +85,7 @@ add eax, edx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-dec byte [eax + ref_0049915d]  ; dec byte [eax + 0x49915d]
+dec byte [eax + (_player_tool_amount + 1)]  ; dec byte [eax + 0x49915d]
 
 loc_00446c84:
 mov eax, ebx

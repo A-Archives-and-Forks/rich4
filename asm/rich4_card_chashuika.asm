@@ -6,17 +6,17 @@ extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040d293
 extern fcn_0040df69
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d2c6
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00440cac
-extern fcn_004413ad
-extern fcn_0044476a
-extern fcn_00444a60
+extern _rich4_player_has_card
+extern _rich4_try_use_card_jiahuoka
+extern _rich4_try_use_card_mianfeika
 extern fcn_00446ae8
 extern fcn_00452946
-extern fcn_00457dbc
+extern __round_toward_zero
 
 global _rich4_use_card_chashuika
 
@@ -89,14 +89,14 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_004452ce:
 imul eax, ebx, 0x68
 fild dword [eax + (_all_players_state + 28)]  ; fild dword [eax + 0x496b84]
 fmul qword [ref_004653d8]  ; fmul qword [0x4653d8]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x94]
 mov esi, 0x64
 mov eax, dword [esp + 0x94]
@@ -111,7 +111,7 @@ call fcn_0040df69  ; call 0x40df69
 add esp, 0xc
 push 0x14
 push ebx
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne short loc_0044533e  ; jne 0x44533e
@@ -120,7 +120,7 @@ push esi
 mov ebp, dword [_current_player]  ; mov ebp, dword [0x49910c]
 push ebp
 push ebx
-call fcn_00444a60  ; call 0x444a60
+call _rich4_try_use_card_mianfeika  ; call 0x444a60
 add esp, 0xc
 cmp eax, 1
 je near loc_00445426  ; je 0x445426
@@ -128,7 +128,7 @@ je near loc_00445426  ; je 0x445426
 loc_0044533e:
 push 0x13
 push ebx
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne short loc_0044536f  ; jne 0x44536f
@@ -137,7 +137,7 @@ jle short loc_0044536f  ; jle 0x44536f
 push 0
 push 2
 push ebx
-call fcn_0044476a  ; call 0x44476a
+call _rich4_try_use_card_jiahuoka  ; call 0x44476a
 add esp, 0xc
 cmp eax, 0xffffffff
 je short loc_0044536f  ; je 0x44536f
@@ -150,7 +150,7 @@ je near loc_00445421  ; je 0x445421
 imul esi, ebx, 0x68
 fild dword [esi + (_all_players_state + 28)]  ; fild dword [esi + 0x496b84]
 fmul qword [ref_004653d8]  ; fmul qword [0x4653d8]
-call fcn_00457dbc  ; call 0x457dbc
+call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0x94]
 push 0
 mov ecx, dword [esp + 0x98]

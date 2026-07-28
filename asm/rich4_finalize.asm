@@ -13,12 +13,12 @@ extern ref_0046cb05
 extern ref_00474938
 extern ref_0048231a
 extern ref_0048a050
-extern ref_0048a054
-extern ref_0048a058
-extern ref_0048a05c
-extern ref_0048a0dc
-extern ref_0048a0e0
-extern ref_0048a0e4
+extern _rich4_speaking_mkf
+extern _rich4_effect_mkf
+extern _rich4_panel_mkf
+extern _g_ddraw_sf1_ptr
+extern _g_ddraw_sf2_ptr
+extern _rich4_data_mkf
 
 global _rich4_finalize
 
@@ -38,19 +38,19 @@ call _libc_free  ; call 0x456e11
 add esp, 4
 call fcn_004021b2  ; call 0x4021b2
 call fcn_004548ef  ; call 0x4548ef
-mov ecx, dword [ref_0048a058]  ; mov ecx, dword [0x48a058]
+mov ecx, dword [_rich4_effect_mkf]  ; mov ecx, dword [0x48a058]
 push ecx
 call _unload_mkf  ; call 0x450404
 add esp, 4
-mov ebx, dword [ref_0048a05c]  ; mov ebx, dword [0x48a05c]
+mov ebx, dword [_rich4_panel_mkf]  ; mov ebx, dword [0x48a05c]
 push ebx
 call _unload_mkf  ; call 0x450404
 add esp, 4
-mov esi, dword [ref_0048a054]  ; mov esi, dword [0x48a054]
+mov esi, dword [_rich4_speaking_mkf]  ; mov esi, dword [0x48a054]
 push esi
 call _unload_mkf  ; call 0x450404
 add esp, 4
-mov edi, dword [ref_0048a0e4]  ; mov edi, dword [0x48a0e4]
+mov edi, dword [_rich4_data_mkf]  ; mov edi, dword [0x48a0e4]
 push edi
 call _unload_mkf  ; call 0x450404
 add esp, 4
@@ -63,7 +63,7 @@ push ref_0048231a  ; push 0x48231a
 call fcn_00454240  ; call 0x454240
 add esp, 4
 call fcn_00453d28  ; call 0x453d28
-mov eax, dword [ref_0048a0e0]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
 test eax, eax
 je short loc_004018b9  ; je 0x4018b9
 mov edx, dword [eax]
@@ -71,7 +71,7 @@ push eax
 call dword [edx + 8]  ; ucall
 
 loc_004018b9:
-mov edx, dword [ref_0048a0dc]  ; mov edx, dword [0x48a0dc]
+mov edx, dword [_g_ddraw_sf1_ptr]  ; mov edx, dword [0x48a0dc]
 test edx, edx
 je short loc_004018cb  ; je 0x4018cb
 mov eax, edx

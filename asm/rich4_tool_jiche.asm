@@ -4,8 +4,7 @@ extern _rich4_player_say
 extern _tool_strings
 extern fcn_0040b93b
 extern fcn_0041d476
-extern ref_00499160
-extern ref_00499161
+extern _player_tool_amount
 
 global _rich4_use_tool_jiche
 
@@ -32,7 +31,7 @@ add eax, edx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-inc byte [eax + ref_00499161]  ; inc byte [eax + 0x499161]
+inc byte [eax + (_player_tool_amount + 5)]  ; inc byte [eax + 0x499161]
 
 loc_00446e85:
 imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
@@ -66,7 +65,7 @@ mov edx, eax
 shl eax, 2
 sub eax, edx
 mov edx, 1
-dec byte [eax + ref_00499160]  ; dec byte [eax + 0x499160]
+dec byte [eax + (_player_tool_amount + 4)]  ; dec byte [eax + 0x499160]
 
 loc_00446eff:
 mov eax, edx

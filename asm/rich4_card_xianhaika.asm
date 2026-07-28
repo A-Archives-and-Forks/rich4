@@ -5,16 +5,16 @@ extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040d293
 extern fcn_0040df69
-extern fcn_0040e669
+extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_0043d593
-extern fcn_004413ad
-extern fcn_00444691
-extern fcn_0044476a
-extern fcn_00444bb2
+extern _rich4_player_has_card
+extern _rich4_use_card_fuchouka
+extern _rich4_try_use_card_jiahuoka
+extern _rich4_use_card_mianzuika
 extern fcn_00446ae8
-extern ref_004990e8
+extern _rich4_price_index
 
 global _rich4_use_card_xianhaika
 
@@ -87,13 +87,13 @@ mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push 0
-call fcn_0040e669  ; call 0x40e669
+call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 
 loc_00444599:
 cmp ebx, 4
 jge near loc_0044467a  ; jge 0x44467a
-mov edx, dword [ref_004990e8]  ; mov edx, dword [0x4990e8]
+mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -109,26 +109,26 @@ call fcn_0040df69  ; call 0x40df69
 add esp, 0xc
 push 0x15
 push ebx
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne short loc_004445e7  ; jne 0x4445e7
 push ebx
-call fcn_00444bb2  ; call 0x444bb2
+call _rich4_use_card_mianzuika  ; call 0x444bb2
 add esp, 4
 jmp near loc_00444685  ; jmp 0x444685
 
 loc_004445e7:
 push 0x13
 push ebx
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne short loc_0044460b  ; jne 0x44460b
 push 0
 push 0
 push ebx
-call fcn_0044476a  ; call 0x44476a
+call _rich4_try_use_card_jiahuoka  ; call 0x44476a
 add esp, 0xc
 cmp eax, 0xffffffff
 je short loc_0044460b  ; je 0x44460b
@@ -169,12 +169,12 @@ cmp ebx, edi
 jne short loc_00444685  ; jne 0x444685
 push 0x12
 push edi
-call fcn_004413ad  ; call 0x4413ad
+call _rich4_player_has_card  ; call 0x4413ad
 add esp, 8
 cmp eax, 1
 jne short loc_00444685  ; jne 0x444685
 push edi
-call fcn_00444691  ; call 0x444691
+call _rich4_use_card_fuchouka  ; call 0x444691
 add esp, 4
 push 5
 mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
