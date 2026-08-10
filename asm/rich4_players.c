@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "player_info.h"
+#include "rich4_player_info.h"
 
-player_info players[4];
+player_info rich4_all_players_state[4];
 
-int nplayers;
-int current_player;
+int rich4_nplayers;
+int rich4_current_player;
 
-player_info rich4_players[12] = {
+const player_info rich4_character_profiles[12] = {
 	{
 		.name_ptr = "\xac\xf9 \xbf\xab \xb3\xec", /* 约翰乔 */
 		.f4 = 0x00946126,

@@ -50,33 +50,33 @@ typedef struct
 	uint8_t f58;
 	uint8_t days_rejected_by_bank;
 	uint8_t days_bank_no_loans;
-	uint8_t f61;
+	uint8_t allied_days; /* 同盟卡同盟天数 */
 	uint8_t days_assurance;
-	uint8_t god_info;
+	uint8_t god_info; /* 1:小财 2:大财 5:小穷 6:大穷 */
 	/* 0x40 */
 	uint8_t f64;
-	uint8_t f65;
+	uint8_t allied_player; /* 同盟玩家（非同盟时为0，否则为玩家id + 1） */
 	uint8_t total_winter_sleep_days;
 	uint8_t f67;
 	uint16_t f68;
 	uint16_t f70;
 	uint16_t f72;
 	uint16_t f74;
-	uint32_t f76[6];
+	uint32_t hostility[6];
 	uint8_t f100; /* 0x496bcc */
 	uint8_t f101;
 	uint8_t f102;
 	uint8_t f103;
 } player_info;
 
-extern player_info players[]; /* 0x496b68 */
-extern player_info rich4_players[]; /* 0x47e80c */
+extern player_info rich4_all_players_state[]; /* 0x496b68 */
+extern const player_info rich4_character_profiles[]; /* 0x47e80c */
 
-extern int nplayers; /* 0x499114 */
-extern int current_player; /* 0x49910c */
+extern int rich4_nplayers; /* 0x499114 */
+extern int rich4_current_player; /* 0x49910c */
 
-extern uint8_t player_cards[60]; /* 0x499120 */
-extern uint8_t tool_amount[60]; /* 0x49915c */
+extern uint8_t rich4_player_cards[60]; /* 0x499120 */
+extern uint8_t rich4_player_tool_amount[60]; /* 0x49915c */
 
 /* still don't know what this means,
  * assume it's special players */
@@ -84,9 +84,10 @@ typedef struct
 {
 	uint16_t xpos;
 	uint16_t ypos;
-	uint16_t f4;
-	uint16_t f6;
-	uint8_t f8[2];
+	uint16_t node_id;
+	uint16_t last_node_id;
+	uint8_t owner;
+	uint8_t direction;
 	uint8_t f10; // 0x498df2
 	uint8_t f11;
 	uint8_t days_winter_sleep; // 0x498df4
@@ -95,4 +96,4 @@ typedef struct
 	uint8_t days_tortoise_walking;
 } special_player_info;
 
-extern special_player_info special_players[5]; // 0x498e28
+extern special_player_info rich4_all_special_players_state[5]; // 0x498e28
