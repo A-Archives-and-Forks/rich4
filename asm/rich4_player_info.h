@@ -72,7 +72,7 @@ typedef struct
 extern player_info rich4_all_players_state[]; /* 0x496b68 */
 extern const player_info rich4_character_profiles[]; /* 0x47e80c */
 
-extern int rich4_nplayers; /* 0x499114 */
+extern int rich4_num_players; /* 0x499114 */
 extern int rich4_current_player; /* 0x49910c */
 
 extern uint8_t rich4_player_cards[60]; /* 0x499120 */
