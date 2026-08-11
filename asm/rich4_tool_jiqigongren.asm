@@ -1,5 +1,5 @@
-extern _all_players_state
-extern _current_player
+extern _rich4_all_players_state
+extern _rich4_current_player
 extern _libc_free
 extern _read_mkf
 extern _rich4_player_say
@@ -25,10 +25,10 @@ push esi
 push edi
 push ebp
 sub esp, 8
-mov edx, dword [_current_player]  ; mov edx, dword [0x49910c]
+mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 imul ebx, edx, 0x68
 xor eax, eax
-mov al, byte [ebx + (_all_players_state + 19)]  ; mov al, byte [ebx + 0x496b7b]
+mov al, byte [ebx + (_rich4_all_players_state + 19)]  ; mov al, byte [ebx + 0x496b7b]
 imul eax, eax, 0x68
 mov ecx, dword [eax + (_tool_strings + 32)]  ; mov ecx, dword [eax + 0x480d7a]
 push ecx
@@ -36,8 +36,8 @@ push 0
 push edx
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
-cmp byte [eax + (_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_004472de  ; jne 0x4472de
 push 0x2090006
 call fcn_00446ae8  ; call 0x446ae8
@@ -53,7 +53,7 @@ mov ebx, eax
 test ebx, ebx
 je near loc_0044737d  ; je 0x44737d
 push 9
-mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
+mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 push edi
 call _rich4_after_player_use_tool  ; call 0x445aa2
 add esp, 8

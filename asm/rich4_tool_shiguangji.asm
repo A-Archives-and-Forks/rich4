@@ -1,11 +1,11 @@
-extern _all_players_state
-extern _current_player
+extern _rich4_all_players_state
+extern _rich4_current_player
 extern _rich4_player_say
 extern _tool_strings
 extern fcn_0040a4e1
 extern fcn_0041906a
 extern _rich4_after_player_use_tool
-extern fcn_00448544
+extern _rich4_restore_last_state
 extern fcn_00454acb
 extern fcn_00454d91
 extern ref_0046cb06
@@ -17,9 +17,9 @@ section .text
 _rich4_use_tool_shiguangji:
 push ebx
 push esi
-mov edx, dword [_current_player]  ; mov edx, dword [0x49910c]
+mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 imul eax, edx, 0x68
-mov al, byte [eax + (_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
+mov al, byte [eax + (_rich4_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
 and eax, 0xff
 imul eax, eax, 0x68
 mov ecx, dword [eax + (_tool_strings + 36)]  ; mov ecx, dword [eax + 0x480d7e]
@@ -28,7 +28,7 @@ push 0
 push edx
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
-call fcn_00448544  ; call 0x448544
+call _rich4_restore_last_state  ; call 0x448544
 mov ebx, eax
 test eax, eax
 je short loc_00447423  ; je 0x447423
@@ -56,7 +56,7 @@ add esp, 4
 
 loc_004473fe:
 push 0xa
-mov esi, dword [_current_player]  ; mov esi, dword [0x49910c]
+mov esi, dword [_rich4_current_player]  ; mov esi, dword [0x49910c]
 push esi
 call _rich4_after_player_use_tool  ; call 0x445aa2
 add esp, 8

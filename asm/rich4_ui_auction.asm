@@ -7,14 +7,14 @@ extern __imp__InvalidateRect@12
 extern __imp__KillTimer@8
 extern __imp__PostMessageA@16
 extern __imp__SetTimer@16
-extern _all_players_state
+extern _rich4_all_players_state
 extern _callbackSize
 extern _global_rich4_cfg
 extern _libc_free
 extern _libc_rand
 extern _libc_sprintf
 extern _memset
-extern _num_players
+extern _rich4_num_players
 extern _read_mkf
 extern _rich4_create_font
 extern _rich4_draw_text
@@ -254,7 +254,7 @@ loc_0043a131:
 mov ebx, dword [esp + 0x30]
 dec ebx
 imul ebx, ebx, 0x68
-mov eax, dword [ebx + (_all_players_state + 28)]  ; mov eax, dword [ebx + 0x496b84]
+mov eax, dword [ebx + (_rich4_all_players_state + 28)]  ; mov eax, dword [ebx + 0x496b84]
 cmp eax, dword [esp + 0x10]
 jge short loc_0043a149  ; jge 0x43a149
 mov dword [esp + 0x10], eax
@@ -289,7 +289,7 @@ mov ax, word [eax*4 + ref_0048c434]  ; mov ax, word [eax*4 + 0x48c434]
 and eax, 0xffff
 dec eax
 imul eax, eax, 0x68
-mov al, byte [eax + (_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
+mov al, byte [eax + (_rich4_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
 and eax, 0xff
 lea edx, [eax + 0x4e]
 mov ecx, dword [ref_0048c49c]  ; mov ecx, dword [0x48c49c]
@@ -547,7 +547,7 @@ dec eax
 imul edx, eax, 0x68
 mov eax, dword [ref_0048c488]  ; mov eax, dword [0x48c488]
 add eax, dword [ebx*4 + ref_00475ba2]  ; add eax, dword [ebx*4 + 0x475ba2]
-cmp eax, dword [edx + (_all_players_state + 28)]  ; cmp eax, dword [edx + 0x496b84]
+cmp eax, dword [edx + (_rich4_all_players_state + 28)]  ; cmp eax, dword [edx + 0x496b84]
 jg near loc_0043a3d7  ; jg 0x43a3d7
 mov dword [ref_0048c488], eax  ; mov dword [0x48c488], eax
 mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
@@ -1384,7 +1384,7 @@ mov ax, word [eax*4 + ref_0048c434]  ; mov ax, word [eax*4 + 0x48c434]
 and eax, 0xffff
 dec eax
 imul eax, eax, 0x68
-cmp byte [eax + (_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
+cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne near loc_0043b0a0  ; jne 0x43b0a0
 xor ebx, ebx
 
@@ -1418,7 +1418,7 @@ and eax, 0xffff
 dec eax
 imul eax, eax, 0x68
 mov edx, dword [ref_0048c488]  ; mov edx, dword [0x48c488]
-cmp edx, dword [eax + (_all_players_state + 28)]  ; cmp edx, dword [eax + 0x496b84]
+cmp edx, dword [eax + (_rich4_all_players_state + 28)]  ; cmp edx, dword [eax + 0x496b84]
 jle short loc_0043b08a  ; jle 0x43b08a
 mov byte [ref_0048c4ac], 4  ; mov byte [0x48c4ac], 4
 push 0
@@ -1466,7 +1466,7 @@ mov dx, word [eax + ref_0048c434]  ; mov dx, word [eax + 0x48c434]
 dec edx
 imul edx, edx, 0x68
 mov ecx, dword [ref_0048c488]  ; mov ecx, dword [0x48c488]
-cmp ecx, dword [edx + (_all_players_state + 28)]  ; cmp ecx, dword [edx + 0x496b84]
+cmp ecx, dword [edx + (_rich4_all_players_state + 28)]  ; cmp ecx, dword [edx + 0x496b84]
 jle short loc_0043b124  ; jle 0x43b124
 mov ebx, 6
 jmp near loc_0043b219  ; jmp 0x43b219
@@ -1524,7 +1524,7 @@ mov ax, word [eax*4 + ref_0048c434]  ; mov ax, word [eax*4 + 0x48c434]
 and eax, 0xffff
 dec eax
 imul eax, eax, 0x68
-mov edi, dword [eax + (_all_players_state + 28)]  ; mov edi, dword [eax + 0x496b84]
+mov edi, dword [eax + (_rich4_all_players_state + 28)]  ; mov edi, dword [eax + 0x496b84]
 add edi, 0x1f4
 cmp esi, edi
 jle short loc_0043b219  ; jle 0x43b219
@@ -1842,7 +1842,7 @@ mov ax, word [eax*4 + ref_0048c434]  ; mov ax, word [eax*4 + 0x48c434]
 and eax, 0xffff
 dec eax
 imul eax, eax, 0x68
-mov al, byte [eax + (_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
+mov al, byte [eax + (_rich4_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
 and eax, 0xff
 mov edx, dword [eax*4 + ref_00475b54]  ; mov edx, dword [eax*4 + 0x475b54]
 push edx
@@ -2502,7 +2502,7 @@ xor eax, eax
 mov al, ch
 dec eax
 imul eax, eax, 0x68
-mov al, byte [eax + (_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
+mov al, byte [eax + (_rich4_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
 and eax, 0xff
 add eax, 0x5b
 jmp near loc_0043bf29  ; jmp 0x43bf29
@@ -2598,7 +2598,7 @@ xor eax, eax
 mov al, dh
 dec eax
 imul eax, eax, 0x68
-mov al, byte [eax + (_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
+mov al, byte [eax + (_rich4_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
 and eax, 0xff
 add eax, 0x68
 
@@ -2694,12 +2694,12 @@ mov dword [esp + 0x8c], ebx
 mov ebp, dword [esp + 0xac]
 
 loc_0043c110:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jge near loc_0043c2f5  ; jge 0x43c2f5
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 21)], 0  ; cmp byte [eax + 0x496b7d], 0
+cmp byte [eax + (_rich4_all_players_state + 21)], 0  ; cmp byte [eax + 0x496b7d], 0
 je near loc_0043c2ef  ; je 0x43c2ef
-mov eax, dword [eax + (_all_players_state + 28)]  ; mov eax, dword [eax + 0x496b84]
+mov eax, dword [eax + (_rich4_all_players_state + 28)]  ; mov eax, dword [eax + 0x496b84]
 cmp eax, dword [ref_0048c488]  ; cmp eax, dword [0x48c488]
 jg short loc_0043c152  ; jg 0x43c152
 mov esi, dword [esp + 0x8c]
@@ -2710,7 +2710,7 @@ mov word [eax*4 + ref_0048c436], 8  ; mov word [eax*4 + 0x48c436], 8
 
 loc_0043c152:
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 50)], 0  ; cmp byte [eax + 0x496b9a], 0
+cmp byte [eax + (_rich4_all_players_state + 50)], 0  ; cmp byte [eax + 0x496b9a], 0
 je short loc_0043c176  ; je 0x43c176
 mov edx, dword [esp + 0x8c]
 mov eax, edx
@@ -2720,7 +2720,7 @@ mov word [eax*4 + ref_0048c436], 1  ; mov word [eax*4 + 0x48c436], 1
 
 loc_0043c176:
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 51)], 0  ; cmp byte [eax + 0x496b9b], 0
+cmp byte [eax + (_rich4_all_players_state + 51)], 0  ; cmp byte [eax + 0x496b9b], 0
 je short loc_0043c19a  ; je 0x43c19a
 mov edx, dword [esp + 0x8c]
 mov eax, edx
@@ -2730,7 +2730,7 @@ mov word [eax*4 + ref_0048c436], 2  ; mov word [eax*4 + 0x48c436], 2
 
 loc_0043c19a:
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 52)], 0  ; cmp byte [eax + 0x496b9c], 0
+cmp byte [eax + (_rich4_all_players_state + 52)], 0  ; cmp byte [eax + 0x496b9c], 0
 je short loc_0043c1be  ; je 0x43c1be
 mov esi, dword [esp + 0x8c]
 mov eax, esi
@@ -2740,7 +2740,7 @@ mov word [eax*4 + ref_0048c436], 3  ; mov word [eax*4 + 0x48c436], 3
 
 loc_0043c1be:
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 53)], 0  ; cmp byte [eax + 0x496b9d], 0
+cmp byte [eax + (_rich4_all_players_state + 53)], 0  ; cmp byte [eax + 0x496b9d], 0
 je short loc_0043c1e2  ; je 0x43c1e2
 mov edx, dword [esp + 0x8c]
 mov eax, edx
@@ -2750,7 +2750,7 @@ mov word [eax*4 + ref_0048c436], 4  ; mov word [eax*4 + 0x48c436], 4
 
 loc_0043c1e2:
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 54)], 0  ; cmp byte [eax + 0x496b9e], 0
+cmp byte [eax + (_rich4_all_players_state + 54)], 0  ; cmp byte [eax + 0x496b9e], 0
 je short loc_0043c206  ; je 0x43c206
 mov edx, dword [esp + 0x8c]
 mov eax, edx
@@ -2760,7 +2760,7 @@ mov word [eax*4 + ref_0048c436], 5  ; mov word [eax*4 + 0x48c436], 5
 
 loc_0043c206:
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 55)], 0  ; cmp byte [eax + 0x496b9f], 0
+cmp byte [eax + (_rich4_all_players_state + 55)], 0  ; cmp byte [eax + 0x496b9f], 0
 je short loc_0043c22a  ; je 0x43c22a
 mov edx, dword [esp + 0x8c]
 mov eax, edx
@@ -2789,7 +2789,7 @@ push 0
 push 0
 imul edi, ebx, 0x68
 xor edx, edx
-mov dl, byte [edi + (_all_players_state + 19)]  ; mov dl, byte [edi + 0x496b7b]
+mov dl, byte [edi + (_rich4_all_players_state + 19)]  ; mov dl, byte [edi + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2803,7 +2803,7 @@ mov dword [esi*4 + ref_0048c43c], eax  ; mov dword [esi*4 + 0x48c43c], eax
 push 0
 push 0
 xor edx, edx
-mov dl, byte [edi + (_all_players_state + 19)]  ; mov dl, byte [edi + 0x496b7b]
+mov dl, byte [edi + (_rich4_all_players_state + 19)]  ; mov dl, byte [edi + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2817,7 +2817,7 @@ mov dword [esi*4 + ref_0048c440], eax  ; mov dword [esi*4 + 0x48c440], eax
 push 0
 push 0
 xor edx, edx
-mov dl, byte [edi + (_all_players_state + 19)]  ; mov dl, byte [edi + 0x496b7b]
+mov dl, byte [edi + (_rich4_all_players_state + 19)]  ; mov dl, byte [edi + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -2935,7 +2935,7 @@ mov ax, word [eax + ref_0048c434]  ; mov ax, word [eax + 0x48c434]
 and eax, 0xffff
 dec eax
 imul eax, eax, 0x68
-mov ecx, dword [eax + (_all_players_state + 28)]  ; mov ecx, dword [eax + 0x496b84]
+mov ecx, dword [eax + (_rich4_all_players_state + 28)]  ; mov ecx, dword [eax + 0x496b84]
 push ecx
 push ref_00465050  ; push 0x465050
 lea eax, [esp + 8]
@@ -3003,7 +3003,7 @@ mov ax, word [eax + ref_0048c434]  ; mov ax, word [eax + 0x48c434]
 and eax, 0xffff
 sub eax, ebp
 imul eax, eax, 0x68
-mov al, byte [eax + (_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
+mov al, byte [eax + (_rich4_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
 and eax, 0xff
 lea edx, [eax + 0x4e]
 mov eax, edx
@@ -3029,7 +3029,7 @@ xor eax, eax
 mov ax, word [esi + ref_0048c434]  ; mov ax, word [esi + 0x48c434]
 dec eax
 imul eax, eax, 0x68
-mov edx, dword [eax + (_all_players_state + 28)]  ; mov edx, dword [eax + 0x496b84]
+mov edx, dword [eax + (_rich4_all_players_state + 28)]  ; mov edx, dword [eax + 0x496b84]
 push edx
 push ref_00465050  ; push 0x465050
 lea eax, [esp + 8]
@@ -3077,7 +3077,7 @@ xor edx, edx
 mov dx, ax
 lea eax, [edx - 1]
 imul eax, eax, 0x68
-test byte [eax + (_all_players_state + 21)], 6  ; test byte [eax + 0x496b7d], 6
+test byte [eax + (_rich4_all_players_state + 21)], 6  ; test byte [eax + 0x496b7d], 6
 je short loc_0043c624  ; je 0x43c624
 cmp word [esi + ref_0048c436], 0  ; cmp word [esi + 0x48c436], 0
 jne short loc_0043c624  ; jne 0x43c624

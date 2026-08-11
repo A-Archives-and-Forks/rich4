@@ -1,5 +1,5 @@
-extern _all_players_state
-extern _current_player
+extern _rich4_all_players_state
+extern _rich4_current_player
 extern _rich4_player_say
 extern _tool_strings
 extern fcn_0040e033
@@ -10,7 +10,7 @@ extern fcn_00446ae8
 extern fcn_004542ce
 extern ref_00482372
 extern _rich4_map_node_ptr
-extern _player_tool_amount
+extern _rich4_player_tool_amount
 
 global _rich4_use_tool_dilei
 
@@ -18,9 +18,9 @@ section .text
 
 _rich4_use_tool_dilei:
 push ebx
-mov edx, dword [_current_player]  ; mov edx, dword [0x49910c]
+mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 imul eax, edx, 0x68
-mov al, byte [eax + (_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
+mov al, byte [eax + (_rich4_all_players_state + 19)]  ; mov al, byte [eax + 0x496b7b]
 and eax, 0xff
 imul eax, eax, 0x68
 mov ecx, dword [eax + (_tool_strings + 8)]  ; mov ecx, dword [eax + 0x480d62]
@@ -29,8 +29,8 @@ push 0
 push edx
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
-cmp byte [eax + (_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_00446cce  ; jne 0x446cce
 push 0x10001
 call fcn_00446ae8  ; call 0x446ae8
@@ -63,11 +63,11 @@ movsx edx, word [eax + 2]
 push edx
 movsx eax, word [eax]
 push eax
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 xor edx, edx
-mov dx, word [eax + (_all_players_state + 10)]  ; mov dx, word [eax + 0x496b72]
+mov dx, word [eax + (_rich4_all_players_state + 10)]  ; mov dx, word [eax + 0x496b72]
 push edx
-mov ax, word [eax + (_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
+mov ax, word [eax + (_rich4_all_players_state + 8)]  ; mov ax, word [eax + 0x496b70]
 and eax, 0xffff
 push eax
 push ecx
@@ -78,14 +78,14 @@ push ref_00482372  ; push 0x482372
 call fcn_004542ce  ; call 0x4542ce
 add esp, 8
 call fcn_0041d546  ; call 0x41d546
-mov edx, dword [_current_player]  ; mov edx, dword [0x49910c]
+mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 mov eax, edx
 shl eax, 2
 add eax, edx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-dec byte [eax + (_player_tool_amount + 2)]  ; dec byte [eax + 0x49915e]
+dec byte [eax + (_rich4_player_tool_amount + 2)]  ; dec byte [eax + 0x49915e]
 
 loc_00446d65:
 mov eax, ebx

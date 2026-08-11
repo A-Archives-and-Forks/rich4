@@ -9,6 +9,7 @@ extern ref_0046cb02
 extern ref_00476374
 
 global fcn_00451677
+global fcn_0045174a
 
 section .text
 
@@ -177,6 +178,14 @@ add esp, 4
 mov eax, ebx
 add esp, 0x50
 pop ebx
+ret
+
+fcn_0045174a:
+xor ah, ah
+mov byte [ref_0046cb02], ah  ; mov byte [0x46cb02], ah
+push 0
+call _Post_0402_Message  ; call 0x401966
+add esp, 4
 ret
 
 section .data

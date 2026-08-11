@@ -1,5 +1,5 @@
-extern _all_players_state
-extern _num_players
+extern _rich4_all_players_state
+extern _rich4_num_players
 extern _rich4_calculate_player_wealth
 extern _rich4_game_initial_fund
 extern _rich4_price_index
@@ -17,10 +17,10 @@ xor esi, esi
 xor edi, edi
 
 loc_00423ad8:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jge short loc_00423afb  ; jge 0x423afb
 imul eax, ebx, 0x68
-cmp byte [eax + (_all_players_state + 21)], 0  ; cmp byte [eax + 0x496b7d], 0
+cmp byte [eax + (_rich4_all_players_state + 21)], 0  ; cmp byte [eax + 0x496b7d], 0
 je short loc_00423af8  ; je 0x423af8
 push ebx
 call _rich4_calculate_player_wealth  ; call 0x4239b9

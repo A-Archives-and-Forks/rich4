@@ -3,8 +3,8 @@ extern _Wait_0402_Message
 extern __imp__DefWindowProcA@16
 extern __imp__InvalidateRect@12
 extern __imp__ValidateRect@8
-extern _all_players_state
-extern _num_players
+extern _rich4_all_players_state
+extern _rich4_num_players
 extern fcn_00402250
 extern fcn_0040235d
 extern fcn_00402460
@@ -86,13 +86,13 @@ add esp, 0x10
 xor ebx, ebx
 
 loc_0040a8a1:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jge near loc_0040a928  ; jge 0x40a928
 imul edx, ebx, 0x68
-cmp word [edx + (_all_players_state + 8)], 0  ; cmp word [edx + 0x496b70], 0
+cmp word [edx + (_rich4_all_players_state + 8)], 0  ; cmp word [edx + 0x496b70], 0
 je short loc_0040a922  ; je 0x40a922
 xor ecx, ecx
-mov cx, word [edx + (_all_players_state + 8)]  ; mov cx, word [edx + 0x496b70]
+mov cx, word [edx + (_rich4_all_players_state + 8)]  ; mov cx, word [edx + 0x496b70]
 mov eax, ecx
 shl eax, 2
 sub eax, ecx
@@ -103,7 +103,7 @@ add eax, ecx
 shl eax, 7
 sar eax, 0x10
 lea ecx, [eax + 0x14]
-mov dx, word [edx + (_all_players_state + 10)]  ; mov dx, word [edx + 0x496b72]
+mov dx, word [edx + (_rich4_all_players_state + 10)]  ; mov dx, word [edx + 0x496b72]
 and edx, 0xffff
 mov eax, edx
 shl eax, 2

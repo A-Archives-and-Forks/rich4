@@ -1686,7 +1686,7 @@ push 0
 push 0x100
 jmp near loc_00405156  ; jmp 0x405156
 
-section .text
+section .data
 
 ref_0046cb44:
 dd 0x00000000

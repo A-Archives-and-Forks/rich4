@@ -7,7 +7,7 @@ extern __imp__InvalidateRect@12
 extern __imp__KillTimer@8
 extern __imp__SetTimer@16
 extern _callbackSize
-extern _current_player
+extern _rich4_current_player
 extern _default_hotkeys
 extern _gWindowHandle
 extern _global_rich4_cfg
@@ -2745,7 +2745,7 @@ ret
 _rich4_player_surrender:
 push ebx
 push esi
-mov edx, dword [_current_player]  ; mov edx, dword [0x49910c]
+mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 push edx
 call _rich4_player_bankrupt  ; call 0x40cd87
 add esp, 4
@@ -2754,16 +2754,16 @@ jle short loc_00411b43  ; jle 0x411b43
 call fcn_0040dfda  ; call 0x40dfda
 test eax, eax
 je short loc_00411b43  ; je 0x411b43
-mov ebx, dword [_current_player]  ; mov ebx, dword [0x49910c]
+mov ebx, dword [_rich4_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
 call _rich4_call_god_of_death_entry  ; call 0x4339d9
 mov ebx, eax
 add esp, 4
 test eax, eax
 je short loc_00411b43  ; je 0x411b43
-mov esi, dword [_current_player]  ; mov esi, dword [0x49910c]
+mov esi, dword [_rich4_current_player]  ; mov esi, dword [0x49910c]
 dec eax
-mov dword [_current_player], eax  ; mov dword [0x49910c], eax
+mov dword [_rich4_current_player], eax  ; mov dword [0x49910c], eax
 push 1
 call fcn_0041906a  ; call 0x41906a
 add esp, 4
@@ -2773,7 +2773,7 @@ push 0
 push 0xf
 call fcn_0040e033  ; call 0x40e033
 add esp, 0x10
-mov dword [_current_player], esi  ; mov dword [0x49910c], esi
+mov dword [_rich4_current_player], esi  ; mov dword [0x49910c], esi
 
 loc_00411b43:
 pop esi

@@ -1,4 +1,4 @@
-extern _all_players_state
+extern _rich4_all_players_state
 extern _player_stocks
 extern _stocks_on_map
 extern __round_toward_zero
@@ -19,9 +19,9 @@ push ebp
 sub esp, 8
 mov ebx, dword [esp + 0x1c]
 imul eax, ebx, 0x68
-mov edx, dword [eax + (_all_players_state + 28)]  ; mov edx, dword [eax + 0x496b84]
-add edx, dword [eax + (_all_players_state + 32)]  ; add edx, dword [eax + 0x496b88]
-mov esi, dword [eax + (_all_players_state + 36)]  ; mov esi, dword [eax + 0x496b8c]
+mov edx, dword [eax + (_rich4_all_players_state + 28)]  ; mov edx, dword [eax + 0x496b84]
+add edx, dword [eax + (_rich4_all_players_state + 32)]  ; add edx, dword [eax + 0x496b88]
+mov esi, dword [eax + (_rich4_all_players_state + 36)]  ; mov esi, dword [eax + 0x496b8c]
 sub edx, esi
 mov dword [esp], edx
 xor edx, edx

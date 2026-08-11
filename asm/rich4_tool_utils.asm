@@ -1,6 +1,6 @@
-extern _all_players_state
+extern _rich4_all_players_state
 extern _libc_rand
-extern _player_tool_amount
+extern _rich4_player_tool_amount
 extern _tool_table
 extern fcn_0040b93b
 extern _rich4_remain_tool_amount
@@ -22,7 +22,7 @@ add eax, ecx
 mov ecx, eax
 shl eax, 2
 sub eax, ecx
-cmp byte [edx + eax + (_player_tool_amount - 1)], 9  ; cmp byte [edx + eax + 0x49915b], 9
+cmp byte [edx + eax + (_rich4_player_tool_amount - 1)], 9  ; cmp byte [edx + eax + 0x49915b], 9
 jae short loc_00445aa0  ; jae 0x445aa0
 cmp edx, 8
 jg short loc_00445a87  ; jg 0x445a87
@@ -41,7 +41,7 @@ add eax, ecx
 mov ecx, eax
 shl eax, 2
 sub eax, ecx
-inc byte [edx + eax + (_player_tool_amount - 1)]  ; inc byte [edx + eax + 0x49915b]
+inc byte [edx + eax + (_rich4_player_tool_amount - 1)]  ; inc byte [edx + eax + 0x49915b]
 
 loc_00445aa0:
 pop ebx
@@ -57,12 +57,12 @@ mov edx, eax
 shl eax, 2
 sub eax, edx
 add eax, ecx
-mov dl, byte [eax + (_player_tool_amount - 1)]  ; mov dl, byte [eax + 0x49915b]
+mov dl, byte [eax + (_rich4_player_tool_amount - 1)]  ; mov dl, byte [eax + 0x49915b]
 test dl, dl
 je short loc_00445ad9  ; je 0x445ad9
 mov dh, dl
 dec dh
-mov byte [eax + (_player_tool_amount - 1)], dh  ; mov byte [eax + 0x49915b], dh
+mov byte [eax + (_rich4_player_tool_amount - 1)], dh  ; mov byte [eax + 0x49915b], dh
 cmp ecx, 8
 jg short loc_00445ad9  ; jg 0x445ad9
 inc byte [ecx + (_rich4_remain_tool_amount - 1)]  ; inc byte [ecx + 0x49731f]
@@ -127,7 +127,7 @@ push esi
 push edi
 mov esi, dword [esp + 0x10]
 imul eax, esi, 0x68
-mov dl, byte [eax + (_all_players_state + 17)]  ; mov dl, byte [eax + 0x496b79]
+mov dl, byte [eax + (_rich4_all_players_state + 17)]  ; mov dl, byte [eax + 0x496b79]
 test dl, dl
 je short loc_00445baa  ; je 0x445baa
 mov bl, dl
@@ -148,21 +148,21 @@ jmp short loc_00445b8f  ; jmp 0x445b8f
 loc_00445b74:
 cmp bl, 1
 jne short loc_00445b8f  ; jne 0x445b8f
-add byte [eax + (_player_tool_amount + 4)], bl  ; add byte [eax + 0x499160], bl
+add byte [eax + (_rich4_player_tool_amount + 4)], bl  ; add byte [eax + 0x499160], bl
 jmp short loc_00445b8f  ; jmp 0x445b8f
 
 loc_00445b81:
-inc byte [eax + (_player_tool_amount + 5)]  ; inc byte [eax + 0x499161]
+inc byte [eax + (_rich4_player_tool_amount + 5)]  ; inc byte [eax + 0x499161]
 jmp short loc_00445b8f  ; jmp 0x445b8f
 
 loc_00445b89:
-inc byte [eax + (_player_tool_amount + 11)]  ; inc byte [eax + 0x499167]
+inc byte [eax + (_rich4_player_tool_amount + 11)]  ; inc byte [eax + 0x499167]
 
 loc_00445b8f:
 imul eax, esi, 0x68
 xor cl, cl
-mov byte [eax + (_all_players_state + 17)], cl  ; mov byte [eax + 0x496b79], cl
-mov byte [eax + (_all_players_state + 18)], 1  ; mov byte [eax + 0x496b7a], 1
+mov byte [eax + (_rich4_all_players_state + 17)], cl  ; mov byte [eax + 0x496b79], cl
+mov byte [eax + (_rich4_all_players_state + 18)], 1  ; mov byte [eax + 0x496b7a], 1
 push esi
 call fcn_0040b93b  ; call 0x40b93b
 add esp, 4
@@ -185,7 +185,7 @@ mov ecx, edx
 shl edx, 2
 sub edx, ecx
 add edx, eax
-mov cl, byte [edx + _player_tool_amount]  ; mov cl, byte [edx + 0x49915c]
+mov cl, byte [edx + _rich4_player_tool_amount]  ; mov cl, byte [edx + 0x49915c]
 test cl, cl
 je short loc_00445bb0  ; je 0x445bb0
 cmp eax, 8
@@ -199,13 +199,13 @@ add edx, esi
 mov ecx, edx
 shl edx, 2
 sub edx, ecx
-movzx edi, byte [edx + eax + _player_tool_amount]  ; movzx edi, byte [edx + eax + 0x49915c]
+movzx edi, byte [edx + eax + _rich4_player_tool_amount]  ; movzx edi, byte [edx + eax + 0x49915c]
 mov cl, byte [eax*8 + (_tool_table + 5)]  ; mov cl, byte [eax*8 + 0x47fee7]
 and ecx, 0xff
 imul ecx, edi
 add ebx, ecx
 xor cl, cl
-mov byte [edx + eax + _player_tool_amount], cl  ; mov byte [edx + eax + 0x49915c], cl
+mov byte [edx + eax + _rich4_player_tool_amount], cl  ; mov byte [edx + eax + 0x49915c], cl
 jmp short loc_00445bb0  ; jmp 0x445bb0
 
 loc_00445c0e:

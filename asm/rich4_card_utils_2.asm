@@ -1,6 +1,6 @@
 extern _card_table
 extern _libc_rand
-extern _player_cards
+extern _rich4_player_cards
 extern _rich4_consume_card
 extern _rich4_player_card_num
 extern _rich4_receive_card
@@ -87,7 +87,7 @@ add eax, edx
 mov edx, eax
 shl eax, 2
 sub eax, edx
-mov bl, byte [ebx + eax + _player_cards]  ; mov bl, byte [ebx + eax + 0x499120]
+mov bl, byte [ebx + eax + _rich4_player_cards]  ; mov bl, byte [ebx + eax + 0x499120]
 and ebx, 0xff
 push ebx
 mov ecx, dword [esp + 0x10]
@@ -125,7 +125,7 @@ add eax, esi
 mov edx, eax
 shl eax, 2
 sub eax, edx
-mov al, byte [ebx + eax + _player_cards]  ; mov al, byte [ebx + eax + 0x499120]
+mov al, byte [ebx + eax + _rich4_player_cards]  ; mov al, byte [ebx + eax + 0x499120]
 and eax, 0xff
 push eax
 push esi
@@ -165,15 +165,15 @@ mov edx, eax
 shl eax, 2
 sub eax, edx
 add eax, ecx
-cmp byte [eax + _player_cards], 0  ; cmp byte [eax + 0x499120], 0
+cmp byte [eax + _rich4_player_cards], 0  ; cmp byte [eax + 0x499120], 0
 je short loc_00441f2d  ; je 0x441f2d
 xor edx, edx
-mov dl, byte [eax + _player_cards]  ; mov dl, byte [eax + 0x499120]
+mov dl, byte [eax + _rich4_player_cards]  ; mov dl, byte [eax + 0x499120]
 inc byte [edx + (_rich4_remain_card_amount - 1)]  ; inc byte [edx + 0x499197]
 mov dl, byte [edx*8 + (_card_table - 3)]  ; mov dl, byte [edx*8 + 0x47fdef]
 and edx, 0xff
 add ebx, edx
 xor dh, dh
-mov byte [eax + _player_cards], dh  ; mov byte [eax + 0x499120], dh
+mov byte [eax + _rich4_player_cards], dh  ; mov byte [eax + 0x499120], dh
 jmp short loc_00441f2d  ; jmp 0x441f2d
 

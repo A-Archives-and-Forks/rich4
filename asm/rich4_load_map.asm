@@ -1,10 +1,10 @@
-extern _all_players_state
+extern _rich4_all_players_state
 extern _libc_malloc
 extern _libc_free
 extern _load_mkf
 extern _memcpy
 extern _memset
-extern _num_players
+extern _rich4_num_players
 extern _read_mkf
 extern _rich4_data_mkf
 extern _stocks_on_map
@@ -38,13 +38,12 @@ extern ref_0048bad0
 extern ref_0048bad4
 extern ref_0048bad8
 extern ref_0048badc
-extern ref_0048bae0
-extern ref_0048bae2
+extern _rich4_prison_node_idx
+extern _rich4_hospital_node_idx
 extern ref_0048be18
 extern ref_0048be1c
 extern ref_0048be20
-extern ref_0048cb80
-extern ref_0048f294
+extern _rich4_save_state
 extern ref_00496930
 extern ref_00496d08
 extern ref_00498e78
@@ -221,7 +220,7 @@ mov dword [ref_00498e94], edx  ; mov dword [0x498e94], edx
 xor ebx, ebx
 
 loc_00407cd1:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jge short loc_00407d3a  ; jge 0x407d3a
 push 0x2718
 push 0
@@ -236,7 +235,7 @@ shl eax, 3
 mov esi, eax
 shl eax, 3
 add esi, eax
-mov eax, ref_0048cb80  ; mov eax, 0x48cb80
+mov eax, _rich4_save_state  ; mov eax, 0x48cb80
 add eax, esi
 push eax
 call _memset  ; call 0x456f60
@@ -245,11 +244,11 @@ mov ebp, dword [ref_00498e94]  ; mov ebp, dword [0x498e94]
 push ebp
 call _libc_malloc  ; call 0x456f80
 add esp, 4
-mov dword [esi + ref_0048f294], eax  ; mov dword [esi + 0x48f294], eax
+mov dword [esi + (_rich4_save_state + 10004)], eax  ; mov dword [esi + 0x48f294], eax
 mov eax, dword [ref_00498e94]  ; mov eax, dword [0x498e94]
 push eax
 push 0
-mov edx, dword [esi + ref_0048f294]  ; mov edx, dword [esi + 0x48f294]
+mov edx, dword [esi + (_rich4_save_state + 10004)]  ; mov edx, dword [esi + 0x48f294]
 push edx
 call _memset  ; call 0x456f60
 add esp, 0xc
@@ -490,13 +489,13 @@ cmp ebx, 9
 jge near loc_0040801a  ; jge 0x40801a
 
 loc_00407f9e:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jge short loc_00407fff  ; jge 0x407fff
 push 0
 push 0
 imul esi, ebx, 0x68
 xor eax, eax
-mov al, byte [esi + (_all_players_state + 19)]  ; mov al, byte [esi + 0x496b7b]
+mov al, byte [esi + (_rich4_all_players_state + 19)]  ; mov al, byte [esi + 0x496b7b]
 add eax, 0x1b
 push eax
 push edi
@@ -505,9 +504,9 @@ mov edx, eax
 add esp, 0x10
 imul eax, ebx, 0x34
 mov dword [eax + ref_00498eb0], edx  ; mov dword [eax + 0x498eb0], edx
-cmp byte [esi + (_all_players_state + 21)], 0  ; cmp byte [esi + 0x496b7d], 0
+cmp byte [esi + (_rich4_all_players_state + 21)], 0  ; cmp byte [esi + 0x496b7d], 0
 jne short loc_00407fff  ; jne 0x407fff
-cmp byte [esi + (_all_players_state + 100)], 0  ; cmp byte [esi + 0x496bcc], 0
+cmp byte [esi + (_rich4_all_players_state + 100)], 0  ; cmp byte [esi + 0x496bcc], 0
 jne short loc_00407fff  ; jne 0x407fff
 mov eax, dword [eax + ref_00498eb0]  ; mov eax, dword [eax + 0x498eb0]
 movsx edx, word [eax + 0xe]
@@ -522,7 +521,7 @@ call fcn_004553fe  ; call 0x4553fe
 add esp, 0x14
 
 loc_00407fff:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jl short loc_0040800c  ; jl 0x40800c
 cmp ebx, 4
 jl short loc_00407f94  ; jl 0x407f94
@@ -549,7 +548,7 @@ add eax, ebx
 mov edx, dword [_rich4_map_node_ptr]  ; mov edx, dword [0x498e80]
 cmp word [edx + eax*8 + 0x20], 0x1f41
 jne short loc_0040804f  ; jne 0x40804f
-mov word [ref_0048bae2], bx  ; mov word [0x48bae2], bx
+mov word [_rich4_hospital_node_idx], bx  ; mov word [0x48bae2], bx
 
 loc_0040804f:
 mov eax, ebx
@@ -559,7 +558,7 @@ shl edx, 3
 mov eax, dword [_rich4_map_node_ptr]  ; mov eax, dword [0x498e80]
 cmp word [edx + eax + 0x20], 0x1f42
 jne short loc_0040806f  ; jne 0x40806f
-mov word [ref_0048bae0], bx  ; mov word [0x48bae0], bx
+mov word [_rich4_prison_node_idx], bx  ; mov word [0x48bae0], bx
 
 loc_0040806f:
 inc ebx
@@ -674,7 +673,7 @@ add esp, 4
 xor ebx, ebx
 
 loc_004081a8:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jge short loc_0040820c  ; jge 0x40820c
 imul esi, ebx, 0x34
 mov ecx, dword [esi + ref_00498eb0]  ; mov ecx, dword [esi + 0x498eb0]
@@ -694,13 +693,13 @@ shl eax, 3
 mov esi, eax
 shl eax, 3
 add esi, eax
-mov ebp, dword [esi + ref_0048f294]  ; mov ebp, dword [esi + 0x48f294]
+mov ebp, dword [esi + (_rich4_save_state + 10004)]  ; mov ebp, dword [esi + 0x48f294]
 push ebp
 call _libc_free  ; call 0x456e11
 add esp, 4
 push 0x2718
 push edi
-add esi, ref_0048cb80  ; add esi, 0x48cb80
+add esi, _rich4_save_state  ; add esi, 0x48cb80
 push esi
 call _memset  ; call 0x456f60
 add esp, 0xc

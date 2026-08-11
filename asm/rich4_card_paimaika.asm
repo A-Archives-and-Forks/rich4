@@ -1,6 +1,6 @@
-extern _all_players_state
+extern _rich4_all_players_state
 extern _card_strings
-extern _current_player
+extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040a4e1
@@ -26,9 +26,9 @@ push edi
 push ebp
 sub esp, 8
 xor ebx, ebx
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 xor edx, edx
-mov dx, word [eax + (_all_players_state + 12)]  ; mov dx, word [eax + 0x496b74]
+mov dx, word [eax + (_rich4_all_players_state + 12)]  ; mov dx, word [eax + 0x496b74]
 mov eax, edx
 shl eax, 2
 add eax, edx
@@ -61,7 +61,7 @@ fdiv dword [ref_00465328]  ; fdiv dword [0x465328]
 fmulp st1  ; fmulp st(1)
 sub esp, 8
 fstp qword [esp]
-mov eax, dword [_current_player]  ; mov eax, dword [0x49910c]
+mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 push eax
 lea eax, [ebx - 1]
 push eax
@@ -69,9 +69,9 @@ call fcn_0040df69  ; call 0x40df69
 add esp, 0x10
 
 loc_004432ce:
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 xor edx, edx
-mov dl, byte [eax + (_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
+mov dl, byte [eax + (_rich4_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -82,20 +82,20 @@ sub eax, edx
 mov ecx, dword [eax + (_card_strings + 28)]  ; mov ecx, dword [eax + 0x481256]
 push ecx
 push 3
-mov ebp, dword [_current_player]  ; mov ebp, dword [0x49910c]
+mov ebp, dword [_rich4_current_player]  ; mov ebp, dword [0x49910c]
 push ebp
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
 test ebx, ebx
 je short loc_00443345  ; je 0x443345
-mov eax, dword [_current_player]  ; mov eax, dword [0x49910c]
+mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 inc eax
 cmp ebx, eax
 je short loc_00443345  ; je 0x443345
 lea edx, [ebx - 1]
 imul eax, edx, 0x68
 xor ebx, ebx
-mov bl, byte [eax + (_all_players_state + 19)]  ; mov bl, byte [eax + 0x496b7b]
+mov bl, byte [eax + (_rich4_all_players_state + 19)]  ; mov bl, byte [eax + 0x496b7b]
 mov eax, ebx
 shl eax, 2
 sub eax, ebx
@@ -113,7 +113,7 @@ add esp, 0xc
 loc_00443345:
 push 1
 push edi
-mov ebx, dword [_current_player]  ; mov ebx, dword [0x49910c]
+mov ebx, dword [_rich4_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
 call _rich4_ui_auction_entry  ; call 0x43bde5
 add esp, 0xc
@@ -162,7 +162,7 @@ fdiv dword [ref_00465328]  ; fdiv dword [0x465328]
 fmulp st1  ; fmulp st(1)
 sub esp, 8
 fstp qword [esp]
-mov ebp, dword [_current_player]  ; mov ebp, dword [0x49910c]
+mov ebp, dword [_rich4_current_player]  ; mov ebp, dword [0x49910c]
 push ebp
 lea eax, [ebx - 1]
 push eax
@@ -170,9 +170,9 @@ call fcn_0040df69  ; call 0x40df69
 add esp, 0x10
 
 loc_004433f7:
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 xor edx, edx
-mov dl, byte [eax + (_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
+mov dl, byte [eax + (_rich4_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -183,20 +183,20 @@ sub eax, edx
 mov ecx, dword [eax + (_card_strings + 28)]  ; mov ecx, dword [eax + 0x481256]
 push ecx
 push 3
-mov ebp, dword [_current_player]  ; mov ebp, dword [0x49910c]
+mov ebp, dword [_rich4_current_player]  ; mov ebp, dword [0x49910c]
 push ebp
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
 test ebx, ebx
 je short loc_0044346c  ; je 0x44346c
-mov eax, dword [_current_player]  ; mov eax, dword [0x49910c]
+mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 inc eax
 cmp ebx, eax
 je short loc_0044346c  ; je 0x44346c
 dec ebx
 imul eax, ebx, 0x68
 xor edx, edx
-mov dl, byte [eax + (_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
+mov dl, byte [eax + (_rich4_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -214,7 +214,7 @@ add esp, 0xc
 loc_0044346c:
 push 1
 push edi
-mov ecx, dword [_current_player]  ; mov ecx, dword [0x49910c]
+mov ecx, dword [_rich4_current_player]  ; mov ecx, dword [0x49910c]
 push ecx
 call _rich4_ui_auction_entry  ; call 0x43bde5
 add esp, 0xc
@@ -230,7 +230,7 @@ je short loc_004434b9  ; je 0x4434b9
 
 loc_00443496:
 push 8
-mov esi, dword [_current_player]  ; mov esi, dword [0x49910c]
+mov esi, dword [_rich4_current_player]  ; mov esi, dword [0x49910c]
 push esi
 call _rich4_consume_card  ; call 0x441343
 add esp, 8

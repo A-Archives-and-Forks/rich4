@@ -1,9 +1,9 @@
-extern _all_players_state
+extern _rich4_all_players_state
 extern _card_strings
 extern _card_table
-extern _current_player
+extern _rich4_current_player
 extern _libc_sprintf
-extern _num_players
+extern _rich4_num_players
 extern _player_stocks
 extern _rich4_consume_card
 extern _rich4_player_say
@@ -28,9 +28,9 @@ push esi
 push edi
 push ebp
 sub esp, 0xc8
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 xor edx, edx
-mov dl, byte [eax + (_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
+mov dl, byte [eax + (_rich4_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx
@@ -41,7 +41,7 @@ sub eax, edx
 mov ecx, dword [eax + (_card_strings + 96)]  ; mov ecx, dword [eax + 0x48129a]
 push ecx
 push 0
-mov ebx, dword [_current_player]  ; mov ebx, dword [0x49910c]
+mov ebx, dword [_rich4_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
@@ -56,8 +56,8 @@ mov dword [esp + ebx*4 + 0x80], edx
 inc ebx
 cmp ebx, 0xc
 jl short loc_00445083  ; jl 0x445083
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
-cmp byte [eax + (_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_004450e2  ; jne 0x4450e2
 push 0xa
 push 0xf
@@ -129,7 +129,7 @@ fstp dword [esp + 0xc4]
 xor esi, esi
 
 loc_00445184:
-cmp esi, dword [_num_players]  ; cmp esi, dword [0x499114]
+cmp esi, dword [_rich4_num_players]  ; cmp esi, dword [0x499114]
 jge short loc_004451d2  ; jge 0x4451d2
 mov eax, esi
 shl eax, 2
@@ -145,7 +145,7 @@ fmul dword [esp + 0xc4]
 fdiv dword [ref_004653bc]  ; fdiv dword [0x4653bc]
 sub esp, 8
 fstp qword [esp]
-mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
+mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 push edi
 push esi
 call fcn_0040df69  ; call 0x40df69
@@ -157,7 +157,7 @@ jmp short loc_00445184  ; jmp 0x445184
 
 loc_004451d2:
 push 0x19
-mov edx, dword [_current_player]  ; mov edx, dword [0x49910c]
+mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 push edx
 call _rich4_consume_card  ; call 0x441343
 add esp, 8

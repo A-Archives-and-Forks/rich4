@@ -5,12 +5,12 @@ extern __imp__DefWindowProcA@16
 extern __imp__EndPaint@8
 extern __imp__InvalidateRect@12
 extern __imp__PostMessageA@16
-extern _all_players_state
-extern _current_player
+extern _rich4_all_players_state
+extern _rich4_current_player
 extern _gWindowHandle
 extern _libc_free
 extern _memset
-extern _num_players
+extern _rich4_num_players
 extern _read_mkf
 extern _rich4_create_font
 extern _rich4_draw_text
@@ -764,15 +764,15 @@ mov cl, bl
 dec ecx
 imul ecx, ecx, 0x68
 mov bl, byte [eax + ref_0048be35]  ; mov bl, byte [eax + 0x48be35]
-mov byte [ecx + (_all_players_state + 21)], bl  ; mov byte [ecx + 0x496b7d], bl
+mov byte [ecx + (_rich4_all_players_state + 21)], bl  ; mov byte [ecx + 0x496b7d], bl
 mov bl, byte [eax + ref_0048be36]  ; mov bl, byte [eax + 0x48be36]
-mov byte [ecx + (_all_players_state + 22)], bl  ; mov byte [ecx + 0x496b7e], bl
+mov byte [ecx + (_rich4_all_players_state + 22)], bl  ; mov byte [ecx + 0x496b7e], bl
 mov bl, byte [eax + ref_0048be37]  ; mov bl, byte [eax + 0x48be37]
-mov byte [ecx + (_all_players_state + 23)], bl  ; mov byte [ecx + 0x496b7f], bl
+mov byte [ecx + (_rich4_all_players_state + 23)], bl  ; mov byte [ecx + 0x496b7f], bl
 mov bl, byte [eax + ref_0048be38]  ; mov bl, byte [eax + 0x48be38]
-mov byte [ecx + (_all_players_state + 25)], bl  ; mov byte [ecx + 0x496b81], bl
+mov byte [ecx + (_rich4_all_players_state + 25)], bl  ; mov byte [ecx + 0x496b81], bl
 mov al, byte [eax + ref_0048be39]  ; mov al, byte [eax + 0x48be39]
-mov byte [ecx + (_all_players_state + 26)], al  ; mov byte [ecx + 0x496b82], al
+mov byte [ecx + (_rich4_all_players_state + 26)], al  ; mov byte [ecx + 0x496b82], al
 jmp short loc_0041e238  ; jmp 0x41e238
 
 loc_0041e297:
@@ -1011,13 +1011,13 @@ mov edi, 8
 
 loc_0041e594:
 mov eax, dword [esp]
-cmp eax, dword [_num_players]  ; cmp eax, dword [0x499114]
+cmp eax, dword [_rich4_num_players]  ; cmp eax, dword [0x499114]
 jge near loc_0041e66f  ; jge 0x41e66f
 imul eax, eax, 0x68
-test byte [eax + (_all_players_state + 21)], 1  ; test byte [eax + 0x496b7d], 1
+test byte [eax + (_rich4_all_players_state + 21)], 1  ; test byte [eax + 0x496b7d], 1
 je near loc_0041e667  ; je 0x41e667
 mov eax, dword [esp]
-cmp eax, dword [_current_player]  ; cmp eax, dword [0x49910c]
+cmp eax, dword [_rich4_current_player]  ; cmp eax, dword [0x49910c]
 jne short loc_0041e5c4  ; jne 0x41e5c4
 mov dword [ref_0048be4c], esi  ; mov dword [0x48be4c], esi
 
@@ -1029,15 +1029,15 @@ shl eax, 2
 sub eax, esi
 mov byte [eax*2 + ref_0048be34], dl  ; mov byte [eax*2 + 0x48be34], dl
 imul ebx, dword [esp], 0x68
-mov dl, byte [ebx + (_all_players_state + 21)]  ; mov dl, byte [ebx + 0x496b7d]
+mov dl, byte [ebx + (_rich4_all_players_state + 21)]  ; mov dl, byte [ebx + 0x496b7d]
 mov byte [eax*2 + ref_0048be35], dl  ; mov byte [eax*2 + 0x48be35], dl
-mov dl, byte [ebx + (_all_players_state + 22)]  ; mov dl, byte [ebx + 0x496b7e]
+mov dl, byte [ebx + (_rich4_all_players_state + 22)]  ; mov dl, byte [ebx + 0x496b7e]
 mov byte [eax*2 + ref_0048be36], dl  ; mov byte [eax*2 + 0x48be36], dl
-mov dl, byte [ebx + (_all_players_state + 23)]  ; mov dl, byte [ebx + 0x496b7f]
+mov dl, byte [ebx + (_rich4_all_players_state + 23)]  ; mov dl, byte [ebx + 0x496b7f]
 mov byte [eax*2 + ref_0048be37], dl  ; mov byte [eax*2 + 0x48be37], dl
-mov dl, byte [ebx + (_all_players_state + 25)]  ; mov dl, byte [ebx + 0x496b81]
+mov dl, byte [ebx + (_rich4_all_players_state + 25)]  ; mov dl, byte [ebx + 0x496b81]
 mov byte [eax*2 + ref_0048be38], dl  ; mov byte [eax*2 + 0x48be38], dl
-mov dl, byte [ebx + (_all_players_state + 26)]  ; mov dl, byte [ebx + 0x496b82]
+mov dl, byte [ebx + (_rich4_all_players_state + 26)]  ; mov dl, byte [ebx + 0x496b82]
 mov byte [eax*2 + ref_0048be39], dl  ; mov byte [eax*2 + 0x48be39], dl
 push edi
 push 8
@@ -1052,7 +1052,7 @@ lea eax, [edi + 0x28]
 push eax
 push 0x50
 xor eax, eax
-mov al, byte [ebx + (_all_players_state + 19)]  ; mov al, byte [ebx + 0x496b7b]
+mov al, byte [ebx + (_rich4_all_players_state + 19)]  ; mov al, byte [ebx + 0x496b7b]
 lea ebx, [eax + 6]
 mov edx, ebx
 shl edx, 2

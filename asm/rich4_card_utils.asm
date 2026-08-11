@@ -1,6 +1,6 @@
 extern _card_table
 extern _memcpy
-extern _player_cards
+extern _rich4_player_cards
 extern _rich4_remain_card_amount
 extern _rich4_use_card_mianzuika
 extern _rich4_try_use_card_jiahuoka
@@ -75,7 +75,7 @@ add eax, esi
 mov edx, eax
 shl eax, 2
 sub eax, edx
-cmp byte [ecx + eax + _player_cards], 0  ; cmp byte [ecx + eax + 0x499120], 0
+cmp byte [ecx + eax + _rich4_player_cards], 0  ; cmp byte [ecx + eax + 0x499120], 0
 je short loc_0044126e  ; je 0x44126e
 inc ebx
 jmp short loc_0044126e  ; jmp 0x44126e
@@ -103,10 +103,10 @@ mov edx, eax
 shl eax, 2
 sub eax, edx
 add eax, ecx
-cmp byte [eax + _player_cards], 0  ; cmp byte [eax + 0x499120], 0
+cmp byte [eax + _rich4_player_cards], 0  ; cmp byte [eax + 0x499120], 0
 je short loc_004412a1  ; je 0x4412a1
 xor edx, edx
-mov dl, byte [eax + _player_cards]  ; mov dl, byte [eax + 0x499120]
+mov dl, byte [eax + _rich4_player_cards]  ; mov dl, byte [eax + 0x499120]
 mov al, byte [edx*8 + (_card_table - 3)]  ; mov al, byte [edx*8 + 0x47fdef]
 and eax, 0xff
 cmp ebx, eax
@@ -155,10 +155,10 @@ mov edx, eax
 shl eax, 2
 sub eax, edx
 add eax, ecx
-cmp byte [eax + _player_cards], 0  ; cmp byte [eax + 0x499120], 0
+cmp byte [eax + _rich4_player_cards], 0  ; cmp byte [eax + 0x499120], 0
 jne short loc_0044130e  ; jne 0x44130e
 mov dl, byte [esp + 0xc]
-mov byte [eax + _player_cards], dl  ; mov byte [eax + 0x499120], dl
+mov byte [eax + _rich4_player_cards], dl  ; mov byte [eax + 0x499120], dl
 mov eax, dword [esp + 0xc]
 dec byte [eax + (_rich4_remain_card_amount - 1)]  ; dec byte [eax + 0x499197]
 
@@ -190,14 +190,14 @@ shl esi, 2
 sub esi, eax
 lea eax, [esi + ebx]
 xor edx, edx
-mov dl, byte [eax + _player_cards]  ; mov dl, byte [eax + 0x499120]
+mov dl, byte [eax + _rich4_player_cards]  ; mov dl, byte [eax + 0x499120]
 lea eax, [ebx + 1]
 cmp edx, edi
 jne short loc_00441353  ; jne 0x441353
 mov ebp, 0xe
 sub ebp, ebx
 push ebp
-mov edx, _player_cards  ; mov edx, 0x499120
+mov edx, _rich4_player_cards  ; mov edx, 0x499120
 add edx, esi
 add eax, edx
 push eax
@@ -207,7 +207,7 @@ call _memcpy  ; call 0x456de8
 add esp, 0xc
 add ebx, ebp
 xor ah, ah
-mov byte [esi + ebx + _player_cards], ah  ; mov byte [esi + ebx + 0x499120], ah
+mov byte [esi + ebx + _rich4_player_cards], ah  ; mov byte [esi + ebx + 0x499120], ah
 inc byte [edi + (_rich4_remain_card_amount - 1)]  ; inc byte [edi + 0x499197]
 
 loc_004413a8:
@@ -237,7 +237,7 @@ add eax, esi
 mov edx, eax
 shl eax, 2
 sub eax, edx
-mov al, byte [ecx + eax + _player_cards]  ; mov al, byte [ecx + eax + 0x499120]
+mov al, byte [ecx + eax + _rich4_player_cards]  ; mov al, byte [ecx + eax + 0x499120]
 and eax, 0xff
 cmp eax, ebx
 jne short loc_004413bb  ; jne 0x4413bb

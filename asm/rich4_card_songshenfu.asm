@@ -1,6 +1,6 @@
-extern _all_players_state
+extern _rich4_all_players_state
 extern _card_strings
-extern _current_player
+extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040e14d
@@ -17,8 +17,8 @@ push esi
 push edi
 push ebp
 xor ebx, ebx
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
-mov dl, byte [eax + (_all_players_state + 64)]  ; mov dl, byte [eax + 0x496ba8]
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+mov dl, byte [eax + (_rich4_all_players_state + 64)]  ; mov dl, byte [eax + 0x496ba8]
 test dl, dl
 je short loc_00444c71  ; je 0x444c71
 mov al, dl
@@ -29,8 +29,8 @@ add esp, 4
 mov ebx, 1
 
 loc_00444c71:
-imul eax, dword [_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
-mov dh, byte [eax + (_all_players_state + 63)]  ; mov dh, byte [eax + 0x496ba7]
+imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
+mov dh, byte [eax + (_rich4_all_players_state + 63)]  ; mov dh, byte [eax + 0x496ba7]
 test dh, dh
 je short loc_00444cd3  ; je 0x444cd3
 mov al, dh
@@ -55,7 +55,7 @@ cmp eax, 0xf
 jne short loc_00444cd3  ; jne 0x444cd3
 
 loc_00444cbd:
-mov ebx, dword [_current_player]  ; mov ebx, dword [0x49910c]
+mov ebx, dword [_rich4_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
 call _rich4_detach_god  ; call 0x40e32c
 add esp, 4
@@ -68,14 +68,14 @@ je near loc_00443069  ; je 0x443069
 
 loc_00444cdb:
 push 0x16
-mov esi, dword [_current_player]  ; mov esi, dword [0x49910c]
+mov esi, dword [_rich4_current_player]  ; mov esi, dword [0x49910c]
 push esi
 call _rich4_consume_card  ; call 0x441343
 add esp, 8
-mov edi, dword [_current_player]  ; mov edi, dword [0x49910c]
+mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 imul eax, edi, 0x68
 xor edx, edx
-mov dl, byte [eax + (_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
+mov dl, byte [eax + (_rich4_all_players_state + 19)]  ; mov dl, byte [eax + 0x496b7b]
 mov eax, edx
 shl eax, 2
 sub eax, edx

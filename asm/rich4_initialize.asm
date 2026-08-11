@@ -17,7 +17,7 @@ extern fcn_004020fa
 extern fcn_004021f8
 extern _rich4_init_font_surface
 extern fcn_0045011a
-extern fcn_0045175d
+extern _rich4_init_pixel_format
 extern fcn_00454176
 extern fcn_004545ba
 extern ref_0046caf8
@@ -146,7 +146,7 @@ push eax
 call _libc_srand  ; call 0x456f50
 add esp, 4
 call _rich4_init_font_surface  ; call 0x44f935
-call fcn_0045175d  ; call 0x45175d
+call _rich4_init_pixel_format  ; call 0x45175d
 push ref_0046303e  ; push 0x46303e
 call _load_mkf  ; call 0x4502fe
 add esp, 4

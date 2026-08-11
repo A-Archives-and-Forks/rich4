@@ -5,10 +5,10 @@ extern __imp__DefWindowProcA@16
 extern __imp__EndPaint@8
 extern __imp__InvalidateRect@12
 extern __imp__PostMessageA@16
-extern _current_player
+extern _rich4_current_player
 extern _global_rich4_cfg
 extern _libc_free
-extern _num_players
+extern _rich4_num_players
 extern _read_mkf
 extern _rich4_create_font
 extern _rich4_draw_text
@@ -83,7 +83,7 @@ je near loc_00424422  ; je 0x424422
 jmp near loc_0042447e  ; jmp 0x42447e
 
 loc_00423d6c:
-mov eax, dword [_current_player]  ; mov eax, dword [0x49910c]
+mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 mov dword [ref_0048c27c], eax  ; mov dword [0x48c27c], eax
 xor ah, ah
 mov byte [ref_0048c284], ah  ; mov byte [0x48c284], ah
@@ -307,7 +307,7 @@ xor ebx, ebx
 mov esi, 0x10
 
 loc_00424049:
-cmp ebx, dword [_num_players]  ; cmp ebx, dword [0x499114]
+cmp ebx, dword [_rich4_num_players]  ; cmp ebx, dword [0x499114]
 jge near loc_004240d1  ; jge 0x4240d1
 cmp byte [ref_0048c284], 0  ; cmp byte [0x48c284], 0
 jne near loc_004240d1  ; jne 0x4240d1
