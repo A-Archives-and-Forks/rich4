@@ -1,5 +1,5 @@
 extern _rich4_all_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
@@ -49,7 +49,7 @@ shl eax, 3
 mov esi, eax
 shl eax, 4
 sub eax, esi
-mov edi, dword [eax + (_card_strings + 20)]  ; mov edi, dword [eax + 0x48124e]
+mov edi, dword [eax + (_rich4_card_strings + 20)]  ; mov edi, dword [eax + 0x48124e]
 push edi
 push 3
 mov ebp, dword [_rich4_current_player]  ; mov ebp, dword [0x49910c]
@@ -100,7 +100,7 @@ shl eax, 3
 mov esi, eax
 shl eax, 4
 sub eax, esi
-mov ecx, dword [eax + (_card_strings + 140)]  ; mov ecx, dword [eax + 0x4812c6]
+mov ecx, dword [eax + (_rich4_card_strings + 140)]  ; mov ecx, dword [eax + 0x4812c6]
 push ecx
 
 loc_0044305e:
@@ -128,7 +128,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ebp, dword [eax + (_card_strings + 260)]  ; mov ebp, dword [eax + 0x48133e]
+mov ebp, dword [eax + (_rich4_card_strings + 260)]  ; mov ebp, dword [eax + 0x48133e]
 push ebp
 push 2
 push esi

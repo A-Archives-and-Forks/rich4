@@ -1,7 +1,7 @@
 ;; rich4_card_passive: 大富翁4被动使用的卡片
 
 extern _rich4_all_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _card_table
 extern _rich4_current_player
 extern _libc_rand
@@ -69,7 +69,7 @@ shl eax, 3
 mov ebx, eax
 shl eax, 4
 sub eax, ebx
-mov edi, dword [eax + (_card_strings + 68)]  ; mov edi, dword [eax + 0x48127e]
+mov edi, dword [eax + (_rich4_card_strings + 68)]  ; mov edi, dword [eax + 0x48127e]
 push edi
 push 0
 push esi
@@ -86,7 +86,7 @@ shl eax, 3
 mov ebx, eax
 shl eax, 4
 sub eax, ebx
-mov ecx, dword [eax + (_card_strings + 308)]  ; mov ecx, dword [eax + 0x48136e]
+mov ecx, dword [eax + (_rich4_card_strings + 308)]  ; mov ecx, dword [eax + 0x48136e]
 push ecx
 push 2
 push edx
@@ -330,7 +330,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov esi, dword [eax + (_card_strings + 72)]  ; mov esi, dword [eax + 0x481282]
+mov esi, dword [eax + (_rich4_card_strings + 72)]  ; mov esi, dword [eax + 0x481282]
 push esi
 push 0
 push edi
@@ -346,7 +346,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edi, dword [eax + (_card_strings + 312)]  ; mov edi, dword [eax + 0x481372]
+mov edi, dword [eax + (_rich4_card_strings + 312)]  ; mov edi, dword [eax + 0x481372]
 push edi
 push 2
 push ebx
@@ -446,7 +446,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edx, dword [eax + (_card_strings + 76)]  ; mov edx, dword [eax + 0x481286]
+mov edx, dword [eax + (_rich4_card_strings + 76)]  ; mov edx, dword [eax + 0x481286]
 push edx
 push 0
 push edi
@@ -465,7 +465,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edi, dword [eax + (_card_strings + 316)]  ; mov edi, dword [eax + 0x481376]
+mov edi, dword [eax + (_rich4_card_strings + 316)]  ; mov edi, dword [eax + 0x481376]
 push edi
 push 1
 push ecx
@@ -523,7 +523,7 @@ shl eax, 3
 mov ebx, eax
 shl eax, 4
 sub eax, ebx
-mov edi, dword [eax + (_card_strings + 80)]  ; mov edi, dword [eax + 0x48128a]
+mov edi, dword [eax + (_rich4_card_strings + 80)]  ; mov edi, dword [eax + 0x48128a]
 push edi
 push 0
 push esi

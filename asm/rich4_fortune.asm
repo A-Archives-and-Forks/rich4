@@ -16,7 +16,7 @@ extern fcn_0040cd07
 extern fcn_0040d375
 extern fcn_0041d2c6
 extern fcn_0041d3f4
-extern fcn_0041d433
+extern _rich4_update_player_info_window
 extern fcn_0041d476
 extern fcn_00428e23
 extern fcn_00433b7e
@@ -1068,7 +1068,7 @@ jmp short loc_0044c9ba  ; jmp 0x44c9ba
 loc_0044c9f6:
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 push eax
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 xor edx, edx
@@ -2184,7 +2184,7 @@ add esp, 4
 add word [ebx + (_rich4_all_players_state + 48)], ax  ; add word [ebx + 0x496b98], ax
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 push edx
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 mov ecx, dword [_rich4_current_player]  ; mov ecx, dword [0x49910c]
 imul eax, ecx, 0x68

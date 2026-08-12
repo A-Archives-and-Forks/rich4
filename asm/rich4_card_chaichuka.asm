@@ -1,11 +1,11 @@
 extern _rich4_all_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _rich4_current_player
 extern _libc_free
 extern _read_mkf
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern fcn_0040dffa
 extern fcn_0040e14d
 extern _rich4_animate_object
@@ -65,7 +65,7 @@ shl ebx, 3
 mov eax, ebx
 shl ebx, 4
 sub ebx, eax
-mov eax, dword [ebx + (_card_strings + 44)]  ; mov eax, dword [ebx + 0x481266]
+mov eax, dword [ebx + (_rich4_card_strings + 44)]  ; mov eax, dword [ebx + 0x481266]
 push eax
 push 0
 push ebp
@@ -128,7 +128,7 @@ xor eax, eax
 mov al, byte [ebx + 0x19]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 jmp near loc_00443db6  ; jmp 0x443db6
 
@@ -195,7 +195,7 @@ xor eax, eax
 mov al, byte [ebx + 0x19]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 jmp near loc_00443db6  ; jmp 0x443db6
 
@@ -284,7 +284,7 @@ shl ebx, 3
 mov eax, ebx
 shl ebx, 4
 sub ebx, eax
-mov ecx, dword [ebx + (_card_strings + 284)]  ; mov ecx, dword [ebx + 0x481356]
+mov ecx, dword [ebx + (_rich4_card_strings + 284)]  ; mov ecx, dword [ebx + 0x481356]
 push ecx
 push 1
 push esi

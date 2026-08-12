@@ -20,7 +20,7 @@ extern _rich4_draw_text
 extern fcn_00402250
 extern fcn_0040235d
 extern fcn_00402460
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern _rich4_release_player_from_hospital
 extern fcn_00440cac
 extern fcn_0044ec30
@@ -577,7 +577,7 @@ push ebx
 xor eax, eax
 mov al, byte [ref_0048c4f5]  ; mov al, byte [0x48c4f5]
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 xor eax, eax
 mov al, byte [ref_0048c4f5]  ; mov al, byte [0x48c4f5]

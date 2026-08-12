@@ -30,9 +30,9 @@ extern fcn_0040af12
 extern fcn_0040b0cd
 extern fcn_0040b110
 extern fcn_0040c78c
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern fcn_0041906a
-extern fcn_0041d433
+extern _rich4_update_player_info_window
 extern fcn_0041d476
 extern fcn_00431842
 extern _rich4_ui_auction_entry
@@ -182,7 +182,7 @@ mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 push edx
 
 loc_00431d4b:
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 push 0xc8
 
@@ -263,7 +263,7 @@ mov ebp, dword [esp + 0xb4]
 push ebp
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 push edx
@@ -682,7 +682,7 @@ mov eax, dword [esp + 0xb4]
 push eax
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 push edx
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 mov ecx, dword [_rich4_current_player]  ; mov ecx, dword [0x49910c]
 push ecx

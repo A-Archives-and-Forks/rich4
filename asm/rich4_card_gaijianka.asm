@@ -1,5 +1,5 @@
 extern _rich4_all_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
@@ -47,7 +47,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ecx, dword [eax + (_card_strings + 24)]  ; mov ecx, dword [eax + 0x481252]
+mov ecx, dword [eax + (_rich4_card_strings + 24)]  ; mov ecx, dword [eax + 0x481252]
 push ecx
 push 3
 mov esi, dword [_rich4_current_player]  ; mov esi, dword [0x49910c]
@@ -91,7 +91,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edi, dword [eax + (_card_strings + 24)]  ; mov edi, dword [eax + 0x481252]
+mov edi, dword [eax + (_rich4_card_strings + 24)]  ; mov edi, dword [eax + 0x481252]
 push edi
 push 3
 push esi

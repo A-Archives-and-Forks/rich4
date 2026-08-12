@@ -17,7 +17,7 @@ extern fcn_0040ab4a
 extern fcn_0040b066
 extern fcn_0040b0cd
 extern fcn_0040b110
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern fcn_0040e14d
 extern fcn_0041d2c6
 extern fcn_0041d3f4
@@ -1328,7 +1328,7 @@ xor eax, eax
 mov al, ch
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 jmp short loc_0040f5de  ; jmp 0x40f5de
 
@@ -1360,7 +1360,7 @@ xor eax, eax
 mov al, byte [ebx + 0x19]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 jmp short loc_0040f5de  ; jmp 0x40f5de
 
@@ -1451,7 +1451,7 @@ fstp qword [esp]
 push ecx
 dec edx
 push edx
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0x10
 
 loc_0040f70d:
@@ -1509,7 +1509,7 @@ mov edi, dword [esp + 0xb0]
 push edi
 dec edx
 push edx
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0x10
 
 loc_0040f7f2:

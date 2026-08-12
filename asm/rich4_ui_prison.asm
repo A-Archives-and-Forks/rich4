@@ -20,7 +20,7 @@ extern _rich4_draw_text
 extern fcn_00402250
 extern fcn_0040235d
 extern fcn_00402460
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern _rich4_release_player_from_prison
 extern fcn_00440cac
 extern fcn_0044ec30
@@ -582,7 +582,7 @@ push eax
 mov esi, dword [_rich4_current_player]  ; mov esi, dword [0x49910c]
 push esi
 push ebx
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 push 0
 push 0

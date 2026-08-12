@@ -1,10 +1,10 @@
 extern _rich4_all_players_state
 extern _rich4_all_special_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern fcn_0041d476
 extern _rich4_price_index
 
@@ -32,7 +32,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ebx, dword [eax + (_card_strings + 56)]  ; mov ebx, dword [eax + 0x481272]
+mov ebx, dword [eax + (_rich4_card_strings + 56)]  ; mov ebx, dword [eax + 0x481272]
 push ebx
 push 3
 push ecx
@@ -73,7 +73,7 @@ sub eax, edx
 push eax
 push edi
 push ebx
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 xor dl, dl
 mov byte [esi + (_rich4_all_players_state + 55)], dl  ; mov byte [esi + 0x496b9f], dl

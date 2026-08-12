@@ -28,7 +28,7 @@ extern fcn_00402250
 extern fcn_0040235d
 extern fcn_00402460
 extern fcn_0041906a
-extern fcn_0041d433
+extern _rich4_update_player_info_window
 extern fcn_0041d476
 extern _rich4_calculate_player_wealth
 extern fcn_00440cac
@@ -4924,7 +4924,7 @@ mov eax, dword [eax + (_rich4_all_players_state + 32)]  ; mov eax, dword [eax + 
 mov dword [ref_0048c3ec], eax  ; mov dword [0x48c3ec], eax
 mov ebx, dword [_rich4_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 push 1
 call fcn_00436b0a  ; call 0x436b0a
@@ -4937,7 +4937,7 @@ sub edi, ebx
 mov dword [eax + (_rich4_all_players_state + 28)], edi  ; mov dword [eax + 0x496b84], edi
 mov dword [ref_0048c3ec], edi  ; mov dword [0x48c3ec], edi
 push edx
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 
 loc_00437876:
 add esp, 4
@@ -5100,7 +5100,7 @@ mov bl, dl
 xor dh, dh
 mov byte [eax + ref_0048be24], dh  ; mov byte [eax + 0x48be24], dh
 push eax
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 
 loc_00437a6f:
@@ -5116,7 +5116,7 @@ add esp, 4
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 mov byte [eax + ref_0048be24], bl  ; mov byte [eax + 0x48be24], bl
 push eax
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 
 loc_00437aa3:
@@ -5205,7 +5205,7 @@ mov dword [edx + (_rich4_all_players_state + 28)], eax  ; mov dword [edx + 0x496
 sub ebx, eax
 mov dword [edx + (_rich4_all_players_state + 32)], ebx  ; mov dword [edx + 0x496b88], ebx
 push esi
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 push 1
 call fcn_00436b0a  ; call 0x436b0a

@@ -1,5 +1,5 @@
 extern _rich4_all_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
@@ -103,7 +103,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edx, dword [eax + (_card_strings + 12)]  ; mov edx, dword [eax + 0x481246]
+mov edx, dword [eax + (_rich4_card_strings + 12)]  ; mov edx, dword [eax + 0x481246]
 push edx
 jmp short loc_00442774  ; jmp 0x442774
 
@@ -129,7 +129,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ebp, dword [eax + (_card_strings + 12)]  ; mov ebp, dword [eax + 0x481246]
+mov ebp, dword [eax + (_rich4_card_strings + 12)]  ; mov ebp, dword [eax + 0x481246]
 push ebp
 
 loc_00442774:
@@ -196,7 +196,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ebx, dword [eax + (_card_strings + 252)]  ; mov ebx, dword [eax + 0x481336]
+mov ebx, dword [eax + (_rich4_card_strings + 252)]  ; mov ebx, dword [eax + 0x481336]
 push ebx
 push 2
 push ecx
@@ -225,7 +225,7 @@ shl eax, 3
 mov ebx, eax
 shl eax, 4
 sub eax, ebx
-mov ecx, dword [eax + (_card_strings + 252)]  ; mov ecx, dword [eax + 0x481336]
+mov ecx, dword [eax + (_rich4_card_strings + 252)]  ; mov ecx, dword [eax + 0x481336]
 push ecx
 push 2
 push edx
@@ -312,7 +312,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edx, dword [eax + (_card_strings + 12)]  ; mov edx, dword [eax + 0x481246]
+mov edx, dword [eax + (_rich4_card_strings + 12)]  ; mov edx, dword [eax + 0x481246]
 push edx
 jmp short loc_004429c2  ; jmp 0x4429c2
 
@@ -338,7 +338,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ebp, dword [eax + (_card_strings + 12)]  ; mov ebp, dword [eax + 0x481246]
+mov ebp, dword [eax + (_rich4_card_strings + 12)]  ; mov ebp, dword [eax + 0x481246]
 push ebp
 
 loc_004429c2:
@@ -405,7 +405,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ebx, dword [eax + (_card_strings + 252)]  ; mov ebx, dword [eax + 0x481336]
+mov ebx, dword [eax + (_rich4_card_strings + 252)]  ; mov ebx, dword [eax + 0x481336]
 push ebx
 push 2
 push ecx
@@ -434,7 +434,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov ecx, dword [eax + (_card_strings + 252)]  ; mov ecx, dword [eax + 0x481336]
+mov ecx, dword [eax + (_rich4_card_strings + 252)]  ; mov ecx, dword [eax + 0x481336]
 push ecx
 push 2
 push ebx

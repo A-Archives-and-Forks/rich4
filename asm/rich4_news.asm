@@ -17,7 +17,7 @@ extern fcn_0040af12
 extern fcn_0040dffa
 extern fcn_0041d2c6
 extern fcn_0041d3f4
-extern fcn_0041d433
+extern _rich4_update_player_info_window
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_00429040
@@ -1091,7 +1091,7 @@ call fcn_0041d3f4  ; call 0x41d3f4
 add esp, 0xc
 mov edi, dword [ref_0048c59c]  ; mov edi, dword [0x48c59c]
 push edi
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 mov ebp, dword [ref_0048c5a0]  ; mov ebp, dword [0x48c5a0]
 push ebp

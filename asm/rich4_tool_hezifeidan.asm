@@ -7,7 +7,7 @@ extern _rich4_player_say
 extern _tool_strings
 extern fcn_0040ac7b
 extern fcn_0040af12
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_00420eee
@@ -118,7 +118,7 @@ push eax
 mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 push edi
 push ebx
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 push 3
 push ebx

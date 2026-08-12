@@ -133,7 +133,7 @@ extern _draw_non_zero_image_in_rect_ex
 
 extern _rich4_write_config
 extern _global_rich4_cfg
-extern _card_strings
+extern _rich4_card_strings
 extern _tool_strings
 extern _game_stocks
 extern _card_table
@@ -345,12 +345,12 @@ global fcn_0040b4f8
 global fcn_0040b93b
 global fcn_0040c78c
 global fcn_0040d293
-global fcn_0040df69
+global _rich4_update_hostility
 global fcn_0040dffa
 global fcn_0040e14d
 extern _rich4_attach_god
 global fcn_0041d2c6
-global fcn_0041d433
+global _rich4_update_player_info_window
 global fcn_0041d476
 global fcn_0041d546
 global fcn_0041e6f2
@@ -440,7 +440,7 @@ global fcn_0040af12
 global fcn_0040dffa
 global fcn_0041d2c6
 global fcn_0041d3f4
-global fcn_0041d433
+global _rich4_update_player_info_window
 global fcn_0041d476
 global fcn_0041d546
 global fcn_00429040
@@ -494,7 +494,7 @@ global fcn_0040cd07
 global fcn_0040d375
 global fcn_0041d2c6
 global fcn_0041d3f4
-global fcn_0041d433
+global _rich4_update_player_info_window
 global fcn_0041d476
 global fcn_00428e23
 global fcn_00440cac
@@ -548,9 +548,9 @@ global fcn_0040af12
 global fcn_0040b0cd
 global fcn_0040b110
 global fcn_0040c78c
-global fcn_0040df69
+global _rich4_update_hostility
 global fcn_0041906a
-global fcn_0041d433
+global _rich4_update_player_info_window
 global fcn_0041d476
 global fcn_00431842
 global fcn_00440cac
@@ -6882,7 +6882,7 @@ xor eax, eax
 mov al, byte [ebx + 0x19]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 
 loc_0040ad1c:
@@ -6918,7 +6918,7 @@ xor eax, eax
 mov al, byte [ebx + 0x19]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 
 loc_0040ad6b:
@@ -6962,7 +6962,7 @@ xor eax, eax
 mov al, byte [ebx + 0x19]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 
 loc_0040adf5:
@@ -6999,7 +6999,7 @@ xor eax, eax
 mov al, byte [ebx + 0x19]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 
 loc_0040ae45:
@@ -10447,7 +10447,7 @@ dec eax
 
 loc_0040db35:
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 
 loc_0040db3e:
@@ -10777,7 +10777,7 @@ jne short loc_0040df3e  ; jne 0x40df3e
 mov eax, 1
 ret
 
-fcn_0040df69:
+_rich4_update_hostility:
 push ebx
 push edi
 mov edx, dword [esp + 0xc]
@@ -17116,7 +17116,7 @@ dec eax
 push eax
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 mov ecx, 0x64
 mov eax, edi
@@ -17144,7 +17144,7 @@ mov ebx, dword [_rich4_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
 
 loc_00419df3:
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
@@ -17770,7 +17770,7 @@ dec eax
 push eax
 mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 push edi
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 mov eax, dword [esp + 0xe0]
@@ -17949,7 +17949,7 @@ dec eax
 push eax
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 push edi
 call fcn_0040d761  ; call 0x40d761
@@ -20795,7 +20795,7 @@ mov al, byte [esi + (_rich4_all_players_state + 65)]  ; mov al, byte [esi + 0x49
 dec eax
 push eax
 push ebx
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 mov edx, dword [_rich4_price_index]  ; mov edx, dword [0x4990e8]
 mov eax, edx
@@ -20809,7 +20809,7 @@ xor eax, eax
 mov al, byte [esi + (_rich4_all_players_state + 65)]  ; mov al, byte [esi + 0x496ba9]
 dec eax
 push eax
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 mov ch, byte [esi + (_rich4_all_players_state + 61)]  ; mov ch, byte [esi + 0x496ba5]
 dec ch
@@ -21409,7 +21409,7 @@ add esp, 8
 
 loc_0041d2b2:
 push ebp
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 
 loc_0041d2bb:
@@ -21525,7 +21525,7 @@ imul eax, ebp, 0x68
 cmp byte [eax + (_rich4_all_players_state + 21)], 0  ; cmp byte [eax + 0x496b7d], 0
 je short loc_0041d3ef  ; je 0x41d3ef
 push ebp
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 
 loc_0041d3ef:
@@ -21555,14 +21555,14 @@ mov ebp, dword [_rich4_current_player]  ; mov ebp, dword [0x49910c]
 cmp edx, ebp
 jne short loc_0041d431  ; jne 0x41d431
 push ebp
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 
 loc_0041d431:
 pop ebp
 ret
 
-fcn_0041d433:
+_rich4_update_player_info_window:
 push ebx
 mov edx, dword [esp + 8]
 cmp edx, 7
@@ -31176,7 +31176,7 @@ push edi
 call fcn_00428d2a  ; call 0x428d2a
 add esp, 0x10
 push edi
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 mov eax, esi
 shl eax, 3
@@ -31876,7 +31876,7 @@ push ebp
 call fcn_00428e23  ; call 0x428e23
 add esp, 0x10
 push ebp
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 mov eax, edi
 shl eax, 3

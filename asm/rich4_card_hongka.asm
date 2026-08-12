@@ -1,5 +1,5 @@
 extern _rich4_all_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _card_table
 extern _rich4_current_player
 extern _libc_sprintf
@@ -36,7 +36,7 @@ shl eax, 3
 mov ebx, eax
 shl eax, 4
 sub eax, ebx
-mov ecx, dword [eax + (_card_strings + 92)]  ; mov ecx, dword [eax + 0x481296]
+mov ecx, dword [eax + (_rich4_card_strings + 92)]  ; mov ecx, dword [eax + 0x481296]
 push ecx
 push 0
 push edx

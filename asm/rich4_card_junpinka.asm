@@ -1,12 +1,12 @@
 extern _rich4_all_players_state
-extern _card_strings
+extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040d293
-extern fcn_0040df69
+extern _rich4_update_hostility
 extern _rich4_animate_object
-extern fcn_0041d433
+extern _rich4_update_player_info_window
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00446ae8
@@ -52,7 +52,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edi, dword [eax + (_card_strings + 4)]  ; mov edi, dword [eax + 0x48123e]
+mov edi, dword [eax + (_rich4_card_strings + 4)]  ; mov edi, dword [eax + 0x48123e]
 push edi
 push 3
 push esi
@@ -86,7 +86,7 @@ push eax
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 push edx
 push edi
-call fcn_0040df69  ; call 0x40df69
+call _rich4_update_hostility  ; call 0x40df69
 add esp, 0xc
 
 loc_00442288:
@@ -116,7 +116,7 @@ add esp, 0x18
 loc_004422de:
 mov esi, dword [_rich4_current_player]  ; mov esi, dword [0x49910c]
 push esi
-call fcn_0041d433  ; call 0x41d433
+call _rich4_update_player_info_window  ; call 0x41d433
 add esp, 4
 imul eax, ebp, 0x68
 xor edx, edx
@@ -128,7 +128,7 @@ shl eax, 3
 mov edx, eax
 shl eax, 4
 sub eax, edx
-mov edi, dword [eax + (_card_strings + 244)]  ; mov edi, dword [eax + 0x48132e]
+mov edi, dword [eax + (_rich4_card_strings + 244)]  ; mov edi, dword [eax + 0x48132e]
 push edi
 push 1
 push ebp
