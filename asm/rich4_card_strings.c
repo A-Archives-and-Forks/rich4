@@ -5,7 +5,7 @@
 
 #include <stddef.h>
 
-const char *card_strings[12][3][30] = {
+const char *rich4_card_strings[12][3][30] = {
 	{
 		{
 			"#0426\xa6\xb3\xbf\xfa\xa4\x6a\xae\x61\xaa\xe1\xa1\x49", /* #0426有钱大家花！ */
