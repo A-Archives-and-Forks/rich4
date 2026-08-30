@@ -10,15 +10,15 @@ extern _rich4_num_players
 extern _rich4_consume_card
 extern _rich4_player_say
 extern _rich4_price_index
-extern fcn_0040d2d3
-extern fcn_0040d31c
+extern _rich4_find_most_hostile_player
+extern _rich4_select_one_active_player
 extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_00440ba8
 extern fcn_00440cac
 extern fcn_00440e1a
 extern fcn_00441f73
-extern fcn_00452946
+extern _rich4_string_strip_spaces
 extern ref_00465305
 
 global _rich4_use_card_fuchouka
@@ -163,7 +163,7 @@ mov ebx, dword [eax + _rich4_all_players_state]  ; mov ebx, dword [eax + 0x496b6
 push ebx
 lea eax, [esp + 0x84]
 push eax
-call fcn_00452946  ; call 0x452946
+call _rich4_string_strip_spaces  ; call 0x452946
 add esp, 8
 lea eax, [esp + 0x80]
 push eax
@@ -210,13 +210,13 @@ jmp near loc_004449e7  ; jmp 0x4449e7
 
 loc_004448b0:
 push edi
-call fcn_0040d2d3  ; call 0x40d2d3
+call _rich4_find_most_hostile_player  ; call 0x40d2d3
 add esp, 4
 mov ebp, eax
 cmp eax, ebx
 jne short loc_004448ca  ; jne 0x4448ca
 push edi
-call fcn_0040d31c  ; call 0x40d31c
+call _rich4_select_one_active_player  ; call 0x40d31c
 add esp, 4
 mov ebp, eax
 
@@ -298,7 +298,7 @@ mov esi, dword [ebp + _rich4_all_players_state]  ; mov esi, dword [ebp + 0x496b6
 push esi
 lea eax, [esp + 0x84]
 push eax
-call fcn_00452946  ; call 0x452946
+call _rich4_string_strip_spaces  ; call 0x452946
 add esp, 8
 lea eax, [esp + 0x80]
 push eax

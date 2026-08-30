@@ -10,11 +10,11 @@ extern _rich4_data_mkf
 extern _stocks_on_map
 extern _unload_mkf
 extern fcn_0040a4e1
-extern fcn_0040aa6c
-extern fcn_0040b93b
+extern _rich4_find_random_unoccupied_distant_node
+extern _rich4_update_player_sprite
 extern fcn_0040c03b
-extern fcn_0040e033
-extern fcn_00428caf
+extern _rich4_place_object
+extern _rich4_init_stock_commercial
 extern fcn_0042915a
 extern fcn_00454176
 extern fcn_00454240
@@ -45,7 +45,7 @@ extern ref_0048be1c
 extern ref_0048be20
 extern _rich4_save_state
 extern ref_00496930
-extern ref_00496d08
+extern _rich4_objects_info
 extern ref_00498e78
 extern _rich4_on_map_commercial_ptr
 extern _rich4_map_node_ptr
@@ -258,7 +258,7 @@ jmp short loc_00407cd1  ; jmp 0x407cd1
 loc_00407d3a:
 push 0x450
 push 0
-push ref_00496d08  ; push 0x496d08
+push _rich4_objects_info  ; push 0x496d08
 call _memset  ; call 0x456f60
 add esp, 0xc
 xor ebx, ebx
@@ -268,7 +268,7 @@ mov eax, ebx
 shl eax, 2
 sub eax, ebx
 mov dl, byte [ebx + ref_0047ed3c]  ; mov dl, byte [ebx + 0x47ed3c]
-mov byte [eax*8 + ref_00496d08], dl  ; mov byte [eax*8 + 0x496d08], dl
+mov byte [eax*8 + _rich4_objects_info], dl  ; mov byte [eax*8 + 0x496d08], dl
 inc ebx
 cmp ebx, 0x2e
 jl short loc_00407d50  ; jl 0x407d50
@@ -278,11 +278,11 @@ loc_00407d6f:
 push 0
 push 0
 push 0
-call fcn_0040aa6c  ; call 0x40aa6c
+call _rich4_find_random_unoccupied_distant_node  ; call 0x40aa6c
 add esp, 4
 push eax
 push ebx
-call fcn_0040e033  ; call 0x40e033
+call _rich4_place_object  ; call 0x40e033
 add esp, 0x10
 add ebx, 2
 cmp ebx, 0xb
@@ -290,20 +290,20 @@ jle short loc_00407d6f  ; jle 0x407d6f
 push 0
 push 0
 push 0
-call fcn_0040aa6c  ; call 0x40aa6c
+call _rich4_find_random_unoccupied_distant_node  ; call 0x40aa6c
 add esp, 4
 push eax
 push 0xd
-call fcn_0040e033  ; call 0x40e033
+call _rich4_place_object  ; call 0x40e033
 add esp, 0x10
 push 0
 push 0
 push 0
-call fcn_0040aa6c  ; call 0x40aa6c
+call _rich4_find_random_unoccupied_distant_node  ; call 0x40aa6c
 add esp, 4
 push eax
 push 0xe
-call fcn_0040e033  ; call 0x40e033
+call _rich4_place_object  ; call 0x40e033
 add esp, 0x10
 mov ebx, 1
 
@@ -528,7 +528,7 @@ jl short loc_00407f94  ; jl 0x407f94
 
 loc_0040800c:
 push ebx
-call fcn_0040b93b  ; call 0x40b93b
+call _rich4_update_player_sprite  ; call 0x40b93b
 add esp, 4
 jmp near loc_00407f94  ; jmp 0x407f94
 
@@ -565,7 +565,7 @@ inc ebx
 jmp short loc_0040802e  ; jmp 0x40802e
 
 loc_00408072:
-call fcn_00428caf  ; call 0x428caf
+call _rich4_init_stock_commercial  ; call 0x428caf
 push 0
 push 0
 push 0x205

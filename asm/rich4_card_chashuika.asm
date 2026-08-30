@@ -4,7 +4,7 @@ extern _rich4_current_player
 extern _libc_sprintf
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040d293
+extern _count_trailing_zero_u8
 extern _rich4_update_hostility
 extern _rich4_animate_object
 extern fcn_0041d2c6
@@ -15,7 +15,7 @@ extern _rich4_player_has_card
 extern _rich4_try_use_card_jiahuoka
 extern _rich4_try_use_card_mianfeika
 extern fcn_00446ae8
-extern fcn_00452946
+extern _rich4_string_strip_spaces
 extern __round_toward_zero
 
 global _rich4_use_card_chashuika
@@ -67,7 +67,7 @@ push ebp
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
 push edi
-call fcn_0040d293  ; call 0x40d293
+call _count_trailing_zero_u8  ; call 0x40d293
 mov esi, eax
 add esp, 4
 mov ebx, eax
@@ -163,7 +163,7 @@ mov eax, dword [esi + _rich4_all_players_state]  ; mov eax, dword [esi + 0x496b6
 push eax
 lea eax, [esp + 0x84]
 push eax
-call fcn_00452946  ; call 0x452946
+call _rich4_string_strip_spaces  ; call 0x452946
 add esp, 8
 mov edx, dword [esp + 0x94]
 push edx

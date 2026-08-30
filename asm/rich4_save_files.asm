@@ -11,7 +11,7 @@ extern _libc_itoa
 extern _libc_malloc
 extern _libc_sprintf
 extern _libc_srand
-extern _player_stocks
+extern _rich4_player_stocks
 extern _rich4_show_loading_scene
 extern _rich4_load_map
 extern _rich4_unload_map
@@ -28,7 +28,7 @@ extern ref_0047493c
 extern _rich4_character_profiles
 extern ref_0048a068
 extern ref_0048a08c
-extern _g_ddraw_sf2_ptr
+extern _rich4_ddraw_offscreen_sf_ptr
 extern ref_0048a188
 extern ref_0048a19b
 extern ref_0048a328
@@ -44,7 +44,7 @@ extern ref_00496b30
 extern ref_00496b38
 extern ref_00496b60
 extern _rich4_all_players_state
-extern ref_00496d08
+extern _rich4_objects_info
 extern _rich4_remain_tool_amount
 extern ref_00497328
 extern _rich4_all_special_players_state
@@ -189,7 +189,7 @@ add esp, 0x10
 push edi
 push 0x2e
 push 0x18
-push ref_00496d08  ; push 0x496d08
+push _rich4_objects_info  ; push 0x496d08
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
@@ -231,7 +231,7 @@ add esp, 0x10
 push edi
 push 0x30
 push 8
-push _player_stocks  ; push 0x4971a0
+push _rich4_player_stocks  ; push 0x4971a0
 call _libc_fread  ; call 0x4576d0
 add esp, 0x10
 push edi
@@ -598,7 +598,7 @@ add esp, 0x10
 push ebx
 push 0x2e
 push 0x18
-push ref_00496d08  ; push 0x496d08
+push _rich4_objects_info  ; push 0x496d08
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
@@ -640,7 +640,7 @@ add esp, 0x10
 push ebx
 push 0x30
 push 8
-push _player_stocks  ; push 0x4971a0
+push _rich4_player_stocks  ; push 0x4971a0
 call _libc_fwrite  ; call 0x457ada
 add esp, 0x10
 push ebx
@@ -864,7 +864,7 @@ push esi
 push edi
 push ebp
 sub esp, 0x38
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -881,7 +881,7 @@ mov edx, dword [ref_0048a08c]  ; mov edx, dword [0x48a08c]
 push edx
 call fcn_00456418  ; call 0x456418
 add esp, 0x10
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -930,7 +930,7 @@ push 0xf0f0f0
 push 0x10
 call _rich4_create_font  ; call 0x44f9d8
 add esp, 0x14
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -1052,7 +1052,7 @@ add esi, 0x48
 jmp short loc_00403588  ; jmp 0x403588
 
 loc_004035c9:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax

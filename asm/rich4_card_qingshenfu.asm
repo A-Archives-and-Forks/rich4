@@ -9,7 +9,7 @@ extern fcn_0041d476
 extern fcn_0041d546
 extern fcn_0041e6f2
 extern fcn_00444d1a
-extern ref_00496d08
+extern _rich4_objects_info
 extern _rich4_map_node_ptr
 
 global _rich4_use_card_qingshenfu
@@ -63,9 +63,9 @@ mov ebx, eax
 shl ebx, 2
 sub ebx, eax
 xor edi, edi
-mov di, word [ebx*8 + (ref_00496d08 + 2)]  ; mov di, word [ebx*8 + 0x496d0a]
+mov di, word [ebx*8 + (_rich4_objects_info + 2)]  ; mov di, word [ebx*8 + 0x496d0a]
 xor edx, edx
-mov word [ebx*8 + (ref_00496d08 + 2)], dx  ; mov word [ebx*8 + 0x496d0a], dx
+mov word [ebx*8 + (_rich4_objects_info + 2)], dx  ; mov word [ebx*8 + 0x496d0a], dx
 push 1
 push 0
 push 0
@@ -92,7 +92,7 @@ push eax
 push esi
 call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
-mov word [ebx*8 + (ref_00496d08 + 2)], di  ; mov word [ebx*8 + 0x496d0a], di
+mov word [ebx*8 + (_rich4_objects_info + 2)], di  ; mov word [ebx*8 + 0x496d0a], di
 push esi
 xor eax, eax
 mov ax, di

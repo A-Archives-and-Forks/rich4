@@ -10,10 +10,10 @@ extern _rich4_map_node_ptr
 extern _rich4_player_say
 extern _rich4_price_index
 extern _rich4_prison_node_idx
-extern fcn_0040b93b
+extern _rich4_update_player_sprite
 extern fcn_0040d6be
 extern fcn_0040d761
-extern fcn_0040fc00
+extern _rich4_update_attached_object_node_idx
 extern fcn_0041d476
 extern fcn_0044ba63
 extern fcn_0044f2c2
@@ -85,7 +85,7 @@ mov al, byte [esp + 0x18]
 mov byte [ebx + (_rich4_all_players_state + 52)], al  ; mov byte [ebx + 0x496b9c], al
 mov eax, dword [esp + 0x14]
 push eax
-call fcn_0040fc00  ; call 0x40fc00
+call _rich4_update_attached_object_node_idx  ; call 0x40fc00
 add esp, 4
 mov eax, dword [esp + 0x14]
 mov byte [eax + ref_00496b30], 1  ; mov byte [eax + 0x496b30], 1
@@ -256,7 +256,7 @@ mov byte [ebx + ref_00496b30], ch  ; mov byte [ebx + 0x496b30], ch
 
 loc_0043d883:
 push ebx
-call fcn_0040b93b  ; call 0x40b93b
+call _rich4_update_player_sprite  ; call 0x40b93b
 add esp, 4
 pop esi
 pop ebx

@@ -6,20 +6,20 @@ extern ref_00486190
 extern ref_00486198
 extern ref_0048a060
 
-global fcn_004551f0
+global _rich4_convert_color
 global fcn_0045520d
 global fcn_004552b7
 global fcn_004552e7
 global fcn_004553da
 global fcn_004553fe
 global fcn_004554fc
-global fcn_004555c5
+global _rich4_convert_sprite
 global fcn_004556e8
 global fcn_00455711
 
 section .text
 
-fcn_004551f0:
+_rich4_convert_color:
 push ebp
 mov ebp, esp
 push ebx
@@ -461,7 +461,7 @@ pop ebx
 pop ebp
 ret
 
-fcn_004555c5:
+_rich4_convert_sprite:
 push ebp
 mov ebp, esp
 push ebx

@@ -2,8 +2,8 @@ extern __imp__GetCursorPos@4
 extern __imp__ShowCursor@4
 extern __imp__timeKillEvent@4
 extern __imp__timeSetEvent@20
-extern _g_ddraw_ptr
-extern _g_ddraw_sf1_ptr
+extern _rich4_ddraw_ptr
+extern _rich4_ddraw_primary_sf_ptr
 extern _global_rich4_cfg
 extern _libc_free
 extern _read_mkf
@@ -206,7 +206,7 @@ je short loc_004020e9  ; je 0x4020e9
 loc_0040208a:
 test byte [ref_0048a179], 2  ; test byte [0x48a179], 2
 jne short loc_004020a2  ; jne 0x4020a2
-mov eax, dword [_g_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
+mov eax, dword [_rich4_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
 mov ebx, dword [eax]
 push 0
 push 1
@@ -214,7 +214,7 @@ push eax
 call dword [ebx + 0x58]  ; ucall
 
 loc_004020a2:
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov ebx, dword [eax]
 push 0
 push 1
@@ -231,7 +231,7 @@ mov edx, dword [esp + 4]
 push edx
 call fcn_00401e59  ; call 0x401e59
 add esp, 8
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov ebx, dword [eax]
 push 0
 push eax
@@ -275,7 +275,7 @@ mov dword [ref_0048a168], 0xffffffff  ; mov dword [0x48a168], 0xffffffff
 push 0
 call dword [cs:__imp__ShowCursor@4]  ; ucall: call dword cs:[0x46232c]
 mov dword [ref_0048a0f8], 0x6c  ; mov dword [0x48a0f8], 0x6c
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push 1
@@ -286,7 +286,7 @@ call dword [edx + 0x64]  ; ucall
 mov eax, dword [ref_0048a108]  ; mov eax, dword [0x48a108]
 sar eax, 1
 mov word [ref_0046cb14], ax  ; mov word [0x46cb14], ax
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push eax
@@ -412,7 +412,7 @@ jle short loc_00402357  ; jle 0x402357
 
 loc_004022ff:
 mov byte [ref_0048a17a], 1  ; mov byte [0x48a17a], 1
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov ebx, dword [eax]
 push 0
 push 1
@@ -428,7 +428,7 @@ mov ebx, dword [esp + 4]
 push ebx
 call fcn_00401e59  ; call 0x401e59
 add esp, 8
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push eax
@@ -502,7 +502,7 @@ jle near loc_00402357  ; jle 0x402357
 
 loc_00402410:
 mov byte [ref_0048a17a], 1  ; mov byte [0x48a17a], 1
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov ebx, dword [eax]
 push 0
 push 1
@@ -513,7 +513,7 @@ call dword [ebx + 0x64]  ; ucall
 mov eax, dword [ref_0048a11c]  ; mov eax, dword [0x48a11c]
 mov dword [ref_0046cb1c], eax  ; mov dword [0x46cb1c], eax
 call fcn_00401f5e  ; call 0x401f5e
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push eax

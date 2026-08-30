@@ -3,9 +3,9 @@ extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040e14d
+extern _rich4_remove_object
 extern _rich4_detach_god
-extern ref_00496d08
+extern _rich4_objects_info
 
 global _rich4_use_card_songshenfu
 
@@ -24,7 +24,7 @@ je short loc_00444c71  ; je 0x444c71
 mov al, dl
 and eax, 0xff
 push eax
-call fcn_0040e14d  ; call 0x40e14d
+call _rich4_remove_object  ; call 0x40e14d
 add esp, 4
 mov ebx, 1
 
@@ -39,7 +39,7 @@ lea edx, [eax - 1]
 mov eax, edx
 shl eax, 2
 sub eax, edx
-mov al, byte [eax*8 + ref_00496d08]  ; mov al, byte [eax*8 + 0x496d08]
+mov al, byte [eax*8 + _rich4_objects_info]  ; mov al, byte [eax*8 + 0x496d08]
 and eax, 0xff
 cmp eax, 5
 je short loc_00444cbd  ; je 0x444cbd

@@ -6,14 +6,14 @@ extern _global_rich4_cfg
 extern _memcpy
 extern _rich4_num_players
 extern _rich4_player_cards
-extern _player_stocks
+extern _rich4_player_stocks
 extern _rich4_player_tool_amount
 extern _rich4_price_index
 extern _rich4_remain_card_amount
 extern _rich4_remain_tool_amount
 extern _rich4_save_state
 extern _stocks_on_map
-extern fcn_0040b93b
+extern _rich4_update_player_sprite
 extern fcn_0040c03b
 extern ref_0047493c
 extern _rich4_character_profiles
@@ -21,7 +21,7 @@ extern ref_004967e0
 extern ref_00496b30
 extern ref_00496b38
 extern ref_00496b60
-extern ref_00496d08
+extern _rich4_objects_info
 extern ref_00497328
 extern ref_00498e94
 extern ref_00499078
@@ -98,7 +98,7 @@ push eax
 call _memcpy  ; call 0x456de8
 add esp, 0xc
 push 0x450
-push ref_00496d08  ; push 0x496d08
+push _rich4_objects_info  ; push 0x496d08
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 mov eax, edx
 shl eax, 3
@@ -214,7 +214,7 @@ push eax
 call _memcpy  ; call 0x456de8
 add esp, 0xc
 push 0x180
-push _player_stocks  ; push 0x4971a0
+push _rich4_player_stocks  ; push 0x4971a0
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 mov eax, edx
 shl eax, 3
@@ -494,7 +494,7 @@ add eax, edx
 add eax, _rich4_save_state  ; add eax, 0x48cb80
 add eax, 0x1f8
 push eax
-push ref_00496d08  ; push 0x496d08
+push _rich4_objects_info  ; push 0x496d08
 call _memcpy  ; call 0x456de8
 add esp, 0xc
 push 0x3c
@@ -610,7 +610,7 @@ add eax, edx
 add eax, _rich4_save_state  ; add eax, 0x48cb80
 add eax, 0x21ec
 push eax
-push _player_stocks  ; push 0x4971a0
+push _rich4_player_stocks  ; push 0x4971a0
 call _memcpy  ; call 0x456de8
 add esp, 0xc
 push 0x1b0
@@ -825,7 +825,7 @@ jl short loc_00448a57  ; jl 0x448a57
 
 loc_00448a6a:
 push ebx
-call fcn_0040b93b  ; call 0x40b93b
+call _rich4_update_player_sprite  ; call 0x40b93b
 add esp, 4
 jmp short loc_00448a57  ; jmp 0x448a57
 

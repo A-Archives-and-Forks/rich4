@@ -4,7 +4,7 @@ extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_0040c78c
-extern fcn_0040d293
+extern _count_trailing_zero_u8
 extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_0041e6f2
@@ -57,7 +57,7 @@ push ebp
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
 push ebx
-call fcn_0040d293  ; call 0x40d293
+call _count_trailing_zero_u8  ; call 0x40d293
 mov edx, eax
 add esp, 4
 mov esi, eax

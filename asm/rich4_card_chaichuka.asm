@@ -7,7 +7,7 @@ extern _rich4_consume_card
 extern _rich4_player_say
 extern _rich4_update_hostility
 extern fcn_0040dffa
-extern fcn_0040e14d
+extern _rich4_remove_object
 extern _rich4_animate_object
 extern fcn_0041d476
 extern fcn_0041d546
@@ -16,7 +16,7 @@ extern fcn_00446ae8
 extern fcn_0045144f
 extern fcn_0045285e
 extern _rich4_data_mkf
-extern ref_00496d08
+extern _rich4_objects_info
 extern _rich4_map_node_ptr
 extern _rich4_land_info_ptr
 extern _rich4_facility_info_ptr
@@ -214,7 +214,7 @@ mov eax, edx
 shl eax, 2
 sub eax, edx
 xor edx, edx
-mov dx, word [eax*8 + (ref_00496d08 + 2)]  ; mov dx, word [eax*8 + 0x496d0a]
+mov dx, word [eax*8 + (_rich4_objects_info + 2)]  ; mov dx, word [eax*8 + 0x496d0a]
 mov eax, edx
 shl eax, 2
 add edx, eax
@@ -237,7 +237,7 @@ add esp, 0x18
 
 loc_00443d97:
 push esi
-call fcn_0040e14d  ; call 0x40e14d
+call _rich4_remove_object  ; call 0x40e14d
 add esp, 4
 push 1
 push 0

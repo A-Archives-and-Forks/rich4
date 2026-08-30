@@ -4,7 +4,7 @@ extern __imp__MessageBoxA@16
 extern __imp__SetWindowsHookExA@16
 extern _callbackSize
 extern _gWindowHandle
-extern _g_ddraw_ptr
+extern _rich4_ddraw_ptr
 extern _libc_malloc
 extern _libc_srand
 extern _load_mkf
@@ -12,7 +12,7 @@ extern _memset
 extern _rich4_direct_sound_init
 extern _rich4_read_config
 extern _windowCallbacks
-extern fcn_00401010
+extern _rich4_keyboard_hook
 extern fcn_004020fa
 extern fcn_004021f8
 extern _rich4_init_font_surface
@@ -41,8 +41,8 @@ extern ref_0048a070
 extern ref_0048a074
 extern ref_0048a078
 extern ref_0048a0d0
-extern _g_ddraw_sf1_ptr
-extern _g_ddraw_sf2_ptr
+extern _rich4_ddraw_primary_sf_ptr
+extern _rich4_ddraw_offscreen_sf_ptr
 extern _rich4_data_mkf
 extern ref_004990f0
 
@@ -60,7 +60,7 @@ push 0
 call _rich4_direct_sound_init  ; call 0x453b55
 add esp, 4
 push 0
-push _g_ddraw_ptr  ; push 0x48a0d8
+push _rich4_ddraw_ptr  ; push 0x48a0d8
 push 0
 call fcn_00461222  ; call 0x461222
 test eax, eax
@@ -78,14 +78,14 @@ pop ebx
 ret
 
 loc_0040161b:
-mov eax, dword [_g_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
+mov eax, dword [_rich4_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
 mov edx, dword [eax]
 push 0x11
 mov ecx, dword [_gWindowHandle]  ; mov ecx, dword [0x48a0d4]
 push ecx
 push eax
 call dword [edx + 0x50]  ; ucall
-mov eax, dword [_g_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
+mov eax, dword [_rich4_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
 mov edx, dword [eax]
 push 0x10
 push 0x1e0
@@ -104,18 +104,18 @@ mov dword [ref_0048a068], 0x6c  ; mov dword [0x48a068], 0x6c
 mov esi, 1
 mov dword [ref_0048a06c], esi  ; mov dword [0x48a06c], esi
 mov dword [ref_0048a0d0], 0x200  ; mov dword [0x48a0d0], 0x200
-mov eax, dword [_g_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
+mov eax, dword [_rich4_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
 mov edx, dword [eax]
 push 0
-push _g_ddraw_sf1_ptr  ; push 0x48a0dc
+push _rich4_ddraw_primary_sf_ptr  ; push 0x48a0dc
 push ref_0048a068  ; push 0x48a068
 push eax
 call dword [edx + 0x18]  ; ucall
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push eax
 call dword [edx + 0x6c]  ; ucall
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push esi
@@ -125,7 +125,7 @@ push eax
 call dword [edx + 0x64]  ; ucall
 mov eax, dword [ref_0048a078]  ; mov eax, dword [0x48a078]
 mov dword [ref_0048a060], eax  ; mov dword [0x48a060], eax
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push eax
@@ -134,10 +134,10 @@ mov dword [ref_0048a06c], 7  ; mov dword [0x48a06c], 7
 mov dword [ref_0048a0d0], 0x840  ; mov dword [0x48a0d0], 0x840
 mov dword [ref_0048a074], 0x280  ; mov dword [0x48a074], 0x280
 mov dword [ref_0048a070], 0x1e0  ; mov dword [0x48a070], 0x1e0
-mov eax, dword [_g_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
+mov eax, dword [_rich4_ddraw_ptr]  ; mov eax, dword [0x48a0d8]
 mov edx, dword [eax]
 push 0
-push _g_ddraw_sf2_ptr  ; push 0x48a0e0
+push _rich4_ddraw_offscreen_sf_ptr  ; push 0x48a0e0
 push ref_0048a068  ; push 0x48a068
 push eax
 call dword [edx + 0x18]  ; ucall
@@ -170,7 +170,7 @@ call _rich4_read_config  ; call 0x411e8f
 push 0
 mov ebx, dword [ref_0048a064]  ; mov ebx, dword [0x48a064]
 push ebx
-push fcn_00401010  ; push 0x401010
+push _rich4_keyboard_hook  ; push 0x401010
 push 2
 call dword [cs:__imp__SetWindowsHookExA@16]  ; ucall: call dword cs:[0x462328]
 mov dword [ref_0048a050], eax  ; mov dword [0x48a050], eax

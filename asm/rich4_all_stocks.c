@@ -100,4 +100,4 @@ stock_info game_stocks[96] = {
 };
 
 stock_info stocks_on_map[12];
-player_stock_info player_stocks[48];
+player_stock_info rich4_player_stocks[48];

@@ -4,7 +4,7 @@ extern _card_table
 extern _rich4_current_player
 extern _libc_sprintf
 extern _rich4_num_players
-extern _player_stocks
+extern _rich4_player_stocks
 extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_004021f8
@@ -14,7 +14,7 @@ extern fcn_0041e6f2
 extern fcn_00429040
 extern _rich4_ui_stock_entry
 extern fcn_00440cac
-extern fcn_00452946
+extern _rich4_string_strip_spaces
 extern ref_004653ae
 extern _stocks_on_map
 
@@ -98,7 +98,7 @@ mov edi, dword [eax*4 + _stocks_on_map]  ; mov edi, dword [eax*4 + 0x496980]
 push edi
 lea eax, [esp + 0xb4]
 push eax
-call fcn_00452946  ; call 0x452946
+call _rich4_string_strip_spaces  ; call 0x452946
 add esp, 8
 mov ebp, dword [(_card_table + 192)]  ; mov ebp, dword [0x47feb2]
 push ebp
@@ -138,9 +138,9 @@ shl eax, 5
 mov edx, ebx
 shl edx, 3
 add eax, edx
-cmp dword [eax + (_player_stocks - 8)], 0  ; cmp dword [eax + 0x497198], 0
+cmp dword [eax + (_rich4_player_stocks - 8)], 0  ; cmp dword [eax + 0x497198], 0
 je short loc_004451cf  ; je 0x4451cf
-fild dword [eax + (_player_stocks - 8)]  ; fild dword [eax + 0x497198]
+fild dword [eax + (_rich4_player_stocks - 8)]  ; fild dword [eax + 0x497198]
 fmul dword [esp + 0xc4]
 fdiv dword [ref_004653bc]  ; fdiv dword [0x4653bc]
 sub esp, 8

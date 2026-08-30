@@ -1,5 +1,5 @@
 extern _rich4_all_players_state
-extern _player_stocks
+extern _rich4_player_stocks
 extern _stocks_on_map
 extern __round_toward_zero
 extern _rich4_land_info_ptr
@@ -32,7 +32,7 @@ shl ecx, 2
 sub ecx, ebx
 shl ecx, 5
 mov eax, edx
-fild dword [ecx + eax*8 + _player_stocks]  ; fild dword [ecx + eax*8 + 0x4971a0]
+fild dword [ecx + eax*8 + _rich4_player_stocks]  ; fild dword [ecx + eax*8 + 0x4971a0]
 shl eax, 3
 add eax, edx
 fmul dword [eax*4 + (_stocks_on_map + 20)]  ; fmul dword [eax*4 + 0x496994]

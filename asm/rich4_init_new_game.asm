@@ -9,7 +9,7 @@ extern _load_mkf
 extern _memcpy
 extern _memset
 extern _rich4_num_players
-extern _player_stocks
+extern _rich4_player_stocks
 extern _read_mkf
 extern _tool_table
 extern _unload_mkf
@@ -615,7 +615,7 @@ call _memset  ; call 0x456f60
 add esp, 0xc
 push 0x180
 push 0
-push _player_stocks  ; push 0x4971a0
+push _rich4_player_stocks  ; push 0x4971a0
 call _memset  ; call 0x456f60
 add esp, 0xc
 push 0x24

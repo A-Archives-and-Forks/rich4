@@ -2,7 +2,7 @@ extern _rich4_all_players_state
 extern _rich4_current_player
 extern _rich4_player_say
 extern _tool_strings
-extern fcn_0040e033
+extern _rich4_place_object
 extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_00420eee
@@ -49,7 +49,7 @@ push 0
 push 0
 push ebx
 push 0x12
-call fcn_0040e033  ; call 0x40e033
+call _rich4_place_object  ; call 0x40e033
 mov ecx, eax
 add esp, 0x10
 push 0x64

@@ -1,9 +1,9 @@
 extern __imp__UnhookWindowsHookEx@4
-extern _g_ddraw_ptr
+extern _rich4_ddraw_ptr
 extern _libc_free
 extern _unload_mkf
 extern fcn_004021b2
-extern fcn_00419228
+extern _rich4_free_panel_resources
 extern _rich4_finalize_font_surface
 extern fcn_00453d28
 extern fcn_00454240
@@ -16,8 +16,8 @@ extern ref_0048a050
 extern _rich4_speaking_mkf
 extern _rich4_effect_mkf
 extern _rich4_panel_mkf
-extern _g_ddraw_sf1_ptr
-extern _g_ddraw_sf2_ptr
+extern _rich4_ddraw_primary_sf_ptr
+extern _rich4_ddraw_offscreen_sf_ptr
 extern _rich4_data_mkf
 
 global _rich4_finalize
@@ -54,7 +54,7 @@ mov edi, dword [_rich4_data_mkf]  ; mov edi, dword [0x48a0e4]
 push edi
 call _unload_mkf  ; call 0x450404
 add esp, 4
-call fcn_00419228  ; call 0x419228
+call _rich4_free_panel_resources  ; call 0x419228
 call _rich4_finalize_font_surface  ; call 0x44f9b3
 mov ebp, dword [ref_0048a050]  ; mov ebp, dword [0x48a050]
 push ebp
@@ -63,7 +63,7 @@ push ref_0048231a  ; push 0x48231a
 call fcn_00454240  ; call 0x454240
 add esp, 4
 call fcn_00453d28  ; call 0x453d28
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 test eax, eax
 je short loc_004018b9  ; je 0x4018b9
 mov edx, dword [eax]
@@ -71,7 +71,7 @@ push eax
 call dword [edx + 8]  ; ucall
 
 loc_004018b9:
-mov edx, dword [_g_ddraw_sf1_ptr]  ; mov edx, dword [0x48a0dc]
+mov edx, dword [_rich4_ddraw_primary_sf_ptr]  ; mov edx, dword [0x48a0dc]
 test edx, edx
 je short loc_004018cb  ; je 0x4018cb
 mov eax, edx
@@ -80,7 +80,7 @@ push eax
 call dword [edx + 8]  ; ucall
 
 loc_004018cb:
-mov ecx, dword [_g_ddraw_ptr]  ; mov ecx, dword [0x48a0d8]
+mov ecx, dword [_rich4_ddraw_ptr]  ; mov ecx, dword [0x48a0d8]
 test ecx, ecx
 je short loc_004018db  ; je 0x4018db
 mov edx, dword [ecx]

@@ -5,16 +5,16 @@ extern _libc_rand
 extern _memset
 extern _num_human_players
 extern _rich4_num_players
-extern _player_stocks
+extern _rich4_player_stocks
 extern _read_mkf
 extern _rich4_player_say
 extern fcn_00407842
 extern fcn_0040a4e1
-extern fcn_0040b93b
-extern fcn_0040cc1a
-extern fcn_0040e14d
+extern _rich4_update_player_sprite
+extern _rich4_end_ally
+extern _rich4_remove_object
 extern fcn_0041906a
-extern fcn_00428e23
+extern _rich4_sell_stock
 extern _rich4_ui_auction_entry
 extern _rich4_add_player_days_in_prison
 extern _rich4_add_player_days_in_hospital
@@ -96,7 +96,7 @@ je short loc_0040ce48  ; je 0x40ce48
 mov al, cl
 and eax, 0xff
 push eax
-call fcn_0040e14d  ; call 0x40e14d
+call _rich4_remove_object  ; call 0x40e14d
 add esp, 4
 
 loc_0040ce48:
@@ -107,7 +107,7 @@ je short loc_0040ce6a  ; je 0x40ce6a
 mov al, ch
 and eax, 0xff
 push eax
-call fcn_0040e14d  ; call 0x40e14d
+call _rich4_remove_object  ; call 0x40e14d
 add esp, 4
 
 loc_0040ce6a:
@@ -116,7 +116,7 @@ imul eax, esi, 0x68
 cmp byte [eax + (_rich4_all_players_state + 65)], 0  ; cmp byte [eax + 0x496ba9], 0
 je short loc_0040ce86  ; je 0x40ce86
 push esi
-call fcn_0040cc1a  ; call 0x40cc1a
+call _rich4_end_ally  ; call 0x40cc1a
 add esp, 4
 
 loc_0040ce86:
@@ -187,7 +187,7 @@ mov al, byte [esi + (_rich4_all_players_state + 19)]  ; mov al, byte [esi + 0x49
 mov byte [eax + ref_004990f4], 2  ; mov byte [eax + 0x4990f4], 2
 mov esi, dword [esp + 0x418]
 push esi
-call fcn_0040b93b  ; call 0x40b93b
+call _rich4_update_player_sprite  ; call 0x40b93b
 add esp, 4
 xor ebx, ebx
 mov esi, dword [esp + 0x418]
@@ -396,7 +396,7 @@ shl eax, 5
 mov edx, ebx
 shl edx, 3
 add eax, edx
-mov edi, dword [eax + _player_stocks]  ; mov edi, dword [eax + 0x4971a0]
+mov edi, dword [eax + _rich4_player_stocks]  ; mov edi, dword [eax + 0x4971a0]
 test edi, edi
 je short loc_0040d147  ; je 0x40d147
 push 0
@@ -404,7 +404,7 @@ push edi
 push ebx
 mov ecx, dword [esp + 0x424]
 push ecx
-call fcn_00428e23  ; call 0x428e23
+call _rich4_sell_stock  ; call 0x428e23
 add esp, 0x10
 jmp short loc_0040d147  ; jmp 0x40d147
 

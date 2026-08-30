@@ -4,7 +4,7 @@ extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040d293
+extern _count_trailing_zero_u8
 extern _rich4_animate_object
 extern fcn_0041d546
 extern fcn_0041e6f2
@@ -36,7 +36,7 @@ mov edi, eax
 test edi, edi
 je near loc_004440e3  ; je 0x4440e3
 push edi
-call fcn_0040d293  ; call 0x40d293
+call _count_trailing_zero_u8  ; call 0x40d293
 mov ebx, eax
 add esp, 4
 mov esi, eax

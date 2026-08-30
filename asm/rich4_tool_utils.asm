@@ -2,7 +2,7 @@ extern _rich4_all_players_state
 extern _libc_rand
 extern _rich4_player_tool_amount
 extern _tool_table
-extern fcn_0040b93b
+extern _rich4_update_player_sprite
 extern _rich4_remain_tool_amount
 
 global _rich4_receive_tool
@@ -164,7 +164,7 @@ xor cl, cl
 mov byte [eax + (_rich4_all_players_state + 17)], cl  ; mov byte [eax + 0x496b79], cl
 mov byte [eax + (_rich4_all_players_state + 18)], 1  ; mov byte [eax + 0x496b7a], 1
 push esi
-call fcn_0040b93b  ; call 0x40b93b
+call _rich4_update_player_sprite  ; call 0x40b93b
 add esp, 4
 
 loc_00445baa:

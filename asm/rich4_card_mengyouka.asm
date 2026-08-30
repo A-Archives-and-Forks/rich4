@@ -4,8 +4,8 @@ extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040b93b
-extern fcn_0040d293
+extern _rich4_update_player_sprite
+extern _count_trailing_zero_u8
 extern _rich4_update_hostility
 extern _rich4_animate_object
 extern fcn_0041d546
@@ -67,7 +67,7 @@ push ebx
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
 push esi
-call fcn_0040d293  ; call 0x40d293
+call _count_trailing_zero_u8  ; call 0x40d293
 mov edx, eax
 add esp, 4
 mov ebp, eax
@@ -198,7 +198,7 @@ mov byte [eax + (_rich4_all_players_state + 18)], 1  ; mov byte [eax + 0x496b7a]
 
 loc_004443e6:
 push ebx
-call fcn_0040b93b  ; call 0x40b93b
+call _rich4_update_player_sprite  ; call 0x40b93b
 add esp, 4
 cmp ebx, ebp
 jne near loc_004444b3  ; jne 0x4444b3

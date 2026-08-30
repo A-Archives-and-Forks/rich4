@@ -11,7 +11,7 @@ extern fcn_0041e6f2
 extern fcn_00429040
 extern _rich4_ui_stock_entry
 extern fcn_00440cac
-extern fcn_00452946
+extern _rich4_string_strip_spaces
 extern ref_004653ae
 extern _stocks_on_map
 
@@ -61,7 +61,7 @@ mov edi, dword [ebx + _stocks_on_map]  ; mov edi, dword [ebx + 0x496980]
 push edi
 lea eax, [esp + 0x84]
 push eax
-call fcn_00452946  ; call 0x452946
+call _rich4_string_strip_spaces  ; call 0x452946
 add esp, 8
 mov ebp, dword [(_card_table + 184)]  ; mov ebp, dword [0x47feaa]
 push ebp

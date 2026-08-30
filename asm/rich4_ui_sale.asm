@@ -16,7 +16,7 @@ extern _libc_sprintf
 extern _memcpy
 extern _memset
 extern _rich4_num_players
-extern _player_stocks
+extern _rich4_player_stocks
 extern _read_mkf
 extern _rich4_consume_card
 extern _rich4_create_font
@@ -27,10 +27,10 @@ extern fcn_0040235d
 extern fcn_00402460
 extern fcn_0040a4e1
 extern fcn_0041906a
-extern fcn_00419744
+extern _rich4_calculate_land_toll
 extern fcn_0041d2c6
 extern fcn_00423b3b
-extern fcn_004294d5
+extern _rich4_update_commercial_owner
 extern fcn_00436b0a
 extern _rich4_player_card_num
 extern _rich4_receive_card
@@ -41,7 +41,7 @@ extern fcn_00451a97
 extern fcn_00451b9e
 extern fcn_00451d4e
 extern fcn_00451edb
-extern fcn_00452793
+extern _rich4_num_to_currency_string
 extern fcn_004528b9
 extern fcn_00453544
 extern _rich4_ui_yesno
@@ -98,8 +98,8 @@ extern ref_004754c2
 extern _rich4_panel_mkf
 extern ref_0048a068
 extern ref_0048a08c
-extern _g_ddraw_sf1_ptr
-extern _g_ddraw_sf2_ptr
+extern _rich4_ddraw_primary_sf_ptr
+extern _rich4_ddraw_offscreen_sf_ptr
 extern ref_0048be6e
 extern ref_0048be70
 extern ref_0048c288
@@ -175,7 +175,7 @@ mov dword [ref_0048c28c], ebx  ; mov dword [0x48c28c], ebx
 mov dword [ref_0048c290], 0x19d  ; mov dword [0x48c290], 0x19d
 lea eax, [ebx + 0x58]
 mov dword [ref_0048c294], eax  ; mov dword [0x48c294], eax
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -219,7 +219,7 @@ push edi
 push 0
 call _rich4_draw_text  ; call 0x44fabc
 add esp, 0x14
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -227,11 +227,11 @@ call dword [edx + 0x80]  ; ucall
 push ref_0048c288  ; push 0x48c288
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 push ref_0048c288  ; push 0x48c288
-mov ebp, dword [_g_ddraw_sf2_ptr]  ; mov ebp, dword [0x48a0e0]
+mov ebp, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov ebp, dword [0x48a0e0]
 push ebp
 mov ecx, dword [ref_0048c28c]  ; mov ecx, dword [0x48c28c]
 push ecx
@@ -252,7 +252,7 @@ fcn_00424620:
 push ebx
 push edi
 push ebp
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -271,7 +271,7 @@ push ebx
 push eax
 call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -283,11 +283,11 @@ add esp, 4
 push ref_0048c288  ; push 0x48c288
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 push ref_0048c288  ; push 0x48c288
-mov ebp, dword [_g_ddraw_sf2_ptr]  ; mov ebp, dword [0x48a0e0]
+mov ebp, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov ebp, dword [0x48a0e0]
 push ebp
 mov ecx, dword [ref_0048c28c]  ; mov ecx, dword [0x48c28c]
 push ecx
@@ -476,7 +476,7 @@ shl edx, 5
 add edx, dword [esp]
 mov ax, word [eax + ref_004967e8]  ; mov ax, word [eax + 0x4967e8]
 and eax, 0xffff
-cmp eax, dword [edx + _player_stocks]  ; cmp eax, dword [edx + 0x4971a0]
+cmp eax, dword [edx + _rich4_player_stocks]  ; cmp eax, dword [edx + 0x4971a0]
 jle near loc_004249ad  ; jle 0x4249ad
 jmp near loc_00424955  ; jmp 0x424955
 
@@ -605,7 +605,7 @@ push esi
 push edi
 push ebp
 sub esp, 0x10
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -677,7 +677,7 @@ add ebp, 0x48
 jmp near loc_00424a02  ; jmp 0x424a02
 
 loc_00424a87:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -734,7 +734,7 @@ push 0
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 inc eax
 push eax
-call fcn_00419744  ; call 0x419744
+call _rich4_calculate_land_toll  ; call 0x419744
 add esp, 8
 mov ebp, eax
 cmp ebx, 1
@@ -782,7 +782,7 @@ loc_00424ba0:
 mov dword [ref_004754be], 0xb  ; mov dword [0x4754be], 0xb
 
 loc_00424baa:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -888,7 +888,7 @@ push ecx
 xor eax, eax
 mov al, byte [ebx + 0x19]
 push eax
-call fcn_00419744  ; call 0x419744
+call _rich4_calculate_land_toll  ; call 0x419744
 add esp, 8
 push eax
 jmp short loc_00424d1e  ; jmp 0x424d1e
@@ -907,7 +907,7 @@ push ebp
 loc_00424d1e:
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -931,7 +931,7 @@ imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1040,7 +1040,7 @@ imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1070,7 +1070,7 @@ loc_00424ee5:
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1154,7 +1154,7 @@ push eax
 xor eax, eax
 mov al, byte [ebx + 0x19]
 push eax
-call fcn_00419744  ; call 0x419744
+call _rich4_calculate_land_toll  ; call 0x419744
 add esp, 8
 push eax
 jmp short loc_0042500d  ; jmp 0x42500d
@@ -1173,7 +1173,7 @@ push ebp
 loc_0042500d:
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1197,7 +1197,7 @@ imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1317,7 +1317,7 @@ imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1348,7 +1348,7 @@ loc_004251f8:
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1453,7 +1453,7 @@ imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1469,12 +1469,12 @@ push ebp
 xor eax, eax
 mov al, byte [ebx + 0x19]
 push eax
-call fcn_00419744  ; call 0x419744
+call _rich4_calculate_land_toll  ; call 0x419744
 add esp, 8
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1576,7 +1576,7 @@ imul eax, dword [_rich4_price_index]  ; imul eax, dword [0x4990e8]
 push eax
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1591,7 +1591,7 @@ add esp, 0x14
 push ebp
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -1651,7 +1651,7 @@ add esi, 0x20
 jmp near loc_0042540e  ; jmp 0x42540e
 
 loc_00425563:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -1742,23 +1742,23 @@ sub eax, edx
 shl eax, 5
 mov edi, ecx
 shl edi, 3
-fild dword [edi + eax + _player_stocks]  ; fild dword [edi + eax + 0x4971a0]
-fmul dword [edi + eax + (_player_stocks + 4)]  ; fmul dword [edi + eax + 0x4971a4]
+fild dword [edi + eax + _rich4_player_stocks]  ; fild dword [edi + eax + 0x4971a0]
+fmul dword [edi + eax + (_rich4_player_stocks + 4)]  ; fmul dword [edi + eax + 0x4971a4]
 call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp]
 xor edx, edx
 mov dx, word [ebx + ref_004967e8]  ; mov dx, word [ebx + 0x4967e8]
-add dword [edi + eax + _player_stocks], edx  ; add dword [edi + eax + 0x4971a0], edx
+add dword [edi + eax + _rich4_player_stocks], edx  ; add dword [edi + eax + 0x4971a0], edx
 mov eax, esi
 shl eax, 2
 sub eax, esi
 shl eax, 5
 add eax, edi
-mov edi, dword [eax + _player_stocks]  ; mov edi, dword [eax + 0x4971a0]
+mov edi, dword [eax + _rich4_player_stocks]  ; mov edi, dword [eax + 0x4971a0]
 sub edi, edx
-mov dword [eax + _player_stocks], edi  ; mov dword [eax + 0x4971a0], edi
+mov dword [eax + _rich4_player_stocks], edi  ; mov dword [eax + 0x4971a0], edi
 jne short loc_004256c2  ; jne 0x4256c2
-mov dword [eax + (_player_stocks + 4)], edi  ; mov dword [eax + 0x4971a4], edi
+mov dword [eax + (_rich4_player_stocks + 4)], edi  ; mov dword [eax + 0x4971a4], edi
 
 loc_004256c2:
 imul ebx, esi, 0x54
@@ -1779,18 +1779,18 @@ shl eax, 5
 mov edx, ecx
 shl edx, 3
 add edx, eax
-fild dword [edx + _player_stocks]  ; fild dword [edx + 0x4971a0]
+fild dword [edx + _rich4_player_stocks]  ; fild dword [edx + 0x4971a0]
 mov eax, edi
 mov dword [esp + 4], edi
 fild dword [esp + 4]
 fdivrp st1  ; fdivrp st(1)
-fstp dword [edx + (_player_stocks + 4)]  ; fstp dword [edx + 0x4971a4]
+fstp dword [edx + (_rich4_player_stocks + 4)]  ; fstp dword [edx + 0x4971a4]
 xor eax, edi
 mov ax, word [ebx + ref_004967e2]  ; mov ax, word [ebx + 0x4967e2]
 push eax
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
 push eax
-call fcn_004294d5  ; call 0x4294d5
+call _rich4_update_commercial_owner  ; call 0x4294d5
 add esp, 8
 cmp eax, 1
 jne short loc_0042575c  ; jne 0x42575c
@@ -1983,7 +1983,7 @@ push 0xf0f0f0
 push 0x10
 call _rich4_create_font  ; call 0x44f9d8
 add esp, 0x14
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -2038,7 +2038,7 @@ mov edx, ebx
 shl edx, 3
 mov dword [esp + 0xd4], edx
 add eax, edx
-cmp dword [eax + _player_stocks], 0  ; cmp dword [eax + 0x4971a0], 0
+cmp dword [eax + _rich4_player_stocks], 0  ; cmp dword [eax + 0x4971a0], 0
 je short loc_004259da  ; je 0x4259da
 push 2
 push esi
@@ -2058,11 +2058,11 @@ shl eax, 2
 sub eax, edx
 shl eax, 5
 add eax, dword [esp + 0xd4]
-mov ecx, dword [eax + _player_stocks]  ; mov ecx, dword [eax + 0x4971a0]
+mov ecx, dword [eax + _rich4_player_stocks]  ; mov ecx, dword [eax + 0x4971a0]
 push ecx
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -2078,7 +2078,7 @@ shl eax, 2
 sub eax, edx
 shl eax, 5
 add eax, dword [esp + 0xd4]
-fild dword [eax + _player_stocks]  ; fild dword [eax + 0x4971a0]
+fild dword [eax + _rich4_player_stocks]  ; fild dword [eax + 0x4971a0]
 fmul dword [edi + (_stocks_on_map + 20)]  ; fmul dword [edi + 0x496994]
 call __round_toward_zero  ; call 0x457dbc
 fistp dword [esp + 0xd8]
@@ -2086,7 +2086,7 @@ mov ecx, dword [esp + 0xd8]
 push ecx
 lea eax, [esp + 4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 push 6
 push esi
@@ -2104,7 +2104,7 @@ inc ebp
 jmp near loc_004259da  ; jmp 0x4259da
 
 loc_00425adf:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -2132,7 +2132,7 @@ shr edx, 0x10
 and edx, 0xffff
 xor esi, esi
 mov si, dx
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -2251,7 +2251,7 @@ mov byte [ref_0048c2b8], ah  ; mov byte [0x48c2b8], ah
 mov byte [ref_0048c2b9], ah  ; mov byte [0x48c2b9], ah
 
 loc_00425ce5:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -2277,7 +2277,7 @@ mov dword [esp + 0xc0], 0x1cf
 mov dword [esp + 0xc8], 0x1e4
 mov dword [esp + 0xc4], 0x26
 mov dword [esp + 0xcc], 0x3b
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -2296,7 +2296,7 @@ mov ecx, dword [ref_0048a08c]  ; mov ecx, dword [0x48a08c]
 push ecx
 call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -2320,7 +2320,7 @@ mov dword [esp + 0xc0], 0x1cf
 mov dword [esp + 0xc8], 0x1e4
 mov dword [esp + 0xc4], 0x26
 mov dword [esp + 0xcc], 0x3b
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -2343,7 +2343,7 @@ mov eax, dword [ref_0048a08c]  ; mov eax, dword [0x48a08c]
 push eax
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -2379,7 +2379,7 @@ mov eax, edx
 shl eax, 2
 sub eax, edx
 shl eax, 5
-mov esi, dword [eax + ebx*8 + (_player_stocks - 8)]  ; mov esi, dword [eax + ebx*8 + 0x497198]
+mov esi, dword [eax + ebx*8 + (_rich4_player_stocks - 8)]  ; mov esi, dword [eax + ebx*8 + 0x497198]
 push esi
 call fcn_00453544  ; call 0x453544
 mov ebx, eax
@@ -2475,12 +2475,12 @@ lea eax, [esp + 0x88]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ebx, [esp + 0x8c]
 push ebx
-mov edi, dword [_g_ddraw_sf2_ptr]  ; mov edi, dword [0x48a0e0]
+mov edi, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov edi, dword [0x48a0e0]
 push edi
 mov ebp, dword [esp + 0x98]
 push ebp
@@ -2554,7 +2554,7 @@ mov byte [ref_0048c2bb], ah  ; mov byte [0x48c2bb], ah
 xor dh, dh
 mov byte [ref_0048c2bc], ah  ; mov byte [0x48c2bc], ah
 mov word [ref_0048c2bd], dx  ; mov word [0x48c2bd], dx
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -2576,7 +2576,7 @@ push ref_0046caec  ; push 0x46caec
 call fcn_00451a97  ; call 0x451a97
 add esp, 0x18
 mov dword [ref_0048c2ac], eax  ; mov dword [0x48c2ac], eax
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -2609,7 +2609,7 @@ shr eax, 0x10
 and eax, 0xffff
 xor ebx, ebx
 mov bx, ax
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -2729,7 +2729,7 @@ loc_0042636c:
 mov byte [ref_0048c2bc], bl  ; mov byte [0x48c2bc], bl
 
 loc_00426372:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -3030,18 +3030,18 @@ lea eax, [esp + 0x88]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov eax, dword [eax]
 push 0x10
 lea edx, [esp + 0x8c]
 push edx
-mov edx, dword [_g_ddraw_sf2_ptr]  ; mov edx, dword [0x48a0e0]
+mov edx, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov edx, dword [0x48a0e0]
 push edx
 mov ecx, dword [esp + 0x98]
 push ecx
 mov ebx, dword [esp + 0x98]
 push ebx
-mov esi, dword [_g_ddraw_sf1_ptr]  ; mov esi, dword [0x48a0dc]
+mov esi, dword [_rich4_ddraw_primary_sf_ptr]  ; mov esi, dword [0x48a0dc]
 push esi
 call dword [eax + 0x1c]  ; ucall
 lea eax, [esp + 0x88]
@@ -3108,7 +3108,7 @@ jmp short loc_004267e7  ; jmp 0x4267e7
 loc_00426808:
 xor ah, ah
 mov byte [ref_0048c2bf], ah  ; mov byte [0x48c2bf], ah
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -3209,7 +3209,7 @@ add edi, 0x20
 jmp near loc_00426881  ; jmp 0x426881
 
 loc_00426942:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -3389,12 +3389,12 @@ lea eax, [esp + 0x88]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ecx, [esp + 0x8c]
 push ecx
-mov esi, dword [_g_ddraw_sf2_ptr]  ; mov esi, dword [0x48a0e0]
+mov esi, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov esi, dword [0x48a0e0]
 push esi
 mov edi, dword [esp + 0x98]
 push edi
@@ -3457,7 +3457,7 @@ jmp short loc_00426c78  ; jmp 0x426c78
 loc_00426c99:
 xor ah, ah
 mov byte [ref_0048c2c0], ah  ; mov byte [0x48c2c0], ah
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -3521,7 +3521,7 @@ add edi, 0x20
 jmp short loc_00426cff  ; jmp 0x426cff
 
 loc_00426d57:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -3706,12 +3706,12 @@ lea eax, [esp + 0x88]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ebx, [esp + 0x8c]
 push ebx
-mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 mov ebx, dword [esp + 0x98]
 push ebx
@@ -3796,7 +3796,7 @@ mov edx, ebx
 sar edx, 0x1f
 idiv ecx
 mov byte [ref_0048c2c3], dl  ; mov byte [0x48c2c3], dl
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -3993,7 +3993,7 @@ mov ebp, dword [esp + 0xe4]
 push ebp
 lea eax, [esp + 0xc4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 lea eax, [esp + 0xc0]
 push eax
@@ -4026,7 +4026,7 @@ mov edx, dword [ecx + eax*4 + ref_004967e4]  ; mov edx, dword [ecx + eax*4 + 0x4
 push edx
 lea eax, [esp + 0xc4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 lea eax, [esp + 0xc0]
 push eax
@@ -4202,7 +4202,7 @@ mov dword [esp + 0xe4], edx
 push edx
 lea eax, [esp + 0xc4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 lea eax, [esp + 0xc0]
 push eax
@@ -4235,7 +4235,7 @@ mov ebx, dword [ecx + eax*4 + ref_004967e4]  ; mov ebx, dword [ecx + eax*4 + 0x4
 push ebx
 lea eax, [esp + 0xc4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 lea eax, [esp + 0xc0]
 push eax
@@ -4294,7 +4294,7 @@ mov dword [esp + 0xe4], edx
 push edx
 lea eax, [esp + 0xc4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 lea eax, [esp + 0xc0]
 push eax
@@ -4362,7 +4362,7 @@ mov dword [esp + 0xe4], edx
 push edx
 lea eax, [esp + 0xc4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 lea eax, [esp + 0xc0]
 push eax
@@ -4397,7 +4397,7 @@ push ecx
 loc_0042790e:
 lea eax, [esp + 0xc4]
 push eax
-call fcn_00452793  ; call 0x452793
+call _rich4_num_to_currency_string  ; call 0x452793
 add esp, 8
 lea eax, [esp + 0xc0]
 push eax
@@ -4458,7 +4458,7 @@ loc_004279db:
 push 0
 call _rich4_draw_text  ; call 0x44fabc
 add esp, 0x14
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -4611,18 +4611,18 @@ lea eax, [esp + 0x88]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov eax, dword [eax]
 push 0x10
 lea edx, [esp + 0x8c]
 push edx
-mov edi, dword [_g_ddraw_sf2_ptr]  ; mov edi, dword [0x48a0e0]
+mov edi, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov edi, dword [0x48a0e0]
 push edi
 mov ebp, dword [esp + 0x98]
 push ebp
 mov edx, dword [esp + 0x98]
 push edx
-mov ecx, dword [_g_ddraw_sf1_ptr]  ; mov ecx, dword [0x48a0dc]
+mov ecx, dword [_rich4_ddraw_primary_sf_ptr]  ; mov ecx, dword [0x48a0dc]
 push ecx
 call dword [eax + 0x1c]  ; ucall
 lea eax, [esp + 0x88]
@@ -4714,14 +4714,14 @@ mov si, bx
 shr ebx, 0x10
 and ebx, 0xffff
 and ebx, 0xffff
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov eax, dword [eax]
 push 0
 push 1
 mov edx, ref_0048a068  ; mov edx, 0x48a068
 push edx
 push 0
-mov ebp, dword [_g_ddraw_sf2_ptr]  ; mov ebp, dword [0x48a0e0]
+mov ebp, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov ebp, dword [0x48a0e0]
 push ebp
 call dword [eax + 0x64]  ; ucall
 mov eax, dword [ref_0048a08c]  ; mov eax, dword [0x48a08c]
@@ -4824,7 +4824,7 @@ push edi
 call dword [cs:__imp__InvalidateRect@12]  ; ucall: call dword cs:[0x4622f8]
 
 loc_00427e87:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -4871,7 +4871,7 @@ mov dword [ref_0048c2cc], 0x1d0  ; mov dword [0x48c2cc], 0x1d0
 mov dword [ref_0048c2d0], 0x4a  ; mov dword [0x48c2d0], 0x4a
 mov dword [ref_0048c2d4], 0x260  ; mov dword [0x48c2d4], 0x260
 mov dword [ref_0048c2d8], 0xd4  ; mov dword [0x48c2d8], 0xd4
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -4901,7 +4901,7 @@ mov ebx, dword [ref_0048a08c]  ; mov ebx, dword [0x48a08c]
 push ebx
 call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -4926,7 +4926,7 @@ mov dword [ref_0048c2cc], 0x218  ; mov dword [0x48c2cc], 0x218
 mov dword [ref_0048c2d0], 0x4a  ; mov dword [0x48c2d0], 0x4a
 mov dword [ref_0048c2d4], 0x260  ; mov dword [0x48c2d4], 0x260
 mov dword [ref_0048c2d8], 0x72  ; mov dword [0x48c2d8], 0x72
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -4946,7 +4946,7 @@ push eax
 push ref_0046caec  ; push 0x46caec
 call fcn_004552e7  ; call 0x4552e7
 add esp, 0x18
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -5008,7 +5008,7 @@ add edx, 0xb0
 mov dword [ref_0048c2d4], edx  ; mov dword [0x48c2d4], edx
 add eax, 0xba
 mov dword [ref_0048c2d8], eax  ; mov dword [0x48c2d8], eax
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -5028,7 +5028,7 @@ push eax
 push ref_0046caec  ; push 0x46caec
 call fcn_004552e7  ; call 0x4552e7
 add esp, 0x18
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -5075,7 +5075,7 @@ mov byte [ref_0048c2cb], bh  ; mov byte [0x48c2cb], bh
 jmp near loc_0042836b  ; jmp 0x42836b
 
 loc_0042820a:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -5104,7 +5104,7 @@ mov ebp, dword [ref_0048a08c]  ; mov ebp, dword [0x48a08c]
 push ebp
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -5122,7 +5122,7 @@ add esp, 4
 jmp near loc_0042836b  ; jmp 0x42836b
 
 loc_00428296:
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -5174,7 +5174,7 @@ mov ecx, dword [ref_0048a08c]  ; mov ecx, dword [0x48a08c]
 push ecx
 call fcn_004563f5  ; call 0x4563f5
 add esp, 0x10
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -5263,18 +5263,18 @@ lea eax, [esp + 8]
 push eax
 call fcn_0040235d  ; call 0x40235d
 add esp, 4
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov eax, dword [eax]
 push 0x10
 lea edx, [esp + 0xc]
 push edx
-mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 mov ebx, dword [esp + 0x18]
 push ebx
 mov esi, dword [esp + 0x18]
 push esi
-mov ebp, dword [_g_ddraw_sf1_ptr]  ; mov ebp, dword [0x48a0dc]
+mov ebp, dword [_rich4_ddraw_primary_sf_ptr]  ; mov ebp, dword [0x48a0dc]
 push ebp
 call dword [eax + 0x1c]  ; ucall
 lea eax, [esp + 8]

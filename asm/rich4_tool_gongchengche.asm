@@ -2,7 +2,7 @@ extern _rich4_all_players_state
 extern _rich4_current_player
 extern _rich4_player_say
 extern _tool_strings
-extern fcn_0040b93b
+extern _rich4_update_player_sprite
 extern fcn_0041d476
 extern _rich4_player_tool_amount
 
@@ -57,7 +57,7 @@ mov byte [eax + (_rich4_all_players_state + 101)], dl  ; mov byte [eax + 0x496bc
 mov byte [eax + (_rich4_all_players_state + 17)], 0x1f  ; mov byte [eax + 0x496b79], 0x1f
 mov byte [eax + (_rich4_all_players_state + 18)], 1  ; mov byte [eax + 0x496b7a], 1
 push ebx
-call fcn_0040b93b  ; call 0x40b93b
+call _rich4_update_player_sprite  ; call 0x40b93b
 add esp, 4
 push 1
 push 0

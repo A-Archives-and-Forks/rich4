@@ -18,7 +18,7 @@ extern fcn_0040b066
 extern fcn_0040b0cd
 extern fcn_0040b110
 extern _rich4_update_hostility
-extern fcn_0040e14d
+extern _rich4_remove_object
 extern fcn_0041d2c6
 extern fcn_0041d3f4
 extern fcn_0041d476
@@ -34,7 +34,7 @@ extern fcn_0044f354
 extern fcn_0045144f
 extern fcn_00451a97
 extern fcn_004521cb
-extern fcn_00452808
+extern _rich4_rect_union
 extern fcn_0045285e
 extern fcn_004528b9
 extern fcn_004542ce
@@ -76,11 +76,11 @@ extern ref_004823e2
 extern ref_0048a068
 extern ref_0048a078
 extern ref_0048a08c
-extern _g_ddraw_sf1_ptr
-extern _g_ddraw_sf2_ptr
+extern _rich4_ddraw_primary_sf_ptr
+extern _rich4_ddraw_offscreen_sf_ptr
 extern _rich4_data_mkf
 extern ref_0049692c
-extern ref_00496d08
+extern _rich4_objects_info
 extern _rich4_map_node_ptr
 extern _rich4_land_info_ptr
 extern _rich4_facility_info_ptr
@@ -96,7 +96,7 @@ global fcn_0040f8be
 section .text
 
 fcn_0040e2a2:
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push 1
@@ -124,7 +124,7 @@ push edx
 push ref_0046caec  ; push 0x46caec
 call _rich4_draw_text  ; call 0x44fabc
 add esp, 0x14
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0
 push eax
@@ -150,12 +150,12 @@ mov edi, eax
 shl edi, 2
 sub edi, eax
 shl edi, 3
-movzx ebp, byte [edi + ref_00496d08]  ; movzx ebp, byte [edi + 0x496d08]
+movzx ebp, byte [edi + _rich4_objects_info]  ; movzx ebp, byte [edi + 0x496d08]
 cmp dword [ebx + (_rich4_all_players_state + 50)], 0  ; cmp dword [ebx + 0x496b9a], 0
 je short loc_0040e36e  ; je 0x40e36e
 inc eax
 push eax
-call fcn_0040e14d  ; call 0x40e14d
+call _rich4_remove_object  ; call 0x40e14d
 add esp, 4
 jmp near loc_0040e661  ; jmp 0x40e661
 
@@ -183,14 +183,14 @@ push edx
 call fcn_0040b066  ; call 0x40b066
 add esp, 0x10
 xor edx, edx
-mov word [edi + (ref_00496d08 + 2)], dx  ; mov word [edi + 0x496d0a], dx
+mov word [edi + (_rich4_objects_info + 2)], dx  ; mov word [edi + 0x496d0a], dx
 push 0
 push 0xffffffffffffffff
 call fcn_0040829d  ; call 0x40829d
 add esp, 8
 mov ax, word [ebx + (_rich4_all_players_state + 12)]  ; mov ax, word [ebx + 0x496b74]
-mov word [edi + (ref_00496d08 + 2)], ax  ; mov word [edi + 0x496d0a], ax
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov word [edi + (_rich4_objects_info + 2)], ax  ; mov word [edi + 0x496d0a], ax
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -209,7 +209,7 @@ push ref_0046caec  ; push 0x46caec
 call fcn_00451a97  ; call 0x451a97
 add esp, 0x18
 mov edi, eax
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -248,14 +248,14 @@ lea eax, [esp + 4]
 push eax
 lea eax, [esp + 0x18]
 push eax
-call fcn_00452808  ; call 0x452808
+call _rich4_rect_union  ; call 0x452808
 add esp, 0xc
-mov eax, dword [_g_ddraw_sf1_ptr]  ; mov eax, dword [0x48a0dc]
+mov eax, dword [_rich4_ddraw_primary_sf_ptr]  ; mov eax, dword [0x48a0dc]
 mov edx, dword [eax]
 push 0x10
 lea ecx, [esp + 0x14]
 push ecx
-mov ecx, dword [_g_ddraw_sf2_ptr]  ; mov ecx, dword [0x48a0e0]
+mov ecx, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov ecx, dword [0x48a0e0]
 push ecx
 mov ecx, dword [esp + 0x20]
 push ecx
@@ -263,7 +263,7 @@ mov ecx, dword [esp + 0x20]
 push ecx
 push eax
 call dword [edx + 0x1c]  ; ucall
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -289,7 +289,7 @@ mov eax, dword [ref_0048a08c]  ; mov eax, dword [0x48a08c]
 push eax
 call fcn_0045643d  ; call 0x45643d
 add esp, 0x20
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -316,7 +316,7 @@ mov dword [esp + 0x24], edx
 mov ecx, edx
 and ecx, 7
 mov dword [esp + 0x24], ecx
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push 1
@@ -335,7 +335,7 @@ mov eax, dword [ref_0048a08c]  ; mov eax, dword [0x48a08c]
 push eax
 call fcn_00456770  ; call 0x456770
 add esp, 0x14
-mov eax, dword [_g_ddraw_sf2_ptr]  ; mov eax, dword [0x48a0e0]
+mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
 push 0
 push eax
@@ -375,7 +375,7 @@ add esp, 4
 mov eax, dword [esp + 0x2c]
 inc eax
 push eax
-call fcn_0040e14d  ; call 0x40e14d
+call _rich4_remove_object  ; call 0x40e14d
 add esp, 4
 push 0
 push 0xffffffffffffffff
@@ -431,7 +431,7 @@ dec ecx
 mov eax, ecx
 shl eax, 2
 sub eax, ecx
-mov al, byte [eax*8 + ref_00496d08]  ; mov al, byte [eax*8 + 0x496d08]
+mov al, byte [eax*8 + _rich4_objects_info]  ; mov al, byte [eax*8 + 0x496d08]
 and eax, 0xff
 cmp eax, 0xc
 jg short loc_0040ea8d  ; jg 0x40ea8d
@@ -490,9 +490,9 @@ mov edx, ebx
 mov eax, ebx
 shl eax, 2
 sub eax, ebx
-movzx esi, byte [eax*8 + ref_00496d08]  ; movzx esi, byte [eax*8 + 0x496d08]
+movzx esi, byte [eax*8 + _rich4_objects_info]  ; movzx esi, byte [eax*8 + 0x496d08]
 xor edx, ebx
-mov word [eax*8 + (ref_00496d08 + 2)], dx  ; mov word [eax*8 + 0x496d0a], dx
+mov word [eax*8 + (_rich4_objects_info + 2)], dx  ; mov word [eax*8 + 0x496d0a], dx
 mov edi, dword [esp + 0x94]
 imul eax, edi, 0x68
 cmp byte [eax + (_rich4_all_players_state + 63)], 0  ; cmp byte [eax + 0x496ba7], 0
@@ -517,17 +517,17 @@ shl eax, 2
 sub eax, edx
 shl eax, 3
 mov dx, word [ebx + (_rich4_all_players_state + 12)]  ; mov dx, word [ebx + 0x496b74]
-mov word [eax + (ref_00496d08 + 2)], dx  ; mov word [eax + 0x496d0a], dx
+mov word [eax + (_rich4_objects_info + 2)], dx  ; mov word [eax + 0x496d0a], dx
 mov dl, byte [esp + 0x94]
 inc dl
-mov byte [eax + (ref_00496d08 + 5)], dl  ; mov byte [eax + 0x496d0d], dl
+mov byte [eax + (_rich4_objects_info + 5)], dl  ; mov byte [eax + 0x496d0d], dl
 cmp esi, 0xf
 jne short loc_0040eba8  ; jne 0x40eba8
-mov byte [eax + (ref_00496d08 + 4)], 0xd  ; mov byte [eax + 0x496d0c], 0xd
+mov byte [eax + (_rich4_objects_info + 4)], 0xd  ; mov byte [eax + 0x496d0c], 0xd
 jmp short loc_0040ebaf  ; jmp 0x40ebaf
 
 loc_0040eba8:
-mov byte [eax + (ref_00496d08 + 4)], 7  ; mov byte [eax + 0x496d0c], 7
+mov byte [eax + (_rich4_objects_info + 4)], 7  ; mov byte [eax + 0x496d0c], 7
 
 loc_0040ebaf:
 mov ecx, dword [esp + 0x98]

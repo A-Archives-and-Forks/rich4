@@ -7,7 +7,7 @@ extern _rich4_num_lands
 extern _rich4_player_say
 extern _rich4_price_index
 extern _strcmp
-extern fcn_0040d2d3
+extern _rich4_find_most_hostile_player
 
 global fcn_0044f230
 global fcn_0044f2c2
@@ -315,7 +315,7 @@ push ebp
 xor ebx, ebx
 mov edx, dword [esp + 0x10]
 push edx
-call fcn_0040d2d3  ; call 0x40d2d3
+call _rich4_find_most_hostile_player  ; call 0x40d2d3
 add esp, 4
 cmp eax, dword [esp + 0x14]
 jne short loc_0044f561  ; jne 0x44f561
