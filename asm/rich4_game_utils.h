@@ -18,5 +18,6 @@ uint32_t rich4_get_ai_card_param_value(int idx);
 int count_trailing_zero_u8(uint32_t v);
 void rich4_animate_object(int arg0, uint32_t from_x, uint32_t from_y, uint32_t to_x, uint32_t to_y);
 void rich4_refresh_screen(void);
+void rich4_change_player_direction(int player);
 
 #endif
