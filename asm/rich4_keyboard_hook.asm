@@ -18,7 +18,7 @@ extern fcn_00417191
 extern fcn_0041906a
 extern fcn_004196f1
 extern fcn_00419703
-extern fcn_0041d546
+extern _rich4_refresh_screen
 extern ref_0046caf9
 extern ref_0046cafd
 extern ref_0046cafe
@@ -237,7 +237,7 @@ push 0
 call fcn_00402460  ; call 0x402460
 add esp, 4
 call fcn_00419703  ; call 0x419703
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 call fcn_0040dd1f  ; call 0x40dd1f
 jmp near loc_00401523  ; jmp 0x401523
 

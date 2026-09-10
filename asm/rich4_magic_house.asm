@@ -29,7 +29,7 @@ extern fcn_0040ab4a
 extern fcn_0040af12
 extern fcn_0040b0cd
 extern fcn_0040b110
-extern fcn_0040c78c
+extern _rich4_change_player_direction
 extern _rich4_update_hostility
 extern fcn_0041906a
 extern _rich4_update_player_info_window
@@ -52,9 +52,9 @@ extern fcn_0045144f
 extern fcn_00451a5a
 extern fcn_00451a97
 extern fcn_0045285e
-extern fcn_00454176
+extern _rich4_init_sound_effect_info
 extern fcn_00454240
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004549cf
 extern fcn_00454bcc
 extern fcn_0045620f
@@ -521,7 +521,7 @@ call fcn_00440cac  ; call 0x440cac
 add esp, 8
 mov ebx, dword [_rich4_current_player]  ; mov ebx, dword [0x49910c]
 push ebx
-call fcn_0040c78c  ; call 0x40c78c
+call _rich4_change_player_direction  ; call 0x40c78c
 add esp, 4
 push 1
 push 0
@@ -1467,7 +1467,7 @@ push ebx
 call dword [cs:__imp__InvalidateRect@12]  ; ucall: call dword cs:[0x4622f8]
 push 0
 push ref_004757e7  ; push 0x4757e7
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_00432e4f:
@@ -1996,7 +1996,7 @@ cmp eax, edx
 je near loc_004335ec  ; je 0x4335ec
 push 0
 push ref_0048231a  ; push 0x48231a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 cmp byte [ref_0048c3ae], 0  ; cmp byte [0x48c3ae], 0
 je short loc_00433567  ; je 0x433567
@@ -2091,7 +2091,7 @@ cmp byte [ref_0048c3ae], 0  ; cmp byte [0x48c3ae], 0
 je near loc_0043316d  ; je 0x43316d
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -2165,7 +2165,7 @@ jmp near loc_0043316d  ; jmp 0x43316d
 loc_00433763:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -2232,7 +2232,7 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne near loc_0043390b  ; jne 0x43390b
 push ref_004757e7  ; push 0x4757e7
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 push 0
 push 0

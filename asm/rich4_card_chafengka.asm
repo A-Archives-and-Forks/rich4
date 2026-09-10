@@ -6,8 +6,8 @@ extern _rich4_player_say
 extern _strcmp
 extern _rich4_animate_object
 extern fcn_0041d476
-extern fcn_0041e6f2
-extern fcn_00446ae8
+extern _rich4_get_ai_card_param_value
+extern _rich4_select_instance_with_mouse
 extern _rich4_land_info_ptr
 extern _rich4_facility_info_ptr
 extern _rich4_num_lands
@@ -25,12 +25,12 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_004455b3  ; jne 0x4455b3
 push 0xe0c0006
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_004455ba  ; jmp 0x4455ba
 
 loc_004455b3:
 push 0
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 
 loc_004455ba:
 add esp, 4

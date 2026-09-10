@@ -29,7 +29,7 @@ extern ref_00496b60
 extern _rich4_objects_info
 
 global fcn_00420e9a
-global fcn_00420eee
+global _rich4_get_ai_tool_param_value
 
 section .text
 
@@ -67,7 +67,7 @@ mov eax, dword [esp + 4]
 call dword [eax*4 + (ref_004753a0 - 4)]  ; ucall: call dword [eax*4 + 0x47539c]
 ret
 
-fcn_00420eee:
+_rich4_get_ai_tool_param_value:
 mov eax, dword [esp + 4]
 mov eax, dword [eax*4 + ref_0048be64]  ; mov eax, dword [eax*4 + 0x48be64]
 ret

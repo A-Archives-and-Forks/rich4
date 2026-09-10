@@ -37,7 +37,7 @@ extern fcn_004521cb
 extern _rich4_rect_union
 extern fcn_0045285e
 extern fcn_004528b9
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_0045643d
 extern fcn_00456770
 extern ref_00463250
@@ -236,7 +236,7 @@ add edx, eax
 mov dword [esp + 0xc], edx
 push 0
 push ref_004823e2  ; push 0x4823e2
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 xor ebx, ebx
 jmp near loc_0040e539  ; jmp 0x40e539
@@ -1292,7 +1292,7 @@ test bh, 1
 je near loc_0040f8b3  ; je 0x40f8b3
 push 0
 push ref_004823da  ; push 0x4823da
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 1
 push 0
@@ -1664,7 +1664,7 @@ test bl, 1
 je near fcn_0040ece6  ; je 0x40ece6
 push 0
 push ref_004823da  ; push 0x4823da
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 1
 push 0

@@ -27,17 +27,17 @@ extern fcn_0040235d
 extern fcn_00402460
 extern fcn_004024a9
 extern fcn_00409b18
-extern fcn_0040a9d7
+extern _rich4_get_instance_from_position
 extern _rich4_update_player_sprite
 extern _count_trailing_zero_u8
 extern fcn_0041d476
-extern fcn_0041d546
+extern _rich4_refresh_screen
 extern fcn_00420e9a
 extern fcn_00440cac
 extern fcn_00451a97
 extern fcn_00451b9e
 extern fcn_00451d4e
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_00456280
 extern fcn_004562a5
 extern fcn_004563f5
@@ -90,7 +90,7 @@ extern ref_00499088
 extern _rich4_player_tool_amount
 
 global _rich4_ui_use_tool_entry
-global fcn_00446ae8
+global _rich4_select_instance_with_mouse
 global fcn_00447285
 global fcn_00447c00
 global fcn_00447c6e
@@ -203,7 +203,7 @@ mov al, byte [ebx + ref_0048c548]  ; mov al, byte [ebx + 0x48c548]
 mov dword [ref_0048c560], eax  ; mov dword [0x48c560], eax
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_00445d7d:
@@ -297,7 +297,7 @@ dd loc_004464c3
 dd loc_00446569
 dd loc_0044657c
 
-fcn_00445e4d:
+_rich4_select_instance_callback:
 push ebx
 push esi
 push edi
@@ -576,7 +576,7 @@ cmp ebp, 0x1b8
 jge near loc_00446624  ; jge 0x446624
 push ebp
 push ebx
-call fcn_0040a9d7  ; call 0x40a9d7
+call _rich4_get_instance_from_position  ; call 0x40a9d7
 add esp, 8
 mov ebx, eax
 xor ebp, ebp
@@ -899,7 +899,7 @@ cmp dword [ref_0048c584], 0  ; cmp dword [0x48c584], 0
 je short loc_004466a5  ; je 0x4466a5
 push esi
 push ref_0048232a  ; push 0x48232a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push esi
 call fcn_00402460  ; call 0x402460
@@ -920,7 +920,7 @@ jmp near loc_00445f7e  ; jmp 0x445f7e
 loc_004466a5:
 push esi
 push ref_0048233a  ; push 0x48233a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_00445f7e  ; jmp 0x445f7e
 
@@ -932,7 +932,7 @@ test byte [ref_0048c594], 8  ; test byte [0x48c594], 8
 jne near loc_00445f7e  ; jne 0x445f7e
 push ebx
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push ebx
 call fcn_00402460  ; call 0x402460
@@ -1217,7 +1217,7 @@ cmp dword [ref_0048c598], 0  ; cmp dword [0x48c598], 0
 je near loc_00445d7d  ; je 0x445d7d
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -1233,7 +1233,7 @@ jmp near loc_00445d7d  ; jmp 0x445d7d
 loc_00446a66:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -1281,10 +1281,10 @@ push eax
 push edi
 jmp near loc_00445e1b  ; jmp 0x445e1b
 
-fcn_00446ae8:
+_rich4_select_instance_with_mouse:
 mov edx, dword [esp + 4]
 push edx
-push fcn_00445e4d  ; push 0x445e4d
+push _rich4_select_instance_callback  ; push 0x445e4d
 call _Wait_0402_Message  ; call 0x4018e7
 add esp, 8
 ret
@@ -1473,7 +1473,7 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 mov dl, byte [eax + (_rich4_all_players_state + 21)]  ; mov dl, byte [eax + 0x496b7d]
 cmp dl, 1
 jne near loc_00447f82  ; jne 0x447f82
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 push 0
 push 0
 push 0xb

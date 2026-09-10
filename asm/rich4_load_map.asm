@@ -16,7 +16,7 @@ extern fcn_0040c03b
 extern _rich4_place_object
 extern _rich4_init_stock_commercial
 extern fcn_0042915a
-extern fcn_00454176
+extern _rich4_init_sound_effect_info
 extern fcn_00454240
 extern fcn_004553fe
 extern ref_00474930
@@ -598,7 +598,7 @@ inc ebx
 cmp ebx, 0x14
 jl short loc_004080b2  ; jl 0x4080b2
 push ref_0048234a  ; push 0x48234a
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 push 0
 call fcn_0040a4e1  ; call 0x40a4e1

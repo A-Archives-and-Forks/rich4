@@ -34,9 +34,9 @@ extern fcn_00451a97
 extern fcn_004521cb
 extern _rich4_rect_union
 extern fcn_004528b9
-extern fcn_00454176
+extern _rich4_init_sound_effect_info
 extern fcn_00454240
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004549cf
 extern fcn_00454bcc
 extern fcn_004563f5
@@ -500,7 +500,7 @@ jmp short loc_0043a3d7  ; jmp 0x43a3d7
 loc_0043a3fc:
 push 0
 push ref_00475bc2  ; push 0x475bc2
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov edx, dword [ref_0048c4a4]  ; mov edx, dword [0x48c4a4]
 mov eax, edx
@@ -1774,7 +1774,7 @@ push ebp
 call dword [cs:__imp__InvalidateRect@12]  ; ucall: call dword cs:[0x4622f8]
 push 0
 push ref_00475bba  ; push 0x475bba
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov byte [ref_0048c4b0], 1  ; mov byte [0x48c4b0], 1
 mov edi, dword [ref_0048c488]  ; mov edi, dword [0x48c488]
@@ -3131,7 +3131,7 @@ push eax
 call fcn_0044ec30  ; call 0x44ec30
 add esp, 0x1c
 push ref_00475bba  ; push 0x475bba
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 cmp dword [esp + 0xb4], 0
 je short loc_0043c6db  ; je 0x43c6db

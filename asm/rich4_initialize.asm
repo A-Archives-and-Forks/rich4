@@ -18,7 +18,7 @@ extern fcn_004021f8
 extern _rich4_init_font_surface
 extern fcn_0045011a
 extern _rich4_init_pixel_format
-extern fcn_00454176
+extern _rich4_init_sound_effect_info
 extern fcn_004545ba
 extern ref_0046caf8
 extern ref_0046caf9
@@ -164,7 +164,7 @@ call _load_mkf  ; call 0x4502fe
 add esp, 4
 mov dword [_rich4_effect_mkf], eax  ; mov dword [0x48a058], eax
 push ref_0048231a  ; push 0x48231a
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 call _rich4_read_config  ; call 0x411e8f
 push 0

@@ -13,7 +13,7 @@ extern _rich4_price_index
 extern _rich4_find_most_hostile_player
 extern _rich4_select_one_active_player
 extern fcn_0041d476
-extern fcn_0041d546
+extern _rich4_refresh_screen
 extern fcn_00440ba8
 extern fcn_00440cac
 extern fcn_00440e1a
@@ -473,7 +473,7 @@ call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
 
 loc_00444ba0:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 mov eax, esi
 add esp, 0x80
 pop ebp

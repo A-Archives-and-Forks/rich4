@@ -8,10 +8,10 @@ extern fcn_0040af12
 extern fcn_0040b0cd
 extern fcn_0040b110
 extern fcn_0041d476
-extern fcn_0041d546
-extern fcn_00420eee
+extern _rich4_refresh_screen
+extern _rich4_get_ai_tool_param_value
 extern _rich4_after_player_use_tool
-extern fcn_00446ae8
+extern _rich4_select_instance_with_mouse
 extern fcn_0045144f
 extern _rich4_data_mkf
 
@@ -40,12 +40,12 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_004472de  ; jne 0x4472de
 push 0x2090006
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_004472e5  ; jmp 0x4472e5
 
 loc_004472de:
 push 0
-call fcn_00420eee  ; call 0x420eee
+call _rich4_get_ai_tool_param_value  ; call 0x420eee
 
 loc_004472e5:
 add esp, 4
@@ -98,7 +98,7 @@ je short loc_00447378  ; je 0x447378
 call fcn_0040b0cd  ; call 0x40b0cd
 
 loc_00447378:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 
 loc_0044737d:
 mov eax, ebx

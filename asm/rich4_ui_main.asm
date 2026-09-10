@@ -13,7 +13,7 @@ extern fcn_00402250
 extern fcn_0040235d
 extern fcn_00402460
 extern _rich4_ui_options_entry
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004549cf
 extern fcn_00454acb
 extern fcn_004562a5
@@ -102,7 +102,7 @@ cmp dword [ref_0048a184], 0xffffffff  ; cmp dword [0x48a184], 0xffffffff
 je short loc_00402638  ; je 0x402638
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_00402638:
@@ -309,7 +309,7 @@ push ebx
 call dword [cs:__imp__InvalidateRect@12]  ; ucall: call dword cs:[0x4622f8]
 push 0
 push ref_0048231a  ; push 0x48231a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_0040289f:

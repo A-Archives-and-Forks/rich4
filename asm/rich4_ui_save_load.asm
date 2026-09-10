@@ -5,7 +5,7 @@ extern fcn_0041906a
 extern fcn_00451e7e
 extern fcn_00451edb
 extern fcn_0045285e
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_00454acb
 extern fcn_00454d91
 extern fcn_0045620f
@@ -133,7 +133,7 @@ cmp eax, dword [ref_0048a34a]  ; cmp eax, dword [0x48a34a]
 je near loc_00403865  ; je 0x403865
 push 0
 push ref_0048231a  ; push 0x48231a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov dword [esp + 0x40], 0x7f
 mov dword [esp + 0x48], 0x243
@@ -280,7 +280,7 @@ cmp byte [ecx + ref_0048a344], 0  ; cmp byte [ecx + 0x48a344], 0
 je near loc_00403865  ; je 0x403865
 push 0
 push ref_0048232a  ; push 0x48232a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -296,7 +296,7 @@ jmp near loc_00403865  ; jmp 0x403865
 loc_00403934:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -423,7 +423,7 @@ cmp ebx, dword [ref_0048a34e]  ; cmp ebx, dword [0x48a34e]
 je near loc_00403865  ; je 0x403865
 push 0
 push ref_0048231a  ; push 0x48231a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov dword [esp + 0x40], 0x7f
 mov dword [esp + 0x48], 0x243
@@ -564,7 +564,7 @@ cmp dword [ref_0048a34e], 0xffffffff  ; cmp dword [0x48a34e], 0xffffffff
 je near loc_00403865  ; je 0x403865
 push 0
 push ref_0048232a  ; push 0x48232a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -598,7 +598,7 @@ jmp near loc_00403865  ; jmp 0x403865
 loc_00403cf4:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460

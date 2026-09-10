@@ -18,9 +18,9 @@ extern _rich4_draw_text
 extern fcn_00402250
 extern fcn_0040235d
 extern fcn_00402460
-extern fcn_0041d546
+extern _rich4_refresh_screen
 extern fcn_0041e69e
-extern fcn_0041e6f2
+extern _rich4_get_ai_card_param_value
 extern fcn_00440cac
 extern _rich4_player_card_num
 extern _rich4_receive_card
@@ -33,7 +33,7 @@ extern fcn_00451d4e
 extern fcn_00451e7e
 extern fcn_00451edb
 extern _rich4_string_strip_spaces
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_00456280
 extern fcn_004563f5
 extern ref_004652f8
@@ -466,7 +466,7 @@ mov al, byte [ebx + _rich4_player_cards]  ; mov al, byte [ebx + 0x499120]
 mov dword [ref_0048c544], eax  ; mov dword [0x48c544], eax
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_00441579  ; jmp 0x441579
 
@@ -623,7 +623,7 @@ jmp short loc_00441ab9  ; jmp 0x441ab9
 
 loc_00441a5d:
 push 1
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 mov esi, eax
 add esp, 4
 mov ebx, eax
@@ -767,7 +767,7 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 mov dl, byte [eax + (_rich4_all_players_state + 21)]  ; mov dl, byte [eax + 0x496b7d]
 cmp dl, 1
 jne near loc_00441d00  ; jne 0x441d00
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 push 0
 push 0
 push 0xb
@@ -848,7 +848,7 @@ test eax, eax
 jne short loc_00441ce1  ; jne 0x441ce1
 push eax
 push ref_0048233a  ; push 0x48233a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_00441ce1:

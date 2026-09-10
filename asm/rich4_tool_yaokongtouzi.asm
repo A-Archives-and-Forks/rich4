@@ -6,7 +6,7 @@ extern _read_mkf
 extern _rich4_player_say
 extern _tool_strings
 extern fcn_0040dd1f
-extern fcn_00420eee
+extern _rich4_get_ai_tool_param_value
 extern _rich4_after_player_use_tool
 extern fcn_00446774
 extern fcn_004563f5
@@ -129,7 +129,7 @@ jmp short loc_0044725c  ; jmp 0x44725c
 
 loc_00447250:
 push 0
-call fcn_00420eee  ; call 0x420eee
+call _rich4_get_ai_tool_param_value  ; call 0x420eee
 add esp, 4
 mov ebx, eax
 

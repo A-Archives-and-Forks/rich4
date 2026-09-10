@@ -7,7 +7,7 @@ extern _rich4_player_say
 extern fcn_0040a4e1
 extern _rich4_update_hostility
 extern fcn_0041d2c6
-extern fcn_0041d546
+extern _rich4_refresh_screen
 extern fcn_00440cac
 extern fcn_004521cb
 
@@ -142,7 +142,7 @@ push 1
 push esi
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 mov esi, 1
 jmp near loc_00442607  ; jmp 0x442607
 

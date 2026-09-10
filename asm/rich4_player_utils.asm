@@ -35,7 +35,7 @@ extern fcn_0044f2c2
 extern fcn_00450ced
 extern fcn_00450f04
 extern fcn_0045144f
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004542e9
 extern ref_0046caf8
 extern ref_0046caf9
@@ -734,7 +734,7 @@ mov eax, dword [ref_004749d4]  ; mov eax, dword [0x4749d4]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 cmp edx, 4
@@ -744,7 +744,7 @@ cmp byte [eax + (_rich4_all_players_state + 64)], 0  ; cmp byte [eax + 0x496ba8]
 je short loc_0040da30  ; je 0x40da30
 push 1
 push ref_00482362  ; push 0x482362
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_0040da30:
@@ -916,7 +916,7 @@ jl short loc_0040dc47  ; jl 0x40dc47
 jne short loc_0040dc3a  ; jne 0x40dc3a
 push 0
 push ref_004823fa  ; push 0x4823fa
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_0040dc3a:
@@ -1049,7 +1049,7 @@ mov eax, dword [ref_004749d4]  ; mov eax, dword [0x4749d4]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 cmp byte [eax + (_rich4_all_players_state + 64)], 0  ; cmp byte [eax + 0x496ba8], 0
@@ -1120,7 +1120,7 @@ add eax, 0x48
 push eax
 
 loc_0040dedc:
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_0040dee4:

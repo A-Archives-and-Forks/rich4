@@ -7,7 +7,7 @@ extern _rich4_consume_card
 extern _rich4_player_say
 extern fcn_004021f8
 extern fcn_0041906a
-extern fcn_0041e6f2
+extern _rich4_get_ai_card_param_value
 extern fcn_00429040
 extern _rich4_ui_stock_entry
 extern fcn_00440cac
@@ -46,7 +46,7 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 je short loc_00444fea  ; je 0x444fea
 push 0
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 mov edx, eax
 add esp, 4
 shl eax, 3

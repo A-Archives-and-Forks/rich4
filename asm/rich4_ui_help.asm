@@ -17,7 +17,7 @@ extern fcn_0040235d
 extern fcn_00402460
 extern fcn_00451e7e
 extern fcn_00451edb
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004562cc
 extern fcn_004563f5
 extern ref_00466096
@@ -706,7 +706,7 @@ jmp near loc_0044ea36  ; jmp 0x44ea36
 loc_0044e546:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -771,7 +771,7 @@ cmp dword [ref_0048c5fc], 6  ; cmp dword [0x48c5fc], 6
 jge short loc_0044e60c  ; jge 0x44e60c
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_0044e60c:
@@ -1150,7 +1150,7 @@ cmp eax, edx
 jne short loc_0044eaa4  ; jne 0x44eaa4
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 jmp short loc_0044ea31  ; jmp 0x44ea31
@@ -1162,7 +1162,7 @@ cmp eax, edx
 jne near loc_0044e586  ; jne 0x44e586
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 1
 jmp near loc_0044ea31  ; jmp 0x44ea31

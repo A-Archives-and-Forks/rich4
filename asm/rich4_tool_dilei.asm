@@ -4,10 +4,10 @@ extern _rich4_player_say
 extern _tool_strings
 extern _rich4_place_object
 extern _rich4_animate_object
-extern fcn_0041d546
-extern fcn_00420eee
-extern fcn_00446ae8
-extern fcn_004542ce
+extern _rich4_refresh_screen
+extern _rich4_get_ai_tool_param_value
+extern _rich4_select_instance_with_mouse
+extern _rich4_play_sound_effect
 extern ref_00482372
 extern _rich4_map_node_ptr
 extern _rich4_player_tool_amount
@@ -33,12 +33,12 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_00446cce  ; jne 0x446cce
 push 0x10001
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_00446cd5  ; jmp 0x446cd5
 
 loc_00446cce:
 push 0
-call fcn_00420eee  ; call 0x420eee
+call _rich4_get_ai_tool_param_value  ; call 0x420eee
 
 loc_00446cd5:
 add esp, 4
@@ -75,9 +75,9 @@ call _rich4_animate_object  ; call 0x40e669
 add esp, 0x18
 push 0
 push ref_00482372  ; push 0x482372
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 mov edx, dword [_rich4_current_player]  ; mov edx, dword [0x49910c]
 mov eax, edx
 shl eax, 2

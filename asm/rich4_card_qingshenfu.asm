@@ -6,8 +6,8 @@ extern _rich4_player_say
 extern _rich4_animate_object
 extern _rich4_attach_god
 extern fcn_0041d476
-extern fcn_0041d546
-extern fcn_0041e6f2
+extern _rich4_refresh_screen
+extern _rich4_get_ai_card_param_value
 extern fcn_00444d1a
 extern _rich4_objects_info
 extern _rich4_map_node_ptr
@@ -29,7 +29,7 @@ jmp short loc_00444e3f  ; jmp 0x444e3f
 
 loc_00444e35:
 push 0
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 add esp, 4
 
 loc_00444e3f:
@@ -103,7 +103,7 @@ call _rich4_attach_god  ; call 0x40ead7
 add esp, 0xc
 
 loc_00444685:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 
 loc_0044468a:
 mov eax, esi

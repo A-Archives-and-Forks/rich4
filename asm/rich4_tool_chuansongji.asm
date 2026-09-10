@@ -10,9 +10,9 @@ extern _rich4_update_player_sprite
 extern _count_trailing_zero_u8
 extern _rich4_update_attached_object_node_idx
 extern fcn_0041d476
-extern fcn_00420eee
+extern _rich4_get_ai_tool_param_value
 extern _rich4_after_player_use_tool
-extern fcn_00446ae8
+extern _rich4_select_instance_with_mouse
 extern _rich4_store_current_state
 extern ref_0046cafb
 extern ref_0048baf8
@@ -48,7 +48,7 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_00447478  ; jne 0x447478
 push 0x1200036
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 add esp, 4
 jmp short loc_00447488  ; jmp 0x447488
 
@@ -93,7 +93,7 @@ jle near loc_0044757c  ; jle 0x44757c
 cmp ebp, 0xfa0
 jge near loc_0044757c  ; jge 0x44757c
 push 0x2090802
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 mov edx, eax
 add esp, 4
 test eax, eax
@@ -142,7 +142,7 @@ jle near loc_0044761c  ; jle 0x44761c
 cmp ecx, 0x1770
 jge near loc_0044761c  ; jge 0x44761c
 push 0x2090804
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 mov edx, eax
 add esp, 4
 test eax, eax
@@ -188,12 +188,12 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_0044765f  ; jne 0x44765f
 push 0x2090001
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_00447666  ; jmp 0x447666
 
 loc_0044765f:
 push 0
-call fcn_00420eee  ; call 0x420eee
+call _rich4_get_ai_tool_param_value  ; call 0x420eee
 
 loc_00447666:
 add esp, 4
@@ -421,7 +421,7 @@ je near loc_004479b3  ; je 0x4479b3
 test al, 0x3f
 je near loc_004479b3  ; je 0x4479b3
 push 0x2090001
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 add esp, 4
 mov dword [esp + 0x14], eax
 test eax, eax

@@ -47,9 +47,9 @@ extern fcn_00451edb
 extern _rich4_num_to_currency_string
 extern fcn_0045285e
 extern fcn_00453544
-extern fcn_00454176
+extern _rich4_init_sound_effect_info
 extern fcn_00454240
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004561be
 extern fcn_0045620f
 extern fcn_004563f5
@@ -2105,7 +2105,7 @@ test eax, eax
 je near loc_0042b0d3  ; je 0x42b0d3
 push 0
 push ref_00475590  ; push 0x475590
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 1
 push ebx
@@ -2182,7 +2182,7 @@ test eax, eax
 je short loc_0042b0d3  ; je 0x42b0d3
 push 0
 push ref_00475598  ; push 0x475598
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 1
 push ebx
@@ -2352,7 +2352,7 @@ jmp short loc_0042b1e2  ; jmp 0x42b1e2
 loc_0042b25a:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -2581,7 +2581,7 @@ push ebx
 call dword [cs:__imp__InvalidateRect@12]  ; ucall: call dword cs:[0x4622f8]
 push edi
 push ref_004755a8  ; push 0x4755a8
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_0042b3ca  ; jmp 0x42b3ca
 
@@ -2780,7 +2780,7 @@ jmp near loc_0042ba6d  ; jmp 0x42ba6d
 
 loc_0042b745:
 push ref_00475590  ; push 0x475590
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 xor ebx, ebx
 mov edi, 0x60
@@ -3056,7 +3056,7 @@ push edi
 push ebp
 sub esp, 0xb4
 push ref_004755a8  ; push 0x4755a8
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 push 0
 push 0

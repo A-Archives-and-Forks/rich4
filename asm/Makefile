@@ -7,7 +7,7 @@ LIBS=-lgdi32 -luser32 -lkernel32 -lwinmm -ldsound -lddraw -lmsvcrt
 RICH4_OBJS = rich4_keyboard_hook.obj rich4_loading_scene.obj \
              rich4_main.obj \
              rich4.obj rich4_ui_main.obj rich4_ui_options.obj rich4_card_strings.obj rich4_tool_strings.obj rich4_all_stocks.obj \
-             rich4_init_new_game.obj rich4_new_game.obj \
+             rich4_new_game.obj \
              rich4_load_map.obj \
              rich4_ui_clicking_top_panel.obj \
              rich4_ui_yesno.obj \

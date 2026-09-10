@@ -34,9 +34,9 @@ extern fcn_00450ced
 extern fcn_00450f04
 extern _rich4_num_to_currency_string
 extern fcn_0045285e
-extern fcn_00454176
+extern _rich4_init_sound_effect_info
 extern fcn_00454240
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004549cf
 extern fcn_00454bcc
 extern fcn_004552e7
@@ -1225,14 +1225,14 @@ add dword [ref_00499080], 0x3e8  ; add dword [0x499080], 0x3e8
 call dword [cs:__imp__PostMessageA@16]  ; ucall: call dword cs:[0x462310]
 push 0
 push ref_0047566b  ; push 0x47566b
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_0042f924  ; jmp 0x42f924
 
 loc_0043003d:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 push 5
@@ -1560,7 +1560,7 @@ push 0
 push ref_0047567b  ; push 0x47567b
 
 loc_00430478:
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_0043024c  ; jmp 0x43024c
 
@@ -2908,7 +2908,7 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne near loc_0043169e  ; jne 0x43169e
 push ref_0047566b  ; push 0x47566b
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 push 0
 push 0
@@ -3025,7 +3025,7 @@ loc_00431729:
 cmp eax, 0x24
 je near loc_0043180d  ; je 0x43180d
 push ref_0047567b  ; push 0x47567b
-call fcn_00454176  ; call 0x454176
+call _rich4_init_sound_effect_info  ; call 0x454176
 add esp, 4
 push 0
 push 0

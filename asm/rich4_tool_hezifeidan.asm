@@ -9,11 +9,11 @@ extern fcn_0040ac7b
 extern fcn_0040af12
 extern _rich4_update_hostility
 extern fcn_0041d476
-extern fcn_0041d546
-extern fcn_00420eee
+extern _rich4_refresh_screen
+extern _rich4_get_ai_tool_param_value
 extern _rich4_add_player_days_in_hospital
 extern _rich4_after_player_use_tool
-extern fcn_00446ae8
+extern _rich4_select_instance_with_mouse
 extern fcn_0045144f
 extern _rich4_data_mkf
 extern _rich4_price_index
@@ -42,12 +42,12 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_00447b19  ; jne 0x447b19
 push 0x400c0
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_00447b20  ; jmp 0x447b20
 
 loc_00447b19:
 push 0
-call fcn_00420eee  ; call 0x420eee
+call _rich4_get_ai_tool_param_value  ; call 0x420eee
 
 loc_00447b20:
 add esp, 4
@@ -130,7 +130,7 @@ inc ebx
 jmp short loc_00447bb3  ; jmp 0x447bb3
 
 loc_004470ea:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 
 loc_004470ef:
 mov eax, ebx

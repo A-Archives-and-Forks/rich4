@@ -17,7 +17,7 @@ extern fcn_00402460
 extern fcn_004024a1
 extern fcn_00451e7e
 extern fcn_00451edb
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004563f5
 extern ref_0048231a
 extern ref_0048232a
@@ -128,7 +128,7 @@ cmp ebx, dword [ref_0048cad8]  ; cmp ebx, dword [0x48cad8]
 je short loc_00453739  ; je 0x453739
 push 0
 push ref_0048231a  ; push 0x48231a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
@@ -240,7 +240,7 @@ cmp dword [ref_0048cad8], 1  ; cmp dword [0x48cad8], 1
 jne short loc_00453923  ; jne 0x453923
 push 0
 push ref_0048232a  ; push 0x48232a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov ebx, 1
 jmp short loc_00453934  ; jmp 0x453934
@@ -248,7 +248,7 @@ jmp short loc_00453934  ; jmp 0x453934
 loc_00453923:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 xor ebx, ebx
 
@@ -279,7 +279,7 @@ cmp eax, edx
 jne short loc_00453991  ; jne 0x453991
 push 0
 push ref_0048232a  ; push 0x48232a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460
@@ -296,7 +296,7 @@ jne near loc_00453739  ; jne 0x453739
 loc_004539a2:
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_00402460  ; call 0x402460

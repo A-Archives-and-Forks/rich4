@@ -6,14 +6,14 @@ extern _rich4_player_say
 extern _count_trailing_zero_u8
 extern _rich4_update_hostility
 extern _rich4_animate_object
-extern fcn_0041d546
-extern fcn_0041e6f2
+extern _rich4_refresh_screen
+extern _rich4_get_ai_card_param_value
 extern _rich4_add_player_days_in_prison
 extern _rich4_player_has_card
 extern _rich4_use_card_fuchouka
 extern _rich4_try_use_card_jiahuoka
 extern _rich4_use_card_mianzuika
-extern fcn_00446ae8
+extern _rich4_select_instance_with_mouse
 extern _rich4_price_index
 
 global _rich4_use_card_xianhaika
@@ -29,12 +29,12 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_004444df  ; jne 0x4444df
 push 0xe0c0710
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_004444e6  ; jmp 0x4444e6
 
 loc_004444df:
 push 0
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 
 loc_004444e6:
 add esp, 4
@@ -190,7 +190,7 @@ call _rich4_add_player_days_in_prison  ; call 0x43d593
 add esp, 8
 
 loc_00444685:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 
 loc_0044468a:
 mov eax, esi

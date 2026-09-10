@@ -3,12 +3,12 @@ extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0040c78c
+extern _rich4_change_player_direction
 extern _count_trailing_zero_u8
 extern _rich4_animate_object
-extern fcn_0041d546
-extern fcn_0041e6f2
-extern fcn_00446ae8
+extern _rich4_refresh_screen
+extern _rich4_get_ai_card_param_value
+extern _rich4_select_instance_with_mouse
 
 global _rich4_use_card_zhuanxiangka
 
@@ -23,12 +23,12 @@ imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x6
 cmp byte [eax + (_rich4_all_players_state + 21)], 1  ; cmp byte [eax + 0x496b7d], 1
 jne short loc_00442f6d  ; jne 0x442f6d
 push 0xe0c0010
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_00442f74  ; jmp 0x442f74
 
 loc_00442f6d:
 push 0
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 
 loc_00442f74:
 add esp, 4
@@ -84,7 +84,7 @@ add esp, 0x18
 
 loc_00443024:
 push esi
-call fcn_0040c78c  ; call 0x40c78c
+call _rich4_change_player_direction  ; call 0x40c78c
 add esp, 4
 cmp esi, 4
 jge short loc_00443069  ; jge 0x443069
@@ -134,6 +134,6 @@ push 2
 push esi
 call _rich4_player_say  ; call 0x44ef41
 add esp, 0xc
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 jmp near loc_00443069  ; jmp 0x443069
 

@@ -35,7 +35,7 @@ extern fcn_00451e7e
 extern fcn_00451edb
 extern _rich4_parse_date
 extern _rich4_ui_yesno
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_0045497b
 extern fcn_004549cf
 extern fcn_00454acb
@@ -969,7 +969,7 @@ jmp dword [eax*4 + ref_0041034b]  ; ujmp: jmp dword [eax*4 + 0x41034b]
 fcn_00410537:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov esi, dword [ref_00474b92]  ; mov esi, dword [0x474b92]
 mov edx, ebx
@@ -989,7 +989,7 @@ jmp short loc_004105ac  ; jmp 0x4105ac
 fcn_00410572:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov edx, dword [ref_00474ba2]  ; mov edx, dword [0x474ba2]
 sub ebx, edx
@@ -1018,7 +1018,7 @@ jmp near fcn_004104a5  ; jmp 0x4104a5
 fcn_004105b9:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov edi, dword [ref_00474bb2]  ; mov edi, dword [0x474bb2]
 mov edx, ebx
@@ -1041,7 +1041,7 @@ jmp short loc_004105ac  ; jmp 0x4105ac
 fcn_004105f4:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
@@ -1100,7 +1100,7 @@ jmp near loc_0041049d  ; jmp 0x41049d
 loc_004106b0:
 push 0
 push ref_0048233a  ; push 0x48233a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 jmp near loc_004105b1  ; jmp 0x4105b1
 
 fcn_004106c1:
@@ -1112,7 +1112,7 @@ shl eax, 3
 add eax, 0x10
 add eax, ref_0048231a  ; add eax, 0x48231a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov eax, dword [_rich4_ddraw_offscreen_sf_ptr]  ; mov eax, dword [0x48a0e0]
 mov edx, dword [eax]
@@ -1148,7 +1148,7 @@ jmp near loc_0041064b  ; jmp 0x41064b
 fcn_00410745:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 xor byte [ref_0048bb49], 1  ; xor byte [0x48bb49], 1
 mov edx, dword [ref_0048bb78]  ; mov edx, dword [0x48bb78]
@@ -1170,7 +1170,7 @@ mov byte [ref_0048bb4a], 4  ; mov byte [0x48bb4a], 4
 loc_00410788:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_004105e5  ; jmp 0x4105e5
 
@@ -1187,7 +1187,7 @@ mov byte [ref_0048bb4b], 4  ; mov byte [0x48bb4b], 4
 loc_004107b6:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov esi, dword [ref_0048bb78]  ; mov esi, dword [0x48bb78]
 push esi
@@ -1199,14 +1199,14 @@ fcn_004107d8:
 xor byte [ref_0048bb4c], 1  ; xor byte [0x48bb4c], 1
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_0041059e  ; jmp 0x41059e
 
 fcn_004107f3:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov al, byte [ref_00474d74]  ; mov al, byte [0x474d74]
 sub al, 0xd
@@ -1572,7 +1572,7 @@ jmp dword [eax*4 + ref_00410a87]  ; ujmp: jmp dword [eax*4 + 0x410a87]
 loc_00410c40:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov eax, dword [ref_00474d78]  ; mov eax, dword [0x474d78]
 shl eax, 4
@@ -1625,7 +1625,7 @@ jmp near loc_00410fe9  ; jmp 0x410fe9
 loc_00410cee:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov eax, dword [ref_00474d78]  ; mov eax, dword [0x474d78]
 shl eax, 4
@@ -1681,7 +1681,7 @@ push 0
 shl eax, 3
 add eax, ref_0048231a  ; add eax, 0x48231a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov eax, dword [ref_00474d78]  ; mov eax, dword [0x474d78]
 shl eax, 4
@@ -1740,7 +1740,7 @@ jmp near loc_00410cd9  ; jmp 0x410cd9
 loc_00410e78:
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 movsx eax, word [ref_0048bb08]  ; movsx eax, word [0x48bb08]
 movsx edx, word [ref_0048bb0a]  ; movsx edx, word [0x48bb0a]
@@ -2222,7 +2222,7 @@ test ebx, ebx
 jne short loc_004114b6  ; jne 0x4114b6
 push ebx
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov ecx, dword [ref_0048bb92]  ; mov ecx, dword [0x48bb92]
 add ecx, 0x19
@@ -2278,7 +2278,7 @@ test edi, edi
 jne short loc_00411576  ; jne 0x411576
 push edi
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov ecx, dword [ref_0048bb92]  ; mov ecx, dword [0x48bb92]
 add ecx, 0x19
@@ -2326,7 +2326,7 @@ cmp esi, edx
 jg short loc_00411617  ; jg 0x411617
 push 0
 push ref_00482322  ; push 0x482322
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov dword [ref_0048bb9e], 0x64  ; mov dword [0x48bb9e], 0x64
 mov eax, dword [ref_0048bb8e]  ; mov eax, dword [0x48bb8e]
@@ -2372,7 +2372,7 @@ cmp esi, edx
 jg short loc_0041168d  ; jg 0x41168d
 push 0
 push ref_00482332  ; push 0x482332
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov dword [ref_0048bb9e], 0x65  ; mov dword [0x48bb9e], 0x65
 mov eax, dword [ref_0048bb8e]  ; mov eax, dword [0x48bb8e]
@@ -2401,7 +2401,7 @@ cmp esi, eax
 jg near loc_00410ff8  ; jg 0x410ff8
 push 0
 push ref_0048232a  ; push 0x48232a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov dword [ref_0048bb9e], 0x66  ; mov dword [0x48bb9e], 0x66
 mov eax, dword [ref_0048bb8e]  ; mov eax, dword [0x48bb8e]

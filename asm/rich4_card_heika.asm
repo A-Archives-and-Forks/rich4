@@ -10,7 +10,7 @@ extern _rich4_player_say
 extern fcn_004021f8
 extern _rich4_update_hostility
 extern fcn_0041906a
-extern fcn_0041e6f2
+extern _rich4_get_ai_card_param_value
 extern fcn_00429040
 extern _rich4_ui_stock_entry
 extern fcn_00440cac
@@ -80,7 +80,7 @@ jmp short loc_0044515c  ; jmp 0x44515c
 
 loc_004450e2:
 push 0
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 add esp, 4
 lea ebx, [eax + 1]
 mov edx, eax

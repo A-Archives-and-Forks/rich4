@@ -111,7 +111,7 @@ extern fcn_00440ba8
 extern fcn_00440cac
 extern fcn_0044101d
 extern fcn_00441f73
-extern fcn_00446ae8
+extern _rich4_select_instance_with_mouse
 extern fcn_00448a7e
 extern fcn_0044b6df
 extern fcn_0044ba63
@@ -129,7 +129,7 @@ extern fcn_00452117
 extern fcn_004521cb
 extern fcn_00452444
 extern fcn_00453544
-extern fcn_004542ce
+extern _rich4_play_sound_effect
 extern fcn_004542e9
 extern fcn_00454acb
 extern fcn_00454d91
@@ -187,11 +187,11 @@ global fcn_0041d2c6
 global fcn_0041d3f4
 global _rich4_update_player_info_window
 global fcn_0041d476
-global fcn_0041d546
-global fcn_0041d559
+global _rich4_refresh_screen
+global _rich4_check_pay_toll_to_owner
 global fcn_0041d709
 global fcn_0041d7d4
-global fcn_0041d839
+global _rich4_calculate_max_purchase_count
 global fcn_0041d89e
 
 section .text
@@ -354,7 +354,7 @@ mov al, byte [ebx + ref_00475299]  ; mov al, byte [ebx + 0x475299]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_004198a9:
@@ -436,7 +436,7 @@ call fcn_0041d476  ; call 0x41d476
 add esp, 0xc
 push 0
 push ref_004823da  ; push 0x4823da
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 cmp byte [esi + 0x1a], 5
 jne short loc_00419a2b  ; jne 0x419a2b
@@ -489,7 +489,7 @@ jmp near loc_0041b074  ; jmp 0x41b074
 loc_00419a67:
 push 0
 push ref_004823ea  ; push 0x4823ea
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov edx, dword [ref_0047517c]  ; mov edx, dword [0x47517c]
 push edx
@@ -500,7 +500,7 @@ xor eax, eax
 mov al, byte [esi + 0x19]
 dec eax
 push eax
-call fcn_0041d559  ; call 0x41d559
+call _rich4_check_pay_toll_to_owner  ; call 0x41d559
 add esp, 0xc
 cmp eax, 1
 jne near loc_0041b077  ; jne 0x41b077
@@ -1048,7 +1048,7 @@ call fcn_0041d476  ; call 0x41d476
 add esp, 0xc
 push 0
 push ref_004823d2  ; push 0x4823d2
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_0040a4e1  ; call 0x40a4e1
@@ -1158,7 +1158,7 @@ call fcn_0041d476  ; call 0x41d476
 add esp, 0xc
 push 0
 push ref_004823da  ; push 0x4823da
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 imul eax, edi, 0x68
@@ -1228,7 +1228,7 @@ cmp ch, 4
 jae near loc_0041b077  ; jae 0x41b077
 push 0
 push ref_004823ea  ; push 0x4823ea
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 xor eax, eax
 mov edx, dword [esp + 0xe0]
@@ -1243,7 +1243,7 @@ xor eax, eax
 mov al, byte [edx + 0x19]
 dec eax
 push eax
-call fcn_0041d559  ; call 0x41d559
+call _rich4_check_pay_toll_to_owner  ; call 0x41d559
 add esp, 0xc
 cmp eax, 1
 jne near loc_0041b077  ; jne 0x41b077
@@ -1699,7 +1699,7 @@ call fcn_0041d476  ; call 0x41d476
 add esp, 0xc
 push 0
 push ref_004823d2  ; push 0x4823d2
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 call fcn_0040a4e1  ; call 0x40a4e1
@@ -1784,7 +1784,7 @@ push eax
 call fcn_00440cac  ; call 0x440cac
 add esp, 8
 push 0x2090086
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_0041aa82  ; jmp 0x41aa82
 
 loc_0041aa76:
@@ -1988,7 +1988,7 @@ push eax
 call fcn_00440cac  ; call 0x440cac
 add esp, 8
 push 0x2090086
-call fcn_00446ae8  ; call 0x446ae8
+call _rich4_select_instance_with_mouse  ; call 0x446ae8
 jmp short loc_0041ad17  ; jmp 0x41ad17
 
 loc_0041ad0b:
@@ -2078,7 +2078,7 @@ shl ebp, 2
 add ebp, eax
 
 loc_0041ae1a:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 jmp short loc_0041ae37  ; jmp 0x41ae37
 
 loc_0041ae21:
@@ -2288,7 +2288,7 @@ call fcn_0040d375  ; call 0x40d375
 add esp, 0xc
 
 loc_0041b062:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 
 loc_0041b067:
 push ebx
@@ -2716,14 +2716,14 @@ mov eax, dword [ref_004749d4]  ; mov eax, dword [0x4749d4]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 imul eax, dword [_rich4_current_player], 0x68  ; imul eax, dword [0x49910c], 0x68
 cmp byte [eax + (_rich4_all_players_state + 64)], 0  ; cmp byte [eax + 0x496ba8], 0
 je short loc_0041b5fd  ; je 0x41b5fd
 push 1
 push ref_00482362  ; push 0x482362
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_0041b5fd:
@@ -2979,7 +2979,7 @@ test eax, eax
 je near loc_0041c164  ; je 0x41c164
 push 0
 push ref_0048237a  ; push 0x48237a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0xd
 call _rich4_remove_object  ; call 0x40e14d
@@ -3068,7 +3068,7 @@ test eax, eax
 je near loc_0041be38  ; je 0x41be38
 push 0
 push ref_0048237a  ; push 0x48237a
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0
 mov eax, dword [_rich4_current_player]  ; mov eax, dword [0x49910c]
@@ -3108,7 +3108,7 @@ call fcn_0044f230  ; call 0x44f230
 add esp, 8
 
 loc_0041bb02:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 jmp near loc_0041be38  ; jmp 0x41be38
 
 loc_0041bb0c:
@@ -3119,7 +3119,7 @@ test ecx, ecx
 jne short loc_0041bb9d  ; jne 0x41bb9d
 push ecx
 push ref_00482382  ; push 0x482382
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0xe
 call _rich4_remove_object  ; call 0x40e14d
@@ -3165,7 +3165,7 @@ cmp byte [eax + (_rich4_all_special_players_state - (64 - 13))], 0  ; cmp byte [
 jne near loc_0041c164  ; jne 0x41c164
 push 0
 push ref_00482382  ; push 0x482382
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 push 0xe
 call _rich4_remove_object  ; call 0x40e14d
@@ -3347,7 +3347,7 @@ mov eax, dword [ref_004749d4]  ; mov eax, dword [0x4749d4]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 jmp near loc_0041c161  ; jmp 0x41c161
 
 loc_0041be5f:
@@ -3559,7 +3559,7 @@ mov eax, dword [ref_004749d4]  ; mov eax, dword [0x4749d4]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 
 loc_0041c161:
 add esp, 8
@@ -3685,7 +3685,7 @@ mov eax, dword [ref_004749d4]  ; mov eax, dword [0x4749d4]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 
 loc_0041c330:
@@ -3762,7 +3762,7 @@ mov eax, dword [ref_004749d4]  ; mov eax, dword [0x4749d4]
 shl eax, 3
 add eax, ref_0048234a  ; add eax, 0x48234a
 push eax
-call fcn_004542ce  ; call 0x4542ce
+call _rich4_play_sound_effect  ; call 0x4542ce
 add esp, 8
 jmp near loc_0041c7a6  ; jmp 0x41c7a6
 
@@ -5011,7 +5011,7 @@ jmp short loc_0041d273  ; jmp 0x41d273
 loc_0041d267:
 push esi
 push ecx
-call fcn_0041d839  ; call 0x41d839
+call _rich4_calculate_max_purchase_count  ; call 0x41d839
 mov edi, eax
 add esp, 8
 
@@ -5299,7 +5299,7 @@ call fcn_004192f7  ; call 0x4192f7
 pop ebp
 ret
 
-fcn_0041d546:
+_rich4_refresh_screen:
 xor edx, edx
 mov dword [ref_0048be18], edx  ; mov dword [0x48be18], edx
 push 1
@@ -5307,7 +5307,7 @@ call fcn_0041906a  ; call 0x41906a
 add esp, 4
 ret
 
-fcn_0041d559:
+_rich4_check_pay_toll_to_owner:
 push ebx
 push esi
 push ebp
@@ -5572,7 +5572,7 @@ add esp, 4
 pop esi
 ret
 
-fcn_0041d839:
+_rich4_calculate_max_purchase_count:
 push edi
 push ebp
 sub esp, 4

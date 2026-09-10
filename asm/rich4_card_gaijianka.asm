@@ -3,8 +3,8 @@ extern _rich4_card_strings
 extern _rich4_current_player
 extern _rich4_consume_card
 extern _rich4_player_say
-extern fcn_0041d546
-extern fcn_0041e6f2
+extern _rich4_refresh_screen
+extern _rich4_get_ai_card_param_value
 extern fcn_00440aac
 extern _rich4_map_node_ptr
 extern _rich4_land_info_ptr
@@ -111,7 +111,7 @@ jmp near loc_004412de  ; jmp 0x4412de
 
 loc_004431da:
 push 0
-call fcn_0041e6f2  ; call 0x41e6f2
+call _rich4_get_ai_card_param_value  ; call 0x41e6f2
 add esp, 4
 
 loc_004431e4:
@@ -138,7 +138,7 @@ mov edi, dword [_rich4_current_player]  ; mov edi, dword [0x49910c]
 push edi
 call _rich4_consume_card  ; call 0x441343
 add esp, 8
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 
 loc_004412de:
 mov eax, esi

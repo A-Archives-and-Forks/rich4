@@ -19,7 +19,7 @@ extern fcn_0041d2c6
 extern fcn_0041d3f4
 extern _rich4_update_player_info_window
 extern fcn_0041d476
-extern fcn_0041d546
+extern _rich4_refresh_screen
 extern fcn_00429040
 extern _rich4_ui_auction_entry
 extern _rich4_add_player_days_in_prison
@@ -420,7 +420,7 @@ inc ebx
 jmp short loc_0044926e  ; jmp 0x44926e
 
 loc_00449290:
-call fcn_0041d546  ; call 0x41d546
+call _rich4_refresh_screen  ; call 0x41d546
 
 loc_00449295:
 add esp, 0x408
